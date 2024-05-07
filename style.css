@@ -79,7 +79,7 @@ body {
 
 #main-box {
   margin-top: 10rem;
-  
+
 }
 
 .text-overlay {
@@ -122,4 +122,8 @@ body {
 
 body, html {
   overflow: hidden;
+}
+
+.tbd {
+  color: aliceblue;
 }
