@@ -1,29 +1,23 @@
 body {
-  background-image: url(./assets/images/background.png);
-  background-repeat: repeat;
-  opacity: 100%;
-  background-attachment: fixed;
-  font-family: 'IBM Plex Sans', sans-serif;
-  height: 100vh;
-  margin: 0;
+  animation: animateBg 14s linear infinite;
+  background-image: linear-gradient(90deg,#159982,#273c98,#159982,#273c98);
+  background-size: 300% 100%;
+  overflow-x: hidden;
+}
+@keyframes animateBg {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
 }
 
-.menu-style {
-  background-color: #08080A;
-  border-radius: 10rem;
-  border-style: solid;
-  border-color: #515151;
-}
 
 .navbar {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  width: 35%;
+  width: 100%;
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
   color: aliceblue;
   position: relative;
 }
@@ -35,23 +29,26 @@ body {
 .navbar-brand::after {
   content: '';
   position: absolute;
-  bottom: 4px;
-  left: 0;
+  bottom: 1px;
+  left: 50%;
   width: 0;
   height: 2px;
   background-color: aliceblue;
-  transition: width 0.3s ease;
+  transition: width 0.6s ease, left 0.6s ease;
 }
 
 .navbar-brand:hover::after {
   width: 100%;
+  left: 0;
 }
 
 .nav-link {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
   position: relative;
   color: aliceblue;
   transition: color 0.3s ease, border-color 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 .nav-link:hover {
@@ -62,30 +59,74 @@ body {
   content: '';
   position: absolute;
   bottom: 2px;
-  left: 0;
+  left: 50%;
   width: 0;
   height: 2px;
   background-color: aliceblue;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.brand-logo {
+  height: 30px;
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  width: calc(100% - 20px);
+  left: 10px;
 }
 
-#Lin.nav-link.nav-link:hover::after {
-  width: 60%;
+.nav-link:last-child {
+  margin-left: -15px;
+}
+
+.button {
+  background-color: #20242D;
+  border-color: #20242D;
+}
+
+.button:hover {
+  background-color: #52585e;
+  border-color: #20242D;
 }
 
 #main-box {
-  margin-top: 10rem;
+  margin-top: 25%;
+}
 
+#about {
+  background-color: #20242D;
+  color: aliceblue;
+  width: 100%;
+  margin-top: 20%;
+  padding: 0;
+}
+
+#projects {
+  background-color: #20242D;
+  color: aliceblue;
+  margin-top: 5%;
+  width: 50%;
+}
+
+.headers {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  padding-left: 5%;
+  padding-top: 30px;
+}
+
+.body-p {
+font-size: 20px;
+padding-left: 5%;
+}
+
+.language-logo {
+  width: 32px;
 }
 
 .text-overlay {
   color: transparent;
-  border-style: solid;
-  border-color: transparent;
   position: relative;
   animation: fade-in 1s forwards;
 }
@@ -99,7 +140,6 @@ body {
     opacity: 1;
     transform: translateY(0);
     color: aliceblue;
-    border-color: aliceblue;
   }
 }
 
@@ -112,18 +152,4 @@ body {
   height: 100%;
   border-radius: 15px;
   z-index: -1;
-}
-
-#cover-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-body, html {
-  overflow: hidden;
-}
-
-.tbd {
-  color: aliceblue;
 }

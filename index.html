@@ -3,53 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kvnfrr | Portfolio</title>
+  <title>Kvnfrr | Home</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Lexend:wght@300;500;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="navbar menu-style mt-4 ml-auto mr-auto">
-    <a class="navbar-brand ml-2" href="/">Kvnfrr</a>
-    <ul class="navbar-nav ml-auto d-flex flex-row mr-2">
-      <li class="nav-item mr-3">
-        <a class="nav-link" href="/projects.html">Projects</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./assets/Resume2024.pdf" target="_blank" style="margin-right: 1.35rem;">Resume</a>
-      </li>
-      <li class="nav-item" id="Lin">
-        <a class="nav-link" href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" id="Lin">
-          <img src="./assets/images/LI-In-Bug.png" alt="GitHub" style="height: 30px; margin-right: 1.3rem;">
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/kvnfrr" target="_blank">
-          <img src="./assets/images/github-mark-white.png" alt="GitHub" style="height: 30px;">
-        </a>
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">Kvnfrr</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link mr-3" href="/projects.html">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ml-2" href="./assets/Resume2024.pdf" target="_blank">Resume</a>
+        </li>
+      </ul>
+    </div>
   </nav>
-  
 
-<div id="main-box">
-  <header>
-    <div class="row align-items-center justify-content-center" id="cover-content">
-      <div class="col-md-5 text-overlay">
-        <h1 class="text-left mb-3" style="padding-top: 1rem;">Hello,</h1>
-        <h2 class="text-left mb-3">My name is Kevin</h2>
-        <p class="lead text-left">
-          I'm a Software Engineer with experience in Java, C, and HTML/CSS.
-        </p>
-        <p class="lead text-left">
-        </p>
-        <p class="lead text-left">
-        </p>
+  <div class="container">
+    <header>
+      <div class="row align-items-center justify-content-center">
+        <div class="text-overlay" id="main-box">
+          <h1 style="padding-top: 1rem;">Java/C++ Software Engineer</h1>
+          <h4>
+            Hey, I'm Kevin, a motivated Junior Software Engineer based in Florida.
+          </h4>
+          <div class="mt-3 d-flex align-items-center">
+            <a href="./assets/Resume2024.pdf" target="_blank" class="btn btn-primary mr-2 button">View Resume</a>
+            <a class="nav-link" href="https://www.linkedin.com/in/kevinferrercs/" target="_blank">
+              <img src="./assets/images/LI-In-Bug.png" alt="LinkedIn" class="brand-logo" id="Lin">
+            </a>
+            <a class="nav-link" href="https://github.com/kvnfrr" target="_blank">
+              <img src="./assets/images/github-mark-white.png" alt="GitHub" class="brand-logo">
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    </div>
+
+    <div class="container-fluid alig" id="about">
+      <div class="row">
+        <div class="col" >
+          <h2 class="headers row align-items-center justify-content-center">About me</h2>
+          <p class="body-p  headers row align-items-center justify-content-center">
+            I am currently an undergraduate pursuing a Bachelors of Science in CS at Florida International University.
+          </p>
+        </div>
       </div>
     </div>
-  </header>
-</div>
-
+    
 </body>
 </html>
