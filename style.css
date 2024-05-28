@@ -38,13 +38,8 @@ body, html {
   pointer-events: none;
 }
 
-#proj-back {
-background-color: #171a1d;
-
-}
-
 .headers {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   font-size: 40px;
   padding-bottom: 10px;
@@ -88,9 +83,9 @@ hr {
 }
 
 .navbar-brand {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   color: aliceblue;
   position: relative;
 }
@@ -116,7 +111,7 @@ hr {
 }
 
 .nav-link {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   position: relative;
   color: aliceblue;
@@ -186,6 +181,10 @@ hr {
   color: #CED4DB;
   margin-top: 5%;
   padding: 20px;
+}
+
+#proj-back {
+  background-color: #171a1d;
 }
 
 /* Social icons */
