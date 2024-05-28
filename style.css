@@ -6,6 +6,7 @@ body, html {
   overflow-x: hidden;
 }
 
+
 .video-container {
   position: fixed;
   top: 5%;
@@ -35,6 +36,11 @@ body, html {
   height: 100%;
   background: rgba(0, 0, 0, 0.65);
   pointer-events: none;
+}
+
+#proj-back {
+background-color: #171a1d;
+
 }
 
 .headers {
@@ -75,9 +81,10 @@ hr {
 
 .navbar {
   width: 100%;
-  background-color: #20242D;
+  background-color: #171a1d;
   height: 5%;
   position: fixed;
+  z-index: 9;
 }
 
 .navbar-brand {
@@ -156,7 +163,7 @@ hr {
 }
 
 #about {
-  background-color: #20242D;
+  background-color: #171a1d;
   color: #CED4DB;
   width: 100%;
   margin-top: 23.3%;
@@ -166,6 +173,10 @@ hr {
 #about-text {
   width: 75%;
   margin: auto;
+}
+
+.pg-txt {
+  font-size: 25px;
 }
 
 /* Projects page */
