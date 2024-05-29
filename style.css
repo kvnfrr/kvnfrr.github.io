@@ -82,7 +82,7 @@ hr {
 }
 
 .navbar-brand {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   color: aliceblue;
@@ -194,6 +194,10 @@ hr {
   color: #CED4DB;
   margin-top: 5%;
   padding: 20px;
+}
+
+#proj-back {
+  background-color: #171a1d;
 }
 
 #proj-back {
