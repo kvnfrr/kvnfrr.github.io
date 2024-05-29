@@ -1,19 +1,16 @@
-/* General */
-
+/* General Styles */
 body, html {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
 }
 
-
 .video-container {
   position: fixed;
-  top: 5%;
+  top: -5%;
   left: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: 130%;
   z-index: -1;
 }
 
@@ -39,12 +36,11 @@ body, html {
 }
 
 #proj-back {
-background-color: #171a1d;
-
+  background-color: #171a1d;
 }
 
 .headers {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   font-size: 40px;
   padding-bottom: 10px;
@@ -66,7 +62,6 @@ hr {
 }
 
 /* Buttons */
-
 .button {
   background-color: #20242D;
   border-color: #20242D;
@@ -78,7 +73,6 @@ hr {
 }
 
 /* Nav bar */
-
 .navbar {
   width: 100%;
   background-color: #171a1d;
@@ -88,9 +82,9 @@ hr {
 }
 
 .navbar-brand {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   color: aliceblue;
   position: relative;
 }
@@ -115,8 +109,20 @@ hr {
   left: 0;
 }
 
+.navbar-toggler {
+  border-color: aliceblue;
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba(255,255,255,1)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
 .nav-link {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   position: relative;
   color: aliceblue;
@@ -153,21 +159,24 @@ hr {
 }
 
 /* Home Page */
-
 #main-box {
-  margin-top: 12.5%;
+  margin-top: 17.5%;
+  text-align: center;
 }
 
-.main-box-text{
+.main-box-text {
   color: aliceblue;
 }
 
+/* About Section */
 #about {
   background-color: #171a1d;
   color: #CED4DB;
   width: 100%;
-  margin-top: 23.3%;
+  height: 53%;
+  margin-top: 20%;
   padding: 0;
+  overflow: hidden;
 }
 
 #about-text {
@@ -179,8 +188,7 @@ hr {
   font-size: 25px;
 }
 
-/* Projects page */
-
+/* Projects Page */
 #projects {
   background-color: #20242D;
   color: #CED4DB;
@@ -188,8 +196,11 @@ hr {
   padding: 20px;
 }
 
-/* Social icons */
+#proj-back {
+  background-color: #171a1d;
+}
 
+/* Social Icons */
 .social-icon {
   position: relative;
   display: inline-block;
@@ -210,4 +221,125 @@ hr {
 .social-icon:hover::after {
   width: calc(100% - 20px);
   left: 10px;
+}
+
+/* Media Queries */
+
+@media (max-width: 2560px) {
+  .headers {
+    font-size: 37px;
+  }
+
+  .pg-txt {
+    font-size: 24px;
+  }
+
+  #about {
+    margin-top: 24%;
+    height: 32%;
+    overflow-y: hidden;
+  }
+
+  #about-text {
+    width: 95%;
+  }
+}
+
+
+@media (max-width: 1930px) {
+  .headers {
+    font-size: 35px;
+  }
+
+  .pg-txt {
+    font-size: 22px;
+  }
+
+  #about{
+    margin-top: 21%;
+    height: 45%;
+  }
+
+  #about-text {
+    width: 85%;
+  }
+}
+
+@media (max-width: 992px) {
+  .headers {
+    font-size: 30px;
+  }
+
+  .pg-txt {
+    font-size: 20px;
+  }
+
+  #main-box {
+    margin-top: 25%;
+  }
+
+  #about-text {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headers {
+    font-size: 25px;
+  }
+
+  .pg-txt {
+    font-size: 18px;
+  }
+
+  .buttons-main {
+    margin-left: 25%;
+  }
+
+  #main-box {
+    margin-top: 30%;
+  }
+
+  #about {
+    height: 20%;
+    overflow-y: hidden;
+  }
+
+  #about-text {
+    width: 95%;
+    margin-left: 2.5%;
+    padding-right: 2.5%;
+  }
+}
+
+@media (max-width: 576px) {
+  .headers {
+    font-size: 20px;
+  }
+
+  .pg-txt {
+    font-size: 16px;
+  }
+
+  #main-box {
+    margin-top: 40%;
+    margin-left: 5%;
+  }
+
+  #about-text {
+    width: 100%;
+  }
+
+  #about {
+    height: 60%;
+    overflow-y: hidden;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
 }
