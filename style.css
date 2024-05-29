@@ -35,10 +35,6 @@ body, html {
   pointer-events: none;
 }
 
-#proj-back {
-  background-color: #171a1d;
-}
-
 .headers {
   font-family: "Noto Sans", sans-serif;
   font-weight: 500;
@@ -194,10 +190,6 @@ hr {
   color: #CED4DB;
   margin-top: 5%;
   padding: 20px;
-}
-
-#proj-back {
-  background-color: #171a1d;
 }
 
 #proj-back {
