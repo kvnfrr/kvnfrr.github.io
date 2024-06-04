@@ -71,7 +71,7 @@ hr {
 /* Nav bar */
 .navbar {
   width: 100%;
-  background-color: #171a1d;
+  background-color: #0E1011;
   height: 5%;
   position: fixed;
   z-index: 9;
@@ -157,7 +157,6 @@ hr {
 /* Home Page */
 #main-box {
   margin-top: 17.5%;
-  text-align: center;
 }
 
 .main-box-text {
@@ -166,7 +165,7 @@ hr {
 
 /* About Section */
 #about {
-  background-color: #171a1d;
+  background-color: #0E1011;
   color: #CED4DB;
   width: 100vw;
   margin-top: 22vw;
