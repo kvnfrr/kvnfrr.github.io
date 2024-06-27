@@ -72,10 +72,12 @@ hr {
 /* Nav bar */
 .navbar {
   width: 100%;
-  background-color: #0E1011;
+  background-color: #0B0E11;
   height: 5%;
   position: fixed;
   z-index: 9;
+  border-bottom-style: solid;
+  border-color: #111318;
 }
 
 .navbar-brand {
@@ -166,11 +168,13 @@ hr {
 
 /* About Section */
 #about {
-  background-color: #0E1011;
+  margin-top: 40vh;
+  background-color: #0B0E11;
   color: #CED4DB;
   width: 100vw;
   padding: 0;
-  scroll-snap-align: start;
+  border-top-style: solid;
+  border-color: #111318;
 }
 
 #about-text {
@@ -184,16 +188,35 @@ hr {
 
 /* Projects Page */
 #projects {
-  background-color: #20242D;
+  background-color: #0B0E11;
   color: #CED4DB;
   margin-top: 5%;
   padding: 20px;
-  scroll-snap-align: start;
 }
 
 #proj-back {
-  background-color: #171a1d;
+  background-color: #0B0E11;
 }
+
+.project-section {
+  margin-bottom: 50px;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #CED4DB;
+}
+
+.carousel-inner img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
 
 /* Social Icons */
 .social-icon {
@@ -216,17 +239,4 @@ hr {
 .social-icon:hover::after {
   width: calc(100% - 20px);
   left: 10px;
-}
-
-/* Scroll Container */
-.scroll-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  overflow-x: hidden;
-}
-
-.scroll-container > div {
-  height: 100vh;
-  scroll-snap-align: start;
 }
