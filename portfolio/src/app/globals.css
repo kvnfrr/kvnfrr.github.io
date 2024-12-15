@@ -2,20 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Root Variables for Light and Dark Mode */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
   }
 }
 
+/* Base Styling */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Background with Grainy Effect */
+.background-grainy {
+  background: radial-gradient(ellipse at center, #000000 30%, #222222 100%);
+  position: relative;
+}
+
+.background-grainy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/noise.png');
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Fade-in Animation */
+@layer utilities {
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-out {
+    animation: fade-out 1.5s 2s forwards; /* Lingers for 2s, then fades out */
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1.5s forwards;
+  }
 }
