@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+      output: 'export',
+      basePath: '',
+      trailingSlash: true, // Ensures all URLs end with a trailing slash
+    };
+    
+    module.exports = nextConfig;
+    
