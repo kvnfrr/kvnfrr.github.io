@@ -1,4 +1,4 @@
-import "./globals.css"; // Relative path based on file location
+import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
