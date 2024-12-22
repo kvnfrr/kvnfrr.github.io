@@ -8,15 +8,42 @@ import MainLayout from '../layouts/MainLayout.astro';
     id="home"
     class="h-[90vh] flex items-center justify-center relative"
   >
-    <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-stretch justify-center">
+    <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-stretch justify-center gap-8">
       <!-- Intro Text -->
       <div class="md:w-1/2 flex flex-col justify-center items-start px-4 md:px-6 fade-in">
         <h1 class="text-3xl sm:text-5xl font-bold mb-4">
           Hello, I'm <span class="text-accent-green">Kevin Ferrer</span>
         </h1>
         <p class="text-base sm:text-lg mb-6 opacity-90">
-          I specialize in building modern, efficient, and techy web experiences.
+          I'm a Software Engineer with experience in Java, C, and in creating
+          modern, scalable web applications. 
         </p>
+
+        <!-- RESUME BUTTON -->
+        <a
+          href="/resume.pdf"
+          download
+          class="flex items-center space-x-2 bg-accent-green text-black font-semibold py-2 px-4 rounded hover:opacity-80 transition-opacity"
+        >
+          <!-- Download Icon (SVG) -->
+          <svg
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="inline-block"
+            viewBox="0 0 16 16"
+          >
+            <path 
+              fill-rule="evenodd" 
+              d="M.5 9.9V14a.5.5 0 00.5.5h14a.5.5 0 00.5-.5V9.9a.5.5 0 00-1 0V13H1V9.9a.5.5 0 00-1 0z"
+            />
+            <path 
+              fill-rule="evenodd" 
+              d="M7.646 1.146a.5.5 0 01.708 0l2.5 2.5a.5.5 0 01-.708.708L8.5 2.707V10.5a.5.5 0 01-1 0V2.707L5.854 4.354a.5.5 0 11-.708-.708l2.5-2.5z"
+            />
+          </svg>
+          <span>Resume</span>
+        </a>
       </div>
 
       <!-- Hero Image -->
@@ -29,49 +56,39 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
     </div>
 
-    <!-- Scroll-down arrow (optional) -->
-    <div class="absolute bottom-6 text-center animate-bounce fade-in">
+    <!-- Scroll-down arrow (always visible, no time-based swap) -->
+    <div class="absolute bottom-6 text-center fade-in left-1/2 -translate-x-1/2">
       <a href="#about" class="hover:opacity-75 inline-block">
-        <img src="/scroll-down-arrow.svg" alt="Scroll down" class="w-6 h-6 mx-auto" />
+        <img
+          src="/scroll-down-arrow.svg"
+          alt="Scroll down arrow"
+          class="mx-auto w-6 h-6 animate-bounce"
+        />
       </a>
     </div>
   </section>
 
-  <!-- 
-    WRAPPER SECTION: A single container that wraps 
-    About, Projects, Experience, and Contact 
-  -->
-  <section 
-    id="sections-wrapper" 
+  <!-- WRAPPER SECTION for About, Projects, Experience, Contact -->
+  <section
+    id="sections-wrapper"
     class="fade-in w-full max-w-6xl mx-auto px-4 md:px-6 py-10 relative mb-10"
   >
-    <!-- 
-      A large, darker box with soft white border & rounding.
-      Feel free to tweak the background color, border thickness, etc.
-    -->
-    <div class="
-      bg-[#1A1A1A] 
-      border 
-      border-white/20
-      rounded-xl 
-      px-6 
-      py-10
-    ">
+    <!-- Large darker box with soft white border & rounding -->
+    <div class="bg-[#1A1A1A] border border-white/20 rounded-xl px-6 py-10">
       <!-- ABOUT -->
-      <article id="about" class="mb-12">
-        <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
-          About Me
-        </h2>
-        <div class="max-w-3xl mx-auto text-center">
-          <p class="leading-relaxed mb-4 opacity-90">
-            I'm Kevin Ferrer, a developer passionate about creating sleek,
-            efficient, and accessible web applications.
-          </p>
-          <p class="leading-relaxed opacity-90">
-            Outside of coding, you can find me exploring new coffee shops or playing guitar.
-          </p>
-        </div>
-      </article>
+<article id="about" class="mb-12">
+  <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+    About Me
+  </h2>
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="leading-relaxed mb-4 opacity-90">
+      I'm Kevin Ferrer, a Software Engineer currently enrolled at 
+      <em>Florida International University (FIU)</em>. Here, I’m pursuing 
+      my Bachelor’s of Science in Computer Science while simultaneously 
+      working with teams to compete in hackathons and create apps to solve problems.
+    </p>
+  </div>
+</article>
 
       <!-- PROJECTS -->
       <article id="projects" class="mb-12">
@@ -79,53 +96,75 @@ import MainLayout from '../layouts/MainLayout.astro';
           Projects
         </h2>
         <div class="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
-          <!-- Example Project -->
+          <!-- Project 1 -->
           <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
-            <h3 class="font-semibold text-accent-green mb-2">Project Title</h3>
+            <h3 class="font-semibold text-accent-green mb-2">Event Manager (Java Language)</h3>
             <p class="text-sm opacity-90 mb-4">
-              Brief description of your project. Tech stack, challenges, etc.
+              In the works
             </p>
             <a
-              href="#"
+              href="https://github.com/KevinFerrer/realtime-chat-app"
               target="_blank"
               class="text-sm underline hover:opacity-80"
             >
-              View Project
+              will be uploaded soon!
             </a>
           </div>
 
-          <!-- Another project -->
+          <!-- Project 2 -->
           <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
-            Another Project...
+            <h3 class="font-semibold text-accent-green mb-2">Rail Cipher Encryption/Decryption Program (C Language)</h3>
+            <p class="text-sm opacity-90 mb-4">
+              In the works
+            </p>
+            <a
+              href="https://github.com/KevinFerrer/astro-portfolio-template"
+              target="_blank"
+              class="text-sm underline hover:opacity-80"
+            >
+              will be uploaded soon!
+            </a>
           </div>
+
+          <!-- Project 3 (optional) -->
+          <!-- <div class="bg-section-grey-2 ...">
+            ...
+          </div> -->
         </div>
       </article>
 
-      <!-- EXPERIENCE -->
-      <article id="experience" class="mb-12">
-        <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
-          Experience
-        </h2>
-        <div class="flex flex-col space-y-6 max-w-3xl mx-auto">
-          <!-- Job 1 -->
-          <div class="bg-section-grey-3 p-4 rounded-lg">
-            <h3 class="font-semibold text-lg text-accent-green">Company / Position</h3>
-            <p class="text-sm opacity-80">Jan 2020 - Present</p>
-            <p class="text-sm mt-2 opacity-90">
-              Describe your role, responsibilities, and achievements.
-            </p>
-          </div>
+<!-- EXPERIENCE SECTION SNIPPET -->
+<article id="experience" class="mb-12">
+  <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+    Experience
+  </h2>
 
-          <!-- Job 2 -->
-          <div class="bg-section-grey-3 p-4 rounded-lg">
-            <h3 class="font-semibold text-lg text-accent-green">Previous Company / Position</h3>
-            <p class="text-sm opacity-80">2018 - 2019</p>
-            <p class="text-sm mt-2 opacity-90">
-              Describe your role, responsibilities, and achievements.
-            </p>
-          </div>
-        </div>
-      </article>
+  <div class="flex flex-col space-y-6 max-w-3xl mx-auto">
+    <!-- Geographic Information Intern (GIS) -->
+    <div class="bg-section-grey-3 p-4 rounded-lg">
+      <h3 class="font-semibold text-lg text-accent-green">Geographic Information Intern (GIS)</h3>
+      <p class="text-sm opacity-80">September 2024 – December 2024 &bull; City of Coral Gables; Coral Gables, FL</p>
+      <p class="text-sm mt-2 opacity-90">
+        &bull; Led a team of 3 to implement real-time phone call transcription scripts in Java, reducing troubleshooting
+        time by 30% for non-native English-speaking employees and enhancing service quality.<br />
+        &bull; Resolved 50+ support tickets by troubleshooting hardware/software issues, minimizing disruptions,
+        and improving efficiency for county workers.
+      </p>
+    </div>
+
+    <!-- Technology Education Volunteer -->
+    <div class="bg-section-grey-3 p-4 rounded-lg">
+      <h3 class="font-semibold text-lg text-accent-green">Technology Education Volunteer</h3>
+      <p class="text-sm opacity-80">June 2019 – August 2019 &bull; Jack David Gordon Elementary School; Miami, FL</p>
+      <p class="text-sm mt-2 opacity-90">
+        &bull; Delivered engaging presentations on the importance of technology to 20–40 elementary school
+        students, fostering an early interest in STEM fields.<br />
+        &bull; Facilitated hands-on activities and workshops to enhance students' tech literacy, promoting
+        practical understanding and application of technological concepts.
+      </p>
+    </div>
+  </div>
+</article>
 
       <!-- CONTACT -->
       <article id="contact">
@@ -134,14 +173,14 @@ import MainLayout from '../layouts/MainLayout.astro';
         </h2>
         <div class="text-center max-w-3xl mx-auto">
           <p class="opacity-90 mb-6">
-            Let's connect! Here’s how you can reach me:
+            Feel free to reach me at:
           </p>
-          <p class="mb-8">kevinferrer@example.com</p>
+          <p class="mb-8">kevinferrercs@gmail.com</p>
 
           <!-- LinkedIn & GitHub as green buttons -->
           <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <a
-              href="https://linkedin.com/in/KevinFerrer"
+              href="https://www.linkedin.com/in/kevinferrercs/"
               target="_blank"
               rel="noopener noreferrer"
               class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
@@ -149,7 +188,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               LinkedIn
             </a>
             <a
-              href="https://github.com/KevinFerrer"
+              href="https://github.com/kvnfrr"
               target="_blank"
               rel="noopener noreferrer"
               class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
