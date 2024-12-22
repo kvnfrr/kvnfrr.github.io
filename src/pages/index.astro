@@ -3,12 +3,11 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout>
-  <!-- HOME SECTION -->
+  <!-- HERO SECTION -->
   <section
     id="home"
     class="h-[90vh] flex items-center justify-center relative"
   >
-    <!-- Large hero container with text & image side by side -->
     <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-stretch justify-center">
       <!-- Intro Text -->
       <div class="md:w-1/2 flex flex-col justify-center items-start px-4 md:px-6 fade-in">
@@ -20,7 +19,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         </p>
       </div>
 
-      <!-- Hero Image with green border -->
+      <!-- Hero Image -->
       <div class="md:w-1/2 flex justify-center items-center fade-in">
         <img
           src="/hero.jpg"
@@ -38,128 +37,128 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section
-    id="about"
-    class="py-16 fade-in px-4 md:px-6"
-    style="background-color: #1A1A1A;"
+  <!-- 
+    WRAPPER SECTION: A single container that wraps 
+    About, Projects, Experience, and Contact 
+  -->
+  <section 
+    id="sections-wrapper" 
+    class="fade-in w-full max-w-6xl mx-auto px-4 md:px-6 py-10 relative mb-10"
   >
-    <div
-      class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8 text-center"
-    >
-      <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
-        About Me
-      </h2>
-      <p class="leading-relaxed mb-4 opacity-90">
-        I'm Kevin Ferrer, a developer passionate about creating sleek, efficient, and accessible web applications.
-      </p>
-      <p class="leading-relaxed opacity-90">
-        Outside of coding, you can find me exploring new coffee shops or playing guitar.
-      </p>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section
-    id="projects"
-    class="py-16 fade-in px-4 md:px-6"
-    style="background-color: #242424;"
-  >
-    <div class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
-        Projects
-      </h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        <!-- Example Project -->
-        <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
-          <h3 class="font-semibold text-accent-green mb-2">Project Title</h3>
-          <p class="text-sm opacity-90 mb-4">
-            Brief description of your project. Tech stack, challenges, etc.
+    <!-- 
+      A large, darker box with soft white border & rounding.
+      Feel free to tweak the background color, border thickness, etc.
+    -->
+    <div class="
+      bg-[#1A1A1A] 
+      border 
+      border-white/20
+      rounded-xl 
+      px-6 
+      py-10
+    ">
+      <!-- ABOUT -->
+      <article id="about" class="mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+          About Me
+        </h2>
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="leading-relaxed mb-4 opacity-90">
+            I'm Kevin Ferrer, a developer passionate about creating sleek,
+            efficient, and accessible web applications.
           </p>
-          <a
-            href="#"
-            target="_blank"
-            class="text-sm underline hover:opacity-80"
-          >
-            View Project
-          </a>
-        </div>
-
-        <!-- Another Project -->
-        <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
-          Another Project...
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE SECTION -->
-  <section
-    id="experience"
-    class="py-16 fade-in px-4 md:px-6"
-    style="background-color: #2E2E2E;"
-  >
-    <div class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8">
-      <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
-        Experience
-      </h2>
-      <div class="flex flex-col space-y-6">
-        <!-- Job 1 -->
-        <div class="bg-section-grey-3 p-4 rounded-lg">
-          <h3 class="font-semibold text-lg text-accent-green">Company / Position</h3>
-          <p class="text-sm opacity-80">Jan 2020 - Present</p>
-          <p class="text-sm mt-2 opacity-90">
-            Describe your role, responsibilities, and achievements.
+          <p class="leading-relaxed opacity-90">
+            Outside of coding, you can find me exploring new coffee shops or playing guitar.
           </p>
         </div>
-        <!-- Job 2 -->
-        <div class="bg-section-grey-3 p-4 rounded-lg">
-          <h3 class="font-semibold text-lg text-accent-green">Previous Company / Position</h3>
-          <p class="text-sm opacity-80">2018 - 2019</p>
-          <p class="text-sm mt-2 opacity-90">
-            Describe your role, responsibilities, and achievements.
-          </p>
+      </article>
+
+      <!-- PROJECTS -->
+      <article id="projects" class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+          Projects
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+          <!-- Example Project -->
+          <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
+            <h3 class="font-semibold text-accent-green mb-2">Project Title</h3>
+            <p class="text-sm opacity-90 mb-4">
+              Brief description of your project. Tech stack, challenges, etc.
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              class="text-sm underline hover:opacity-80"
+            >
+              View Project
+            </a>
+          </div>
+
+          <!-- Another project -->
+          <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
+            Another Project...
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- CONTACT SECTION -->
-  <section
-    id="contact"
-    class="py-16 fade-in px-4 md:px-6"
-    style="background-color: #383838;"
-  >
-    <div class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8 text-center">
-      <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
-        Contact
-      </h2>
-      <p class="opacity-90 mb-6">
-        Let's connect! Here’s how you can reach me:
-      </p>
+      <!-- EXPERIENCE -->
+      <article id="experience" class="mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+          Experience
+        </h2>
+        <div class="flex flex-col space-y-6 max-w-3xl mx-auto">
+          <!-- Job 1 -->
+          <div class="bg-section-grey-3 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg text-accent-green">Company / Position</h3>
+            <p class="text-sm opacity-80">Jan 2020 - Present</p>
+            <p class="text-sm mt-2 opacity-90">
+              Describe your role, responsibilities, and achievements.
+            </p>
+          </div>
 
-      <!-- Email -->
-      <p class="mb-8">kevinferrer@example.com</p>
+          <!-- Job 2 -->
+          <div class="bg-section-grey-3 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg text-accent-green">Previous Company / Position</h3>
+            <p class="text-sm opacity-80">2018 - 2019</p>
+            <p class="text-sm mt-2 opacity-90">
+              Describe your role, responsibilities, and achievements.
+            </p>
+          </div>
+        </div>
+      </article>
 
-      <!-- LinkedIn & GitHub as green buttons -->
-      <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-        <a
-          href="https://linkedin.com/in/KevinFerrer"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/KevinFerrer"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
-        >
-          GitHub
-        </a>
-      </div>
+      <!-- CONTACT -->
+      <article id="contact">
+        <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+          Contact
+        </h2>
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="opacity-90 mb-6">
+            Let's connect! Here’s how you can reach me:
+          </p>
+          <p class="mb-8">kevinferrer@example.com</p>
+
+          <!-- LinkedIn & GitHub as green buttons -->
+          <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+            <a
+              href="https://linkedin.com/in/KevinFerrer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/KevinFerrer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 </MainLayout>
