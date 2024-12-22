@@ -3,21 +3,22 @@
 
 <header class="sticky top-0 z-50 bg-terminal-gray bg-opacity-90 backdrop-blur-sm shadow-md">
   <nav class="flex items-center justify-between max-w-6xl mx-auto px-4 py-3">
-    <!-- Brand -->
-    <div class="font-bold text-xl flex items-center">
-      <!-- ">" and "CS" in accent-green, "Kevin" in white -->
-      <span class="text-accent-green">&gt;</span>
-      <span class="text-white">Kevin</span>
-      <span class="text-accent-green">CS</span>
+    <!-- Brand: >KevinCS (no spaces) -->
+    <div class="font-bold text-xl">
+      <a
+        href="#home"
+        class="brand-text transition-colors inline-block relative"
+        style="text-decoration: none;"
+      >
+        <!-- Break into three spans to control colors by default -->
+        <span class="text-accent-green">&gt;</span>
+        <span class="text-white">Kevin</span>
+        <span class="text-accent-green">CS</span>
+      </a>
     </div>
 
-    <!-- Links -->
+    <!-- Links (Removed "Home") -->
     <ul class="flex space-x-6 text-sm font-medium">
-      <li>
-        <a href="#home" class="nav-link hover:text-accent-green transition-colors">
-          Home
-        </a>
-      </li>
       <li>
         <a href="#about" class="nav-link hover:text-accent-green transition-colors">
           About
@@ -43,7 +44,17 @@
 </header>
 
 <style>
-/* Style for active nav link highlight */
+/* On hover, turn the entire brand text green */
+.brand-text span {
+  transition: color 0.2s;
+}
+
+/* When the user hovers the entire link, all spans turn green */
+.brand-text:hover span {
+  color: var(--tw-color-accent-green) !important;
+}
+
+/* Active link highlight */
 .active-link {
   color: var(--tw-color-accent-green);
   border-bottom: 2px solid var(--tw-color-accent-green);

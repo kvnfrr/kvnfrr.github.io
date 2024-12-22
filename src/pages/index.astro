@@ -6,12 +6,10 @@ import MainLayout from '../layouts/MainLayout.astro';
   <!-- HOME SECTION -->
   <section
     id="home"
-    class="min-h-screen flex items-center justify-center relative"
+    class="h-[90vh] flex items-center justify-center relative"
   >
     <!-- Large hero container with text & image side by side -->
-    <div
-      class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-stretch justify-center"
-    >
+    <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-stretch justify-center">
       <!-- Intro Text -->
       <div class="md:w-1/2 flex flex-col justify-center items-start px-4 md:px-6 fade-in">
         <h1 class="text-3xl sm:text-5xl font-bold mb-4">
@@ -20,7 +18,6 @@ import MainLayout from '../layouts/MainLayout.astro';
         <p class="text-base sm:text-lg mb-6 opacity-90">
           I specialize in building modern, efficient, and techy web experiences.
         </p>
-        <!-- Possibly add a scroll-down indicator below -->
       </div>
 
       <!-- Hero Image with green border -->
@@ -50,10 +47,11 @@ import MainLayout from '../layouts/MainLayout.astro';
     <div
       class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8 text-center"
     >
-      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+        About Me
+      </h2>
       <p class="leading-relaxed mb-4 opacity-90">
         I'm Kevin Ferrer, a developer passionate about creating sleek, efficient, and accessible web applications.
-        I love solving complex problems and mastering new technologies in the rapidly evolving tech industry.
       </p>
       <p class="leading-relaxed opacity-90">
         Outside of coding, you can find me exploring new coffee shops or playing guitar.
@@ -68,7 +66,9 @@ import MainLayout from '../layouts/MainLayout.astro';
     style="background-color: #242424;"
   >
     <div class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Projects</h2>
+      <h2 class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+        Projects
+      </h2>
       <div class="grid gap-6 md:grid-cols-2">
         <!-- Example Project -->
         <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
@@ -84,7 +84,8 @@ import MainLayout from '../layouts/MainLayout.astro';
             View Project
           </a>
         </div>
-        <!-- Add more projects as needed -->
+
+        <!-- Another Project -->
         <div class="bg-section-grey-2 rounded-lg p-4 hover:shadow-lg transition-shadow">
           Another Project...
         </div>
@@ -99,7 +100,9 @@ import MainLayout from '../layouts/MainLayout.astro';
     style="background-color: #2E2E2E;"
   >
     <div class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8">
-      <h2 class="text-3xl font-bold mb-4 text-center">Experience</h2>
+      <h2 class="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+        Experience
+      </h2>
       <div class="flex flex-col space-y-6">
         <!-- Job 1 -->
         <div class="bg-section-grey-3 p-4 rounded-lg">
@@ -128,21 +131,23 @@ import MainLayout from '../layouts/MainLayout.astro';
     style="background-color: #383838;"
   >
     <div class="max-w-4xl mx-auto rounded-lg bg-terminal-gray p-6 md:p-8 text-center">
-      <h2 class="text-3xl font-bold mb-4">Contact</h2>
+      <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-white">
+        Contact
+      </h2>
       <p class="opacity-90 mb-6">
         Let's connect! Here’s how you can reach me:
       </p>
 
       <!-- Email -->
-      <p class="mb-4">kevinferrer@example.com</p>
+      <p class="mb-8">kevinferrer@example.com</p>
 
-      <!-- LinkedIn & GitHub -->
-      <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
+      <!-- LinkedIn & GitHub as green buttons -->
+      <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
         <a
           href="https://linkedin.com/in/KevinFerrer"
           target="_blank"
           rel="noopener noreferrer"
-          class="underline hover:opacity-75"
+          class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
         >
           LinkedIn
         </a>
@@ -150,7 +155,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           href="https://github.com/KevinFerrer"
           target="_blank"
           rel="noopener noreferrer"
-          class="underline hover:opacity-75"
+          class="bg-accent-green text-black font-semibold px-6 py-2 rounded hover:opacity-80 transition-opacity"
         >
           GitHub
         </a>
