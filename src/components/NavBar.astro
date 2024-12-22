@@ -2,19 +2,50 @@
 ---
 
 <header class="sticky top-0 z-50 bg-terminal-gray bg-opacity-90 backdrop-blur-sm shadow-md">
-  <nav class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
-    <!-- Brand/Logo -->
-    <div class="font-bold text-xl">
-      <a href="#home" class="hover:opacity-80 transition-opacity">MyBrand</a>
+  <nav class="flex items-center justify-between max-w-6xl mx-auto px-4 py-3">
+    <!-- Brand -->
+    <div class="font-bold text-xl flex items-center">
+      <!-- ">" and "CS" in accent-green, "Kevin" in white -->
+      <span class="text-accent-green">&gt;</span>
+      <span class="text-white">Kevin</span>
+      <span class="text-accent-green">CS</span>
     </div>
 
-    <!-- Navigation Links -->
+    <!-- Links -->
     <ul class="flex space-x-6 text-sm font-medium">
-      <li><a href="#home" class="hover:text-accent-green">Home</a></li>
-      <li><a href="#about" class="hover:text-accent-green">About</a></li>
-      <li><a href="#projects" class="hover:text-accent-green">Projects</a></li>
-      <li><a href="#experience" class="hover:text-accent-green">Experience</a></li>
-      <li><a href="#contact" class="hover:text-accent-green">Contact</a></li>
+      <li>
+        <a href="#home" class="nav-link hover:text-accent-green transition-colors">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#about" class="nav-link hover:text-accent-green transition-colors">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="#projects" class="nav-link hover:text-accent-green transition-colors">
+          Projects
+        </a>
+      </li>
+      <li>
+        <a href="#experience" class="nav-link hover:text-accent-green transition-colors">
+          Experience
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="nav-link hover:text-accent-green transition-colors">
+          Contact
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
+
+<style>
+/* Style for active nav link highlight */
+.active-link {
+  color: var(--tw-color-accent-green);
+  border-bottom: 2px solid var(--tw-color-accent-green);
+}
+</style>

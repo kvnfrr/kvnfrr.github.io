@@ -7,7 +7,7 @@ interface Props {
   title?: string;
 }
 
-const { title = 'My Techy Portfolio' } = Astro.props;
+const { title = 'Kevin Ferrer | Portfolio' } = Astro.props;
 ---
 
 <html lang="en">
@@ -16,13 +16,56 @@ const { title = 'My Techy Portfolio' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen flex flex-col bg-terminal-bg text-terminal-text">
+  <body class="min-h-screen flex flex-col bg-terminal-bg text-terminal-text relative">
     <NavBar />
 
-    <main class="flex-1 w-full max-w-7xl mx-auto px-4 py-10">
+    <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-6">
       <slot />
     </main>
 
     <Footer />
+
+    <!-- Intersection Observer for fade-in & active nav highlight -->
+    <script>
+      // Intersection Observer for fade-ins
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('appear');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.fade-in').forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Section highlight observer
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              // Remove .active from all nav links
+              navLinks.forEach((link) => link.classList.remove('active-link'));
+              // Add .active to the correct nav link
+              const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+              if (activeLink) activeLink.classList.add('active-link');
+            }
+          });
+        },
+        {
+          threshold: 0.6,
+        }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    </script>
   </body>
 </html>
