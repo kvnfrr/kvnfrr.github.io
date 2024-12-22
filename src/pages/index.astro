@@ -1,0 +1,146 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Home | Techy Terminal Theme">
+  <!-- HOME / HERO SECTION -->
+  <section
+    id="home"
+    class="h-screen flex flex-col-reverse md:flex-row items-center justify-center"
+  >
+    <!-- TEXT CONTENT -->
+    <div class="w-full md:w-1/2 text-center md:text-left px-4 md:px-8">
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4">
+        Hello, I'm <span class="text-accent-green">Your Name</span>
+      </h1>
+      <p class="text-base sm:text-lg opacity-90 mb-6">
+        A [Your Profession] building modern, scalable, and delightful web experiences.
+      </p>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+      <img
+        src="/hero.jpg"
+        alt="Hero"
+        class="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded shadow-md"
+      />
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-4 left-0 right-0 flex justify-center">
+      <a href="#about" class="animate-bounce">
+        <img
+          src="/scroll-down-arrow.svg"
+          alt="Scroll down arrow"
+          class="w-8 h-8 opacity-70 hover:opacity-90"
+        />
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4">About Me</h2>
+    <p class="leading-relaxed mb-4 opacity-90">
+      I'm a [Your Profession] with X years of experience in modern web
+      development. I specialize in Astro, Tailwind, React, Node.js, and more.
+    </p>
+    <p class="leading-relaxed opacity-90">
+      In my spare time, I enjoy [hobby], and exploring new technologies.
+    </p>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-8">Projects</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Example Project Card -->
+      <div class="bg-terminal-gray p-4 rounded shadow hover:shadow-lg transition-shadow">
+        <h3 class="font-semibold text-accent-green mb-2">
+          Project Title
+        </h3>
+        <p class="text-sm opacity-90 mb-4">
+          Brief description about your project, highlighting key technologies.
+        </p>
+        <a
+          href="https://example.com"
+          target="_blank"
+          class="text-sm underline hover:opacity-80"
+        >
+          View Project
+        </a>
+      </div>
+
+      <!-- More projects here -->
+      <div class="bg-terminal-gray p-4 rounded shadow">Project 2...</div>
+      <div class="bg-terminal-gray p-4 rounded shadow">Project 3...</div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4">Experience</h2>
+    <ul class="list-none space-y-6">
+      <!-- Example experience item -->
+      <li class="border-l-4 border-accent-green pl-4">
+        <h3 class="font-semibold text-lg">Company / Position</h3>
+        <p class="text-sm opacity-80">Jan 2020 - Present</p>
+        <p class="text-sm mt-2 opacity-90">
+          Describe your role, responsibilities, and achievements.
+        </p>
+      </li>
+
+      <li class="border-l-4 border-accent-green pl-4">
+        <h3 class="font-semibold text-lg">Previous Company / Position</h3>
+        <p class="text-sm opacity-80">2018 - 2019</p>
+        <p class="text-sm mt-2 opacity-90">
+          Describe your role, responsibilities, and achievements.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">Contact</h2>
+    <p class="opacity-90 mb-8">
+      Feel free to reach out via email or connect on my social links below.
+    </p>
+    <div class="flex flex-col items-center space-y-4 text-base sm:text-lg">
+      <!-- Email -->
+      <p>
+        <span class="font-semibold">Email:</span>
+        <a href="mailto:your.email@example.com" class="hover:opacity-80 underline ml-1">
+          your.email@example.com
+        </a>
+      </p>
+
+      <!-- GitHub -->
+      <div class="flex items-center space-x-2">
+        <img src="/github-icon.svg" alt="GitHub" class="w-6 h-6" />
+        <a
+          href="https://github.com/YourGitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:opacity-80 underline"
+        >
+          GitHub
+        </a>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="flex items-center space-x-2">
+        <img src="/linkedin-icon.svg" alt="LinkedIn" class="w-6 h-6" />
+        <a
+          href="https://linkedin.com/in/YourLinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:opacity-80 underline"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

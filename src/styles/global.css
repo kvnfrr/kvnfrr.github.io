@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", Menlo, Monaco, "Courier New", monospace;
+  background-color: #121212;
+  color: #E5E5E5;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #E5E5E5;
+  transition: color 0.15s ease;
+  text-decoration: none;
+}
+a:hover {
+  color: #00FF7F; /* Accent color */
+}
+
+section {
+  scroll-margin-top: 5rem; /* So anchored sections show properly below sticky nav */
+}
