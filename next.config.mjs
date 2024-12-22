@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
       output: 'export',
-      basePath: '',
-      trailingSlash: true, // Ensures all URLs end with a trailing slash
+      basePath: '/kvnfrr.github.io',
+      assetPrefix: '/kvnfrr.github.io/',
     };
-    
-    module.exports = nextConfig;
     
