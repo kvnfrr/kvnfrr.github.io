@@ -4,11 +4,9 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  // Set the base path to '/' for a user site
-  base: '/',
-  
-  // Output the built site to the 'docs' directory
-  outDir: 'docs',
+  site: 'https://kvnfrr.github.io', // Your GitHub Pages site
+  base: '/kvnfrr.github.io/', // Repository name
+  outDir: './docs', // Output to 'docs' folder
   
   // Integrate Tailwind CSS
   integrations: [tailwind()]

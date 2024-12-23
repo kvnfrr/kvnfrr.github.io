@@ -46,26 +46,26 @@ import MainLayout from '../layouts/MainLayout.astro';
         </a>
       </div>
 
-      <!-- Hero Image -->
-      <div class="md:w-1/2 flex justify-center items-center fade-in">
-        <img
-          src="/hero.jpg"
-          alt="Kevin Ferrer"
-          class="max-w-xs md:max-w-sm lg:max-w-md rounded-md border-4 border-accent-green"
-        />
-      </div>
-    </div>
+<!-- Hero Image -->
+<div class="md:w-1/2 flex justify-center items-center fade-in">
+  <img
+    src={`${import.meta.env.BASE_URL}hero.jpg`}
+    alt="Kevin Ferrer"
+    class="max-w-xs md:max-w-sm lg:max-w-md rounded-md border-4 border-accent-green"
+  />
+</div>
 
-    <!-- Scroll-down arrow (always visible, no time-based swap) -->
-    <div class="absolute bottom-6 text-center fade-in left-1/2 -translate-x-1/2">
-      <a href="#about" class="hover:opacity-75 inline-block">
-        <img
-          src="/scroll-down-arrow.svg"
-          alt="Scroll down arrow"
-          class="mx-auto w-6 h-6 animate-bounce"
-        />
-      </a>
-    </div>
+<!-- Scroll-down arrow -->
+<div class="absolute bottom-6 text-center fade-in left-1/2 -translate-x-1/2">
+  <a href="#about" class="hover:opacity-75 inline-block">
+    <img
+      src={`${import.meta.env.BASE_URL}scroll-down-arrow.svg`}
+      alt="Scroll down arrow"
+      class="mx-auto w-6 h-6 animate-bounce"
+    />
+  </a>
+</div>
+
   </section>
 
   <!-- WRAPPER SECTION for About, Projects, Experience, Contact -->
