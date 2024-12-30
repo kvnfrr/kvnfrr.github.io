@@ -1,64 +1,60 @@
 <div class="h-screen bg-cover bg-center">
   <div class="max-w-screen-2xl mx-auto px-24 h-full relative">
     <!-- Header -->
-    <header class="flex flex-col z-10 relative">
-      <!-- Top Row: Brand and Navigation -->
-      <div class="flex items-center justify-between h-[5rem] bg-transparent">
-        <!-- Brand Name -->
-        <h1 class="text-3xl font-bold flex items-center font-sans">
-          <span class="text-accent ml-1">></span>
-          <span class="text-white">KevinCS</span>
-        </h1>
+    <header class="flex items-center justify-between h-[5rem] bg-transparent z-10 relative">
+      <!-- Brand Name -->
+      <h1 class="text-3xl font-bold flex items-center font-sans">
+        <span class="text-accent ml-1">></span>
+        <span class="text-white">KevinCS</span>
+      </h1>
 
-        <!-- Navigation -->
-        <nav class="flex space-x-8 font-medium font-sans">
-          <!-- About Link -->
-          <a
-            href="/about.astro"
-            class="relative text-lg transition-colors duration-300
-              text-accent underline underline-offset-4 decoration-accent"
-          >
-            About
-          </a>
-
-          <!-- Projects Link -->
-          <a
-            href="/projects.astro"
-            class="relative text-lg text-white hover:text-white transition-colors duration-300
-              after:content-[''] after:block after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300
-              hover:after:scale-x-100"
-          >
-            Projects
-          </a>
-        </nav>
-      </div>
-
-      <!-- Horizontal Line -->
-      <div class="border-t-[2px] border-[rgba(255,255,255,0.5)] mt-4"></div>
+      <!-- Navigation -->
+      <nav class="flex space-x-8 font-medium font-sans">
+        <a href="#about" class="relative text-lg text-accent underline underline-offset-4 decoration-accent">About</a>
+        <a href="#projects" class="relative text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
+      </nav>
     </header>
 
     <!-- Main Content -->
     <main class="grid grid-cols-6 gap-4 py-10 z-10 relative">
       <!-- Left Content -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans">
-        <h2 class="text-6xl font-bold text-transparent">
-          <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
-          <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
-        </h2>
-        <p class="mt-6 text-xl text-gray-300 font-medium">
-          A Software Engineer with experience in Java, C, and building modern websites.
-        </p>
+      <div class="col-span-4 flex flex-col gap-4">
+        <!-- Info Box -->
+        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full">
+          <h2 class="text-6xl font-bold text-transparent">
+            <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
+            <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
+          </h2>
+          <p class="mt-6 text-xl text-gray-300 font-medium">
+            A Software Engineer with experience in Java, C, and building modern websites.
+          </p>
+        </div>
+    
+        <!-- Two New Boxes (aligned with Contact Me container) -->
+        <div class="grid grid-cols-2 gap-4 h-[calc(50%)]">
+          <!-- Green Box -->
+          <div class="bg-green-500 rounded-lg border border-[rgba(255,255,255,0.5)] p-6 font-sans h-full">
+            <h3 class="text-2xl font-bold text-white">Green Box Content</h3>
+            <p class="mt-2 text-gray-300">Details for the green box go here.</p>
+          </div>
+    
+          <!-- Blue Box -->
+          <div class="bg-blue-500 rounded-lg border border-[rgba(255,255,255,0.5)] p-6 font-sans h-full">
+            <h3 class="text-2xl font-bold text-white">Blue Box Content</h3>
+            <p class="mt-2 text-gray-300">Details for the blue box go here.</p>
+          </div>
+        </div>
       </div>
-
+    
       <!-- Right Content -->
       <div class="col-span-2 flex flex-col gap-4">
         <!-- Photo Section -->
-        <div class="bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden">
+        <div class="bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-[calc(60%)]">
           <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
         </div>
-
+    
         <!-- Contact Section -->
-        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative font-sans">
+        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative font-sans h-[calc(40%)]">
           <!-- Asterisk in the Top-Left Corner -->
           <img
             src="/asterisk-icon.png"
@@ -66,13 +62,13 @@
             class="absolute top-[-10px] left-[-10px] w-6 h-6"
             draggable="false"
           />
-        
+    
           <!-- Title -->
           <h3 class="text-2xl font-bold text-white mb-4">Contact Me</h3>
-        
+    
           <!-- Email -->
           <p class="text-gray-300 mb-6">kevinferrercs@gmail.com</p>
-        
+    
           <!-- Contact Buttons -->
           <div class="flex items-center space-x-4">
             <!-- Resume Button -->
@@ -84,13 +80,12 @@
                 Resume
               </a>
             </button>
-          
-        
+    
             <!-- LinkedIn Button -->
             <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:opacity-80">
               <img src="/linkedin-icon.png" alt="LinkedIn" class="w-7 h-7" />
             </a>
-        
+    
             <!-- GitHub Button -->
             <a href="https://github.com/kvnfrr" target="_blank" class="hover:opacity-80">
               <img src="/github-icon.png" alt="GitHub" class="w-7 h-7" />
@@ -98,7 +93,8 @@
           </div>
         </div>
       </div>
-    </main>
+    </main>    
+    
   </div>
 </div>
 
