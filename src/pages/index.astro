@@ -2,7 +2,13 @@
   <div class="max-w-screen-2xl mx-auto px-24 h-full relative">
     <!-- Header -->
     <header class="flex items-center justify-between h-[5rem] bg-transparent z-10 relative">
-      <h1 class="text-3xl font-bold">>KevinCS</h1>
+      <!-- Brand Name -->
+      <h1 class="text-3xl font-bold flex items-center">
+        <span class="text-accent ml-1">></span>
+        <span class="text-white">KevinCS</span>
+      </h1>
+
+      <!-- Navigation -->
       <nav class="flex space-x-8">
         <a href="#about" class="hover:underline text-lg">About</a>
         <a href="#projects" class="hover:underline text-lg">Projects</a>
@@ -11,24 +17,55 @@
 
     <!-- Main Content -->
     <main class="grid grid-cols-6 gap-4 py-10 z-10 relative">
+      <!-- Left Content -->
       <div class="col-span-4 bg-black/20 rounded-lg border border-white p-12">
         <h2 class="text-6xl font-bold text-white">Hi, I'M Kevin Ferrer</h2>
         <p class="mt-6 text-xl text-gray-300">
           A Software Engineer with experience in Java, C, and building / designing modern websites.
         </p>
       </div>
+
+      <!-- Right Content -->
       <div class="col-span-2 flex flex-col gap-4">
+        <!-- Photo Section -->
         <div class="bg-transparent rounded-lg border border-white overflow-hidden">
-          <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" />
+          <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
         </div>
-        <div class="bg-black/20 rounded-lg border border-white p-10">
-          <h3 class="text-2xl font-bold text-white">Contact Information</h3>
-          <ul class="mt-6 space-y-3 text-gray-300">
-            <li>Email: [your email]</li>
-            <li>LinkedIn: [your LinkedIn]</li>
-            <li>GitHub: [your GitHub]</li>
-          </ul>
-        </div>
+
+        <div class="bg-black/20 rounded-lg border border-white p-8 flex flex-col items-center relative">
+          <!-- Asterisk in the Top-Left Corner -->
+          <img
+            src="/asterisk-icon.png"
+            alt="Asterisk"
+            class="absolute top-[-10px] left-[-10px] w-6 h-6"
+            draggable="false"
+          />
+        
+          <!-- Title -->
+          <h3 class="text-2xl font-bold text-white mb-4">Contact Me</h3>
+        
+          <!-- Email -->
+          <p class="text-gray-300 text-sm mb-6">kevinferrercs@gmail.com</p>
+        
+          <!-- Contact Buttons -->
+          <div class="flex items-center space-x-4">
+            <!-- Resume Button -->
+            <button class="flex items-center justify-center bg-accent text-white py-1.5 px-4 rounded-lg hover:bg-accent/90 focus:outline-none">
+              <img src="/download-icon.png" alt="Download" class="w-4 h-4 mr-2" />
+              Resume
+            </button>
+        
+            <!-- LinkedIn Button -->
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="hover:opacity-80">
+              <img src="/linkedin-icon.png" alt="LinkedIn" class="w-7 h-7" />
+            </a>
+        
+            <!-- GitHub Button -->
+            <a href="https://github.com/your-username" target="_blank" class="hover:opacity-80">
+              <img src="/github-icon.png" alt="GitHub" class="w-7 h-7" />
+            </a>
+          </div>
+        </div>        
       </div>
     </main>
   </div>
