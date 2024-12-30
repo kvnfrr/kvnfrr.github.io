@@ -1,41 +1,48 @@
+
 <div class="h-screen bg-cover bg-center">
   <div class="max-w-screen-2xl mx-auto px-24 h-full relative">
     <!-- Header -->
-    <header class="flex items-center justify-between h-[5rem] bg-transparent z-10 relative">
-      <!-- Brand Name -->
-      <h1 class="text-3xl font-bold flex items-center">
-        <span class="text-accent ml-1">></span>
-        <span class="text-white">KevinCS</span>
-      </h1>
-    
-      <!-- Navigation -->
-      <nav class="flex space-x-8">
-        <!-- About Link -->
-        <a
-          href="/about.astro"
-          class="relative text-lg transition-colors duration-300
-            text-accent underline underline-offset-4 decoration-accent"
-        >
-          About
-        </a>
-    
-        <!-- Projects Link -->
-        <a
-          href="/projects.astro"
-          class="relative text-lg text-white hover:text-white transition-colors duration-300
-            after:content-[''] after:block after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300
-            hover:after:scale-x-100"
-        >
-          Projects
-        </a>
-      </nav>
+    <header class="flex flex-col z-10 relative">
+      <!-- Top Row: Brand and Navigation -->
+      <div class="flex items-center justify-between h-[5rem] bg-transparent">
+        <!-- Brand Name -->
+        <h1 class="text-3xl font-bold flex items-center">
+          <span class="text-accent ml-1">></span>
+          <span class="text-white">KevinCS</span>
+        </h1>
+
+        <!-- Navigation -->
+        <nav class="flex space-x-8">
+          <!-- About Link -->
+          <a
+            href="/about.astro"
+            class="relative text-lg transition-colors duration-300
+              text-accent underline underline-offset-4 decoration-accent"
+          >
+            About
+          </a>
+
+          <!-- Projects Link -->
+          <a
+            href="/projects.astro"
+            class="relative text-lg text-white hover:text-white transition-colors duration-300
+              after:content-[''] after:block after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300
+              hover:after:scale-x-100"
+          >
+            Projects
+          </a>
+        </nav>
+      </div>
+
+      <!-- Horizontal Line -->
+      <div class="border-t-[2px] border-[rgba(255,255,255,0.5)] mt-4"></div>
     </header>
 
     <!-- Main Content -->
     <main class="grid grid-cols-6 gap-4 py-10 z-10 relative">
       <!-- Left Content -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-white p-12">
-        <h2 class="text-6xl font-bold text-white">Hi, I'M Kevin Ferrer</h2>
+      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12">
+        <h2 class="text-6xl font-bold text-white">Hi, I'm Kevin Ferrer</h2>
         <p class="mt-6 text-xl text-gray-300">
           A Software Engineer with experience in Java, C, and building modern websites.
         </p>
@@ -44,11 +51,12 @@
       <!-- Right Content -->
       <div class="col-span-2 flex flex-col gap-4">
         <!-- Photo Section -->
-        <div class="bg-transparent rounded-lg border border-white overflow-hidden">
+        <div class="bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden">
           <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
         </div>
 
-        <div class="bg-black/20 rounded-lg border border-white p-8 flex flex-col items-center relative">
+        <!-- Contact Section -->
+        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative">
           <!-- Asterisk in the Top-Left Corner -->
           <img
             src="/asterisk-icon.png"
@@ -58,7 +66,7 @@
           />
         
           <!-- Title -->
-          <h3 class="text-2xl font-bold text-white mb-4">Contact Me</h3>
+          <h3 class="text-2xl font-bold text-white mb-2">Contact Me</h3>
         
           <!-- Email -->
           <p class="text-gray-300 text-sm mb-6">kevinferrercs@gmail.com</p>
@@ -67,13 +75,13 @@
           <div class="flex items-center space-x-4">
             <!-- Resume Button -->
             <button
-            class="flex items-center justify-center bg-accent text-white py-1.5 px-4 rounded-lg hover:bg-accent/90 focus:outline-none"
-          >
-            <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center">
-              <img src="download-icon.png" alt="Download" class="w-4 h-4 mr-2" />
-              Resume
-            </a>
-          </button>
+              class="flex items-center justify-center bg-accent text-white py-1.5 px-4 rounded-lg hover:bg-accent/90 focus:outline-none"
+            >
+              <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center">
+                <img src="download-icon.png" alt="Download" class="w-4 h-4 mr-2" />
+                Resume
+              </a>
+            </button>
           
         
             <!-- LinkedIn Button -->
@@ -86,7 +94,7 @@
               <img src="/github-icon.png" alt="GitHub" class="w-7 h-7" />
             </a>
           </div>
-        </div>        
+        </div>
       </div>
     </main>
   </div>
