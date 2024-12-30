@@ -1,4 +1,3 @@
-
 <div class="h-screen bg-cover bg-center">
   <div class="max-w-screen-2xl mx-auto px-24 h-full relative">
     <!-- Header -->
@@ -6,13 +5,13 @@
       <!-- Top Row: Brand and Navigation -->
       <div class="flex items-center justify-between h-[5rem] bg-transparent">
         <!-- Brand Name -->
-        <h1 class="text-3xl font-bold flex items-center">
+        <h1 class="text-3xl font-bold flex items-center font-sans">
           <span class="text-accent ml-1">></span>
           <span class="text-white">KevinCS</span>
         </h1>
 
         <!-- Navigation -->
-        <nav class="flex space-x-8">
+        <nav class="flex space-x-8 font-medium font-sans">
           <!-- About Link -->
           <a
             href="/about.astro"
@@ -41,9 +40,12 @@
     <!-- Main Content -->
     <main class="grid grid-cols-6 gap-4 py-10 z-10 relative">
       <!-- Left Content -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12">
-        <h2 class="text-6xl font-bold text-white">Hi, I'm Kevin Ferrer</h2>
-        <p class="mt-6 text-xl text-gray-300">
+      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans">
+        <h2 class="text-6xl font-bold text-transparent">
+          <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
+          <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
+        </h2>
+        <p class="mt-6 text-xl text-gray-300 font-medium">
           A Software Engineer with experience in Java, C, and building modern websites.
         </p>
       </div>
@@ -56,7 +58,7 @@
         </div>
 
         <!-- Contact Section -->
-        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative">
+        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative font-sans">
           <!-- Asterisk in the Top-Left Corner -->
           <img
             src="/asterisk-icon.png"
@@ -66,16 +68,16 @@
           />
         
           <!-- Title -->
-          <h3 class="text-2xl font-bold text-white mb-2">Contact Me</h3>
+          <h3 class="text-2xl font-bold text-white mb-4">Contact Me</h3>
         
           <!-- Email -->
-          <p class="text-gray-300 text-sm mb-6">kevinferrercs@gmail.com</p>
+          <p class="text-gray-300 mb-6">kevinferrercs@gmail.com</p>
         
           <!-- Contact Buttons -->
           <div class="flex items-center space-x-4">
             <!-- Resume Button -->
             <button
-              class="flex items-center justify-center bg-accent text-white py-1.5 px-4 rounded-lg hover:bg-accent/90 focus:outline-none"
+              class="flex items-center justify-center bg-accent text-white py-1.5 px-4 rounded-lg hover:bg-accent/90 focus:outline-none font-medium"
             >
               <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center">
                 <img src="download-icon.png" alt="Download" class="w-4 h-4 mr-2" />
