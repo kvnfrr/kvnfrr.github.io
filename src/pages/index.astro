@@ -18,9 +18,9 @@
     <!-- Main Content -->
     <main class="grid grid-cols-6 gap-4 py-10 z-10 relative">
       <!-- Left Content -->
-      <div class="col-span-4 flex flex-col gap-4">
+      <div class="col-span-4 flex flex-col gap-4 h-full">
         <!-- Info Box -->
-        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full">
+        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-[60%]">
           <h2 class="text-6xl font-bold text-transparent">
             <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
             <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
@@ -30,41 +30,57 @@
           </p>
         </div>
 
-        <!-- Two New Boxes (aligned with Contact Me container) -->
-        <div class="grid grid-cols-2 gap-4 h-[calc(50%)]">
+        <!-- Two New Boxes -->
+        <div class="grid grid-cols-2 gap-4">
           <!-- Education Box -->
-          <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-6 font-sans h-full text-white">
-            <h3 class="text-2xl font-bold mb-2">Education</h3>
-            <p class="text-lg font-semibold">B.Sc. in Computer Science</p>
-            <p class="text-gray-300 text-sm font-medium">
-              <span class="font-bold text-white">Florida International University (FIU)</span>, June 2022 - Present
+          <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-5 font-sans text-white">
+            <h3 class="text-3xl font-extrabold mb-4 text-accent">Education</h3>
+            <p class="text-xl font-bold text-white">B.Sc. in Computer Science</p>
+            <p class="text-gray-300 text-base font-medium">
+              <span class="font-semibold text-white">Florida International University</span>, June 2022 - Present
             </p>
-            <p class="text-gray-200 text-sm font-bold">3.5 GPA</p>
-            
-            <ul class="mt-4 list-disc list-inside space-y-2 text-sm">
-              <li>Active member of <span class="font-semibold">INIT</span>, <span class="font-semibold">Society of Professional Hispanic Engineers (SHPE)</span>, and <span class="font-semibold">WiCS</span>.</li>
-              <li>3-time <span class="font-semibold">ShellHacks</span> team leader.</li>
-              <li>Consecutive <span class="font-semibold">Dean's List</span> awardee.</li>
+            <p class="text-gray-200 text-sm font-bold mt-1">GPA: 3.5</p>
+            <ul class="mt-6 list-disc list-inside space-y-3 text-sm text-gray-300">
+              <li>
+                Active member of <span class="text-accent font-semibold">INIT</span>, 
+                <span class="text-accent font-semibold">Society of Professional Hispanic Engineers (SHPE)</span>, and 
+                <span class="text-accent font-semibold">WiCS</span>.
+              </li>
+              <li>3-time <span class="text-accent font-semibold">ShellHacks</span> team leader.</li>
+              <li>Consecutive <span class="text-accent font-semibold">Dean's List</span> awardee.</li>
             </ul>
           </div>
 
-          <!-- Blue Box -->
-          <div class="bg-blue-500 rounded-lg border border-[rgba(255,255,255,0.5)] p-6 font-sans h-full">
-            <h3 class="text-2xl font-bold text-white">Blue Box Content</h3>
-            <p class="mt-2 text-gray-300">Details for the blue box go here.</p>
+          <!-- Skills and Expertise Box -->
+          <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-5 font-sans text-white">
+            <h3 class="text-3xl font-extrabold mb-4 text-accent">Skills and Expertise</h3>
+            <ul class="mt-6 list-disc list-inside space-y-3 text-sm text-gray-300">
+              <li>
+                <span class="text-white font-semibold">Programming Languages:</span> Java, C, HTML/CSS
+              </li>
+              <li>
+                <span class="text-white font-semibold">Web Development:</span> React, Tailwind CSS, Node.js
+              </li>
+              <li>
+                <span class="text-white font-semibold">Databases:</span> MySQL, MongoDB, PostgreSQL
+              </li>
+              <li>
+                <span class="text-white font-semibold">Tools and Technologies:</span> Git/Github, AWS, JavaFX, 
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
       <!-- Right Content -->
-      <div class="col-span-2 flex flex-col gap-4">
+      <div class="col-span-2 flex flex-col gap-4 h-full">
         <!-- Photo Section -->
-        <div class="bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-[calc(60%)]">
+        <div class="bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-[60%]">
           <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
         </div>
 
         <!-- Contact Section -->
-        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative font-sans h-[calc(40%)]">
+        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative font-sans h-[40%]">
           <!-- Asterisk in the Top-Left Corner -->
           <img
             src="/asterisk-icon.png"
@@ -104,7 +120,6 @@
         </div>
       </div>
     </main>    
-    
   </div>
 </div>
 
