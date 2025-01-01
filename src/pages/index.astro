@@ -1,21 +1,24 @@
-<div class="h-screen bg-cover bg-center relative">
+<div class="h-screen bg-black relative">
   <!-- Particle Effect -->
   <div class="particles absolute inset-0 pointer-events-none"></div>
+
+  <!-- Fading Background Image -->
+  <div class="background-image absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-2000"></div>
 
   <div class="mx-auto px-20 h-full relative">
     <!-- Header -->
     <header class="flex flex-col z-10 relative">
-      <!-- Top Row: Brand and Navigation -->
-      <div class="flex items-center justify-between h-[5rem] bg-transparent">
+      <div class="flex items-center justify-between h-[5rem]">
         <!-- Brand Name -->
-        <h1 class="text-3xl font-bold flex items-center font-sans">
+        <h1 class="text-3xl font-bold font-sans">
           <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
         </h1>
 
         <!-- Navigation -->
-        <nav class="flex space-x-8 font-medium font-sans">
-          <a href="#about" class="relative text-lg text-white hover:text-white transition-colors duration-300">About</a>
-          <a href="#projects" class="relative text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
+        <nav class="flex space-x-8 font-medium">
+          <a href="#about" class="text-lg text-white hover:text-white transition-colors duration-300">About</a>
+          <a href="#skills" class="text-lg text-white hover:text-white transition-colors duration-300">Skills</a>
+          <a href="#projects" class="text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
         </nav>
       </div>
     </header>
@@ -24,30 +27,31 @@
     <div class="border-t-[2px] border-[rgba(255,255,255,0.5)]"></div>
 
     <!-- Main Content -->
-    <main class="grid grid-cols-6 gap-4 py-5 z-10 relative h-[calc(100%-10rem)]">
+    <main class="grid grid-cols-6 gap-4 py-5 relative h-[calc(100%-10rem)]" id="about">
       <!-- Info Box -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center border-glow">
+      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 flex flex-col justify-center border-glow">
         <h2 class="text-6xl font-bold text-transparent">
           <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
           <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
         </h2>
-        <p class="mt-6 text-xl text-gray-300 font-medium leading-relaxed">
+        <p class="mt-6 text-xl text-gray-300 leading-relaxed">
           A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites.
           Always finding new ways to approach problems and learn with others.
         </p>
-        <div class="mt-8 flex items-center space-x-4 text-lg font-bold">
+        <div class="mt-8 flex items-center space-x-4">
           <!-- Resume Button -->
-          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-[#a63517] transition-colors duration-300 focus:outline-none">
+          <a href="/resume.pdf" download="Kevin_Ferrer_Resume"
+             class="bg-accent text-white py-1 px-6 rounded-lg hover:bg-[#a63517] transition-colors duration-300">
             Resume
           </a>
-
           <!-- LinkedIn Button -->
-          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank"
+             class="hover:bg-gray-700 flex items-center justify-center rounded-lg w-10 h-10 transition-colors duration-300">
             <img src="/linkedin-icon.png" alt="LinkedIn" class="w-8 h-8" />
           </a>
-
           <!-- GitHub Button -->
-          <a href="https://github.com/kvnfrr" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
+          <a href="https://github.com/kvnfrr" target="_blank"
+             class="hover:bg-gray-700 flex items-center justify-center rounded-lg w-10 h-10 transition-colors duration-300">
             <img src="/github-icon.png" alt="GitHub" class="w-8 h-8" />
           </a>
         </div>
@@ -55,21 +59,44 @@
 
       <!-- Picture Box -->
       <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full border-glow">
-        <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
+        <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" />
       </div>
     </main>
 
     <!-- Scroll to Learn More -->
-    <div class="absolute bottom-12 w-full text-center text-gray-400 font-sans text-lg tracking-[0.3em]">
-      <img src="/asterisk-icon.png" alt="Asterisk" class="inline-block w-5 h-5 mr-2 align-middle rotate-asterisk" draggable="false" />
+    <div class="absolute bottom-12 left-[5%] flex items-center text-gray-400 font-sans text-lg tracking-[0.3em]">
+      <img src="/asterisk-icon.png" alt="Asterisk" class="w-5 h-5 mr-2 rotate-asterisk" />
       <span>SCROLL TO LEARN MORE</span>
+    </div>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-12 border-t-[2px] border-[rgba(255,255,255,0.5)]" id="skills">
+  <h2 class="text-4xl font-bold text-accent mb-8">Skills</h2>
+  <div class="container mx-auto grid grid-cols-3 gap-6">
+    <div class="bg-black/30 rounded-lg p-8 text-center border border-[rgba(255,255,255,0.5)]">
+      <img src="/software-icon.png" alt="Software Development" class="w-12 h-12 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold text-accent mb-2">Software Development</h3>
+      <p class="text-sm text-gray-300">Experienced in functional and OOP: Dart, Python, Java, JavaScript, TypeScript.</p>
+    </div>
+    <div class="bg-black/30 rounded-lg p-8 text-center border border-[rgba(255,255,255,0.5)]">
+      <img src="/frontend-icon.png" alt="Frontend Development" class="w-12 h-12 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold text-accent mb-2">Frontend Development</h3>
+      <p class="text-sm text-gray-300">Skilled in React, Next.js, and Tailwind CSS for building dynamic user interfaces.</p>
+    </div>
+    <div class="bg-black/30 rounded-lg p-8 text-center border border-[rgba(255,255,255,0.5)]">
+      <img src="/backend-icon.png" alt="Backend Development" class="w-12 h-12 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold text-accent mb-2">Backend Development</h3>
+      <p class="text-sm text-gray-300">Proficient in Node.js, Express.js, and databases like MongoDB, PostgreSQL, MySQL.</p>
     </div>
   </div>
 </div>
 
 <style>
   .h-screen {
-    background-image: url('./background.png'); /* Existing PNG background */
+    margin: 0;
+    padding: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -77,10 +104,18 @@
 
   .particles {
     background: url('/particles.png');
-    background-size: 15%; /* Make the particle background tile seamlessly */
-    animation: floatParticles 70s linear infinite; /* Adjusted duration for smoother animation */
+    background-size: 15%;
+    animation: floatParticles 70s linear infinite;
     opacity: 0.009;
-    z-index: 1;
+  }
+
+  .background-image {
+    background-image: url('/background.png');
+    transition: opacity 2s ease-in-out;
+  }
+
+  .background-image.loaded {
+    opacity: 1;
   }
 
   @keyframes floatParticles {
@@ -88,16 +123,7 @@
       background-position: 0% 0%;
     }
     to {
-      background-position: 100% 100%; /* Continuous diagonal movement */
-    }
-  }
-
-  @keyframes rotateAsterisk {
-    0%, 100% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(15deg);
+      background-position: 100% 100%;
     }
   }
 
@@ -106,18 +132,21 @@
   }
 
   .bg-accent {
-    background-color: #d64423; /* Adjust this to match your accent color */
-  }
-
-  .hover\:bg-\[\#a63517\]:hover {
-    background-color: #8b2d13; /* Darker accent color for hover effect */
+    background-color: #d64423;
   }
 
   a {
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    transition: all 0.3s ease-in-out;
   }
 
   .hover\:bg-gray-700:hover {
-    background-color: #4a4a4a; /* Dark gray for GitHub and LinkedIn buttons on hover */
+    background-color: #4a4a4a;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bgImage = document.querySelector(".background-image");
+    if (bgImage) bgImage.classList.add("loaded");
+  });
+</script>
