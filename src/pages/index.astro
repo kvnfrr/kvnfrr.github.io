@@ -1,125 +1,55 @@
 <div class="h-screen bg-cover bg-center">
   <div class="max-w-screen-2xl mx-auto px-24 h-full relative">
     <!-- Header -->
-    <header class="flex items-center justify-between h-[5rem] bg-transparent z-10 relative">
-      <!-- Brand Name -->
-      <h1 class="text-3xl font-bold flex items-center font-sans">
-        <span class="text-accent ml-1">></span>
-        <span class="text-white">KevinCS</span>
-      </h1>
-
-      <!-- Navigation -->
-      <nav class="flex space-x-8 font-medium font-sans">
-        <a href="#about" class="relative text-lg text-accent underline underline-offset-4 decoration-accent">About</a>
-        <a href="#projects" class="relative text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
-      </nav>
+    <header class="flex flex-col z-10 relative">
+      <!-- Top Row: Brand and Navigation -->
+      <div class="flex items-center justify-between h-[5rem] bg-transparent">
+        <!-- Brand Name -->
+        <h1 class="text-3xl font-bold flex items-center font-sans">
+          <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
+        </h1>
+    
+        <!-- Navigation -->
+        <nav class="flex space-x-8 font-medium font-sans">
+          <a href="#about" class="relative text-lg text-white hover:text-white transition-colors duration-300">About</a>
+          <a href="#projects" class="relative text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
+        </nav>
+      </div>
+    
+      <!-- Horizontal Line -->
+      <div class="border-t-[2px] border-[rgba(255,255,255,0.5)] mt-2"></div>
     </header>
+    
 
     <!-- Main Content -->
-    <main class="grid grid-cols-6 gap-4 py-10 z-10 relative">
-      <!-- Left Content -->
-      <div class="col-span-4 flex flex-col gap-4 h-full">
-        <!-- Info Box -->
-        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-[60%]">
-          <h2 class="text-6xl font-bold text-transparent">
-            <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
-            <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
-          </h2>
-          <p class="mt-6 text-xl text-gray-300 font-medium">
-            A Software Engineer with experience in Java, C, and building modern websites.
-          </p>
-        </div>
-
-        <!-- Two New Boxes -->
-        <div class="grid grid-cols-2 gap-4">
-          <!-- Education Box -->
-          <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-5 font-sans text-white">
-            <h3 class="text-3xl font-extrabold mb-4 text-accent">Education</h3>
-            <p class="text-xl font-bold text-white">B.Sc. in Computer Science</p>
-            <p class="text-gray-300 text-base font-medium">
-              <span class="font-semibold text-white">Florida International University</span>, June 2022 - Present
-            </p>
-            <p class="text-gray-200 text-sm font-bold mt-1">GPA: 3.5</p>
-            <ul class="mt-6 list-disc list-inside space-y-3 text-sm text-gray-300">
-              <li>
-                Active member of <span class="text-accent font-semibold">INIT</span>, 
-                <span class="text-accent font-semibold">Society of Professional Hispanic Engineers (SHPE)</span>, and 
-                <span class="text-accent font-semibold">WiCS</span>.
-              </li>
-              <li>3-time <span class="text-accent font-semibold">ShellHacks</span> team leader.</li>
-              <li>Consecutive <span class="text-accent font-semibold">Dean's List</span> awardee.</li>
-            </ul>
-          </div>
-
-          <!-- Skills and Expertise Box -->
-          <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-5 font-sans text-white">
-            <h3 class="text-3xl font-extrabold mb-4 text-accent">Skills and Expertise</h3>
-            <ul class="mt-6 list-disc list-inside space-y-3 text-sm text-gray-300">
-              <li>
-                <span class="text-white font-semibold">Programming Languages:</span> Java, C, HTML/CSS
-              </li>
-              <li>
-                <span class="text-white font-semibold">Web Development:</span> React, Tailwind CSS, Node.js
-              </li>
-              <li>
-                <span class="text-white font-semibold">Databases:</span> MySQL, MongoDB, PostgreSQL
-              </li>
-              <li>
-                <span class="text-white font-semibold">Tools and Technologies:</span> Git/Github, AWS, JavaFX, 
-              </li>
-            </ul>
-          </div>
+    <main class="grid grid-cols-6 gap-4 py-10 z-10 relative h-[calc(100%-5rem)]">
+      <!-- Info Box -->
+      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center">
+        <h2 class="text-6xl font-bold text-transparent">
+          <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
+          <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
+        </h2>
+        <p class="mt-6 text-xl text-gray-300 font-medium leading-relaxed">
+          A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites.
+          Always finding new ways to approach problems and learn with others.
+        </p>
+        <div class="mt-8 flex space-x-6 text-lg font-bold text-white">
+          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="hover:underline">Resume</a>
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:underline">LinkedIn</a>
+          <a href="https://github.com/kvnfrr" target="_blank" class="hover:underline">GitHub</a>
         </div>
       </div>
 
-      <!-- Right Content -->
-      <div class="col-span-2 flex flex-col gap-4 h-full">
-        <!-- Photo Section -->
-        <div class="bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-[60%]">
-          <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
-        </div>
-
-        <!-- Contact Section -->
-        <div class="bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-8 flex flex-col items-center relative font-sans h-[40%]">
-          <!-- Asterisk in the Top-Left Corner -->
-          <img
-            src="/asterisk-icon.png"
-            alt="Asterisk"
-            class="absolute top-[-10px] left-[-10px] w-6 h-6"
-            draggable="false"
-          />
-
-          <!-- Title -->
-          <h3 class="text-2xl font-bold text-white mb-4">Contact Me</h3>
-
-          <!-- Email -->
-          <p class="text-gray-300 mb-6">kevinferrercs@gmail.com</p>
-
-          <!-- Contact Buttons -->
-          <div class="flex items-center space-x-4">
-            <!-- Resume Button -->
-            <button
-              class="flex items-center justify-center bg-accent text-white py-1.5 px-4 rounded-lg hover:bg-accent/90 focus:outline-none font-medium"
-            >
-              <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center">
-                <img src="download-icon.png" alt="Download" class="w-4 h-4 mr-2" />
-                Resume
-              </a>
-            </button>
-
-            <!-- LinkedIn Button -->
-            <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:opacity-80">
-              <img src="/linkedin-icon.png" alt="LinkedIn" class="w-7 h-7" />
-            </a>
-
-            <!-- GitHub Button -->
-            <a href="https://github.com/kvnfrr" target="_blank" class="hover:opacity-80">
-              <img src="/github-icon.png" alt="GitHub" class="w-7 h-7" />
-            </a>
-          </div>
-        </div>
+      <!-- Picture Box -->
+      <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full">
+        <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
       </div>
-    </main>    
+    </main>
+
+    <!-- Scroll to Learn More -->
+    <div class="absolute bottom-12 w-full text-center text-gray-400 font-sans text-lg tracking-widest">
+      <span class="text-accent text-xl">*</span> SCROLL TO LEARN MORE
+    </div>
   </div>
 </div>
 
