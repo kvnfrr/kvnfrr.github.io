@@ -37,17 +37,17 @@
         </p>
         <div class="mt-8 flex items-center space-x-4 text-lg font-bold">
           <!-- Resume Button -->
-          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-accent/90 transition-colors duration-300 focus:outline-none">
+          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-[#a63517] transition-colors duration-300 focus:outline-none">
             Resume
           </a>
 
           <!-- LinkedIn Button -->
-          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:opacity-80 flex items-center justify-center text-black rounded-lg w-8 h-8">
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
             <img src="/linkedin-icon.png" alt="LinkedIn" class="w-8 h-8" />
           </a>
 
           <!-- GitHub Button -->
-          <a href="https://github.com/kvnfrr" target="_blank" class="hover:opacity-80 flex items-center justify-center text-black rounded-lg w-8 h-8">
+          <a href="https://github.com/kvnfrr" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
             <img src="/github-icon.png" alt="GitHub" class="w-8 h-8" />
           </a>
         </div>
@@ -75,23 +75,22 @@
     background-repeat: no-repeat;
   }
 
-.particles {
-  background: url('/particles.png');
-  background-size: 15%; /* Make the particle background tile seamlessly */
-  animation: floatParticles 70s linear infinite; /* Adjusted duration for smoother animation */
-  opacity: 0.006;
-  z-index: 1;
-}
-
-@keyframes floatParticles {
-  from {
-    background-position: 0% 0%;
+  .particles {
+    background: url('/particles.png');
+    background-size: 15%; /* Make the particle background tile seamlessly */
+    animation: floatParticles 70s linear infinite; /* Adjusted duration for smoother animation */
+    opacity: 0.009;
+    z-index: 1;
   }
-  to {
-    background-position: 100% 100%; /* Continuous diagonal movement */
-  }
-}
 
+  @keyframes floatParticles {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 100% 100%; /* Continuous diagonal movement */
+    }
+  }
 
   @keyframes rotateAsterisk {
     0%, 100% {
@@ -107,6 +106,18 @@
   }
 
   .bg-accent {
-    background-color: #e94b27; /* Adjust this to match your accent color */
+    background-color: #d64423; /* Adjust this to match your accent color */
+  }
+
+  .hover\:bg-\[\#a63517\]:hover {
+    background-color: #8b2d13; /* Darker accent color for hover effect */
+  }
+
+  a {
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  }
+
+  .hover\:bg-gray-700:hover {
+    background-color: #4a4a4a; /* Dark gray for GitHub and LinkedIn buttons on hover */
   }
 </style>
