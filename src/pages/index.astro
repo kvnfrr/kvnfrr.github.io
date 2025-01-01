@@ -1,5 +1,8 @@
-<div class="h-screen bg-cover bg-center">
-  <div class="max-w-screen-2xl mx-auto px-24 h-full relative">
+<div class="h-screen bg-cover bg-center relative">
+  <!-- Particle Effect -->
+  <div class="particles absolute inset-0 pointer-events-none"></div>
+
+  <div class="mx-auto px-20 h-full relative">
     <!-- Header -->
     <header class="flex flex-col z-10 relative">
       <!-- Top Row: Brand and Navigation -->
@@ -8,23 +11,22 @@
         <h1 class="text-3xl font-bold flex items-center font-sans">
           <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
         </h1>
-    
+
         <!-- Navigation -->
         <nav class="flex space-x-8 font-medium font-sans">
           <a href="#about" class="relative text-lg text-white hover:text-white transition-colors duration-300">About</a>
           <a href="#projects" class="relative text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
         </nav>
       </div>
-    
-      <!-- Horizontal Line -->
-      <div class="border-t-[2px] border-[rgba(255,255,255,0.5)] mt-2"></div>
     </header>
-    
+
+    <!-- Horizontal Line -->
+    <div class="border-t-[2px] border-[rgba(255,255,255,0.5)]"></div>
 
     <!-- Main Content -->
-    <main class="grid grid-cols-6 gap-4 py-10 z-10 relative h-[calc(100%-5rem)]">
+    <main class="grid grid-cols-6 gap-4 py-5 z-10 relative h-[calc(100%-10rem)]">
       <!-- Info Box -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center">
+      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center border-glow">
         <h2 class="text-6xl font-bold text-transparent">
           <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
           <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
@@ -33,31 +35,78 @@
           A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites.
           Always finding new ways to approach problems and learn with others.
         </p>
-        <div class="mt-8 flex space-x-6 text-lg font-bold text-white">
-          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="hover:underline">Resume</a>
-          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:underline">LinkedIn</a>
-          <a href="https://github.com/kvnfrr" target="_blank" class="hover:underline">GitHub</a>
+        <div class="mt-8 flex items-center space-x-4 text-lg font-bold">
+          <!-- Resume Button -->
+          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-accent/90 transition-colors duration-300 focus:outline-none">
+            Resume
+          </a>
+
+          <!-- LinkedIn Button -->
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:opacity-80 flex items-center justify-center text-black rounded-lg w-8 h-8">
+            <img src="/linkedin-icon.png" alt="LinkedIn" class="w-8 h-8" />
+          </a>
+
+          <!-- GitHub Button -->
+          <a href="https://github.com/kvnfrr" target="_blank" class="hover:opacity-80 flex items-center justify-center text-black rounded-lg w-8 h-8">
+            <img src="/github-icon.png" alt="GitHub" class="w-8 h-8" />
+          </a>
         </div>
       </div>
 
       <!-- Picture Box -->
-      <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full">
+      <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full border-glow">
         <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
       </div>
     </main>
 
     <!-- Scroll to Learn More -->
-    <div class="absolute bottom-12 w-full text-center text-gray-400 font-sans text-lg tracking-widest">
-      <span class="text-accent text-xl">*</span> SCROLL TO LEARN MORE
+    <div class="absolute bottom-12 w-full text-center text-gray-400 font-sans text-lg tracking-[0.3em]">
+      <img src="/asterisk-icon.png" alt="Asterisk" class="inline-block w-5 h-5 mr-2 align-middle rotate-asterisk" draggable="false" />
+      <span>SCROLL TO LEARN MORE</span>
     </div>
   </div>
 </div>
 
 <style>
   .h-screen {
-    background-image: url('./background.png');
+    background-image: url('./background.png'); /* Existing PNG background */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+.particles {
+  background: url('/particles.png');
+  background-size: 15%; /* Make the particle background tile seamlessly */
+  animation: floatParticles 70s linear infinite; /* Adjusted duration for smoother animation */
+  opacity: 0.006;
+  z-index: 1;
+}
+
+@keyframes floatParticles {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 100%; /* Continuous diagonal movement */
+  }
+}
+
+
+  @keyframes rotateAsterisk {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(15deg);
+    }
+  }
+
+  .rotate-asterisk {
+    animation: rotateAsterisk 4s ease-in-out infinite;
+  }
+
+  .bg-accent {
+    background-color: #e94b27; /* Adjust this to match your accent color */
   }
 </style>
