@@ -1,4 +1,4 @@
-<div class="h-screen bg-black relative">
+<div class="h-screen bg-black relative" id="about">
   <!-- Particle Effect -->
   <div class="particles absolute inset-0 pointer-events-none z-0"></div>
 
@@ -8,18 +8,16 @@
   <div class="mx-auto px-20 h-full relative z-10">
     <!-- Header -->
     <header class="flex flex-col z-20 relative">
-      <!-- Top Row: Brand and Navigation -->
       <div class="flex items-center justify-between h-[5rem] bg-transparent">
         <!-- Brand Name -->
         <h1 class="text-3xl font-bold flex items-center font-sans">
           <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
         </h1>
-
         <!-- Navigation -->
         <nav class="flex space-x-8 font-medium font-sans">
-          <a href="#about" class="relative text-lg text-white hover:text-white transition-colors duration-300">About</a>
-          <a href="#skills" class="relative text-lg text-white hover:text-white transition-colors duration-300">Skills</a>
-          <a href="#projects" class="relative text-lg text-white hover:text-white transition-colors duration-300">Projects</a>
+          <a href="#about" class="text-lg text-white hover:text-white transition-colors duration-300">About</a>
+          <a href="#skills" class="text-lg text-white hover:text-white transition-colors duration-300">Skills</a>
+          <a href="#experience" class="text-lg text-white hover:text-white transition-colors duration-300">Experience</a>
         </nav>
       </div>
     </header>
@@ -28,7 +26,7 @@
     <div class="border-t-[2px] border-[rgba(255,255,255,0.5)]"></div>
 
     <!-- Main Content -->
-    <main class="grid grid-cols-6 gap-4 py-5 z-20 relative h-[calc(100%-10rem)]" id="about">
+    <main class="grid grid-cols-6 gap-4 py-5 z-20 relative h-[calc(100%-10rem)]">
       <!-- Info Box -->
       <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center border-glow">
         <h2 class="text-6xl font-bold text-transparent">
@@ -36,21 +34,13 @@
           <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
         </h2>
         <p class="mt-6 text-xl text-gray-300 font-medium leading-relaxed">
-          A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites.
-          Always finding new ways to approach problems and learn with others.
+          A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites. Always finding new ways to approach problems and learn with others.
         </p>
         <div class="mt-8 flex items-center space-x-4 text-lg font-bold">
-          <!-- Resume Button -->
-          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-[#a63517] transition-colors duration-300 focus:outline-none">
-            Resume
-          </a>
-
-          <!-- LinkedIn Button -->
+          <a href="/resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-[#a63517] transition-colors duration-300 focus:outline-none">Resume</a>
           <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
             <img src="/linkedin-icon.png" alt="LinkedIn" class="w-8 h-8" />
           </a>
-
-          <!-- GitHub Button -->
           <a href="https://github.com/kvnfrr" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
             <img src="/github-icon.png" alt="GitHub" class="w-8 h-8" />
           </a>
@@ -71,6 +61,7 @@
   </div>
 </div>
 
+<!-- Skills Section -->
 <div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t-[2px] border-[rgba(255,255,255,0.5)]" id="skills">
   <h2 class="text-4xl font-bold text-accent mb-6">Skills</h2>
   <div class="container mx-auto grid grid-cols-3 gap-6">
@@ -79,9 +70,7 @@
       <div>
         <img src="/react-logo.png" alt="react-logo" class="w-12 h-12 mx-auto mb-4" />
         <h3 class="text-2xl font-bold text-accent mb-2">Frontend Development</h3>
-        <p class="text-sm text-gray-300">
-          Skilled in HTML, CSS, React, Tailwind CSS, and building dynamic and responsive user interfaces.
-        </p>
+        <p class="text-sm text-gray-300">Skilled in HTML, CSS, React, Tailwind CSS, and building dynamic and responsive user interfaces.</p>
       </div>
       <div class="relative mt-8">
         <img src="/frontend-project.png" alt="Frontend Project" class="w-full h-48 object-cover rounded-md border border-[rgba(255,255,255,0.3)]" />
@@ -100,9 +89,7 @@
       <div>
         <img src="/c-logo.png" alt="c-logo" class="w-12 h-12 mx-auto mb-4" />
         <h3 class="text-2xl font-bold text-accent mb-2">Backend Development</h3>
-        <p class="text-sm text-gray-300">
-          Experienced with Java, C, and robust backend systems for scalable and high-performing applications.
-        </p>
+        <p class="text-sm text-gray-300">Experienced with Java, C, and robust backend systems for scalable and high-performing applications.</p>
       </div>
       <div class="relative mt-8">
         <img src="/backend-project.png" alt="Backend Project" class="w-full h-48 object-cover rounded-md border border-[rgba(255,255,255,0.3)]" />
@@ -121,9 +108,7 @@
       <div>
         <img src="/tools-icon.png" alt="tools-icon" class="w-12 h-12 mx-auto mb-4" />
         <h3 class="text-2xl font-bold text-accent mb-2">Tools and Platforms</h3>
-        <p class="text-sm text-gray-300">
-          Add a description for your third area of expertise here.
-        </p>
+        <p class="text-sm text-gray-300">Add a description for your third area of expertise here.</p>
       </div>
       <div class="relative mt-8">
         <img src="/tools-project.png" alt="Tools Project" class="w-full h-48 object-cover rounded-md border border-[rgba(255,255,255,0.3)]" />
@@ -134,6 +119,80 @@
       <div class="mt-4 flex items-center justify-center">
         <img src="/asterisk-icon.png" alt="Asterisk" class="w-5 h-5 mr-2" />
         <p class="text-white font-bold text-lg">Featured Project</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Experience Section -->
+<div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t-[2px] border-[rgba(255,255,255,0.5)] relative" id="experience">
+  <!-- Particle Effect -->
+  <div class="absolute inset-0 pointer-events-none z-0 particles"></div>
+
+  <!-- Mirrored Background -->
+  <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('/background.png'); transform: scaleX(-1);"></div>
+
+  <!-- Experience Content -->
+  <div class="container mx-auto px-10 grid gap-6 z-10 relative">
+    <h2 class="text-4xl font-bold text-accent mb-6 text-center">Professional Experience</h2>
+
+    <!-- Job 1 -->
+    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-bold text-accent">Geographic Information SWE Intern (GIS)</h3>
+        <span class="text-sm text-gray-400">September 2024 - December 2024</span>
+      </div>
+      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
+        <!-- Location -->
+        <span class="flex items-center">
+          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
+          Coral Gables, Florida
+        </span>
+        <!-- Company -->
+        <span class="flex items-center">
+          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
+          City of Coral Gables
+        </span>
+      </div>
+      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
+        <li>Implemented real-time phone call transcription scripts in Java, reducing troubleshooting time by 30%.</li>
+        <li>Resolved 50+ support tickets by troubleshooting hardware/software issues for county workers.</li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Java</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Lua</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Linux</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">VOIP</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">AI</span>
+      </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-bold text-accent">Technology Education Volunteer</h3>
+        <span class="text-sm text-gray-400">June 2019 - August 2019</span>
+      </div>
+      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
+        <!-- Location -->
+        <span class="flex items-center">
+          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
+          Miami, Florida
+        </span>
+        <!-- Company -->
+        <span class="flex items-center">
+          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
+          Miami-Dade Public Schools
+        </span>
+      </div>
+      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
+        <li>Delivered engaging presentations on the importance of technology to 20-40 elementary students.</li>
+        <li>Facilitated workshops to enhance students' tech literacy and practical understanding of technology.</li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Public Speaking</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Teaching</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Communication</span>
       </div>
     </div>
   </div>
@@ -159,13 +218,12 @@
     background-image: url('/background.png');
     background-size: cover;
     background-position: center;
-    z-index: 0;
     opacity: 1;
     transition: opacity 2s ease-in-out;
   }
 
-  .background-image.loaded {
-    opacity: 1;
+  .background-image.mirrored {
+    transform: scaleX(-1);
   }
 
   @keyframes floatParticles {
@@ -177,10 +235,6 @@
     }
   }
 
-  .rotate-asterisk {
-    animation: rotateAsterisk 4s ease-in-out infinite;
-  }
-
   .bg-accent {
     background-color: #d64423;
   }
@@ -188,25 +242,14 @@
   .hover\:bg-[#a63517]:hover {
     background-color: #8b2d13;
   }
-
-  a {
-    transition: all 0.3s ease-in-out;
-  }
-
-  .hover\:bg-gray-700:hover {
-    background-color: #4a4a4a;
-  }
-
-  #skills {
-    padding-top: 6rem;
-  }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const bgImage = document.querySelector(".background-image");
-    if (bgImage) {
-      bgImage.classList.add("loaded");
-    }
+    const aboutBg = document.querySelector("#about .background-image");
+    const expBg = document.querySelector("#experience .background-image");
+
+    if (aboutBg) aboutBg.style.opacity = "1";
+    if (expBg) expBg.classList.add("mirrored");
   });
 </script>
