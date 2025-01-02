@@ -6,21 +6,23 @@
   <div class="background-image absolute inset-0 bg-cover bg-center z-0 opacity-100 transition-opacity duration-2000"></div>
 
   <div class="mx-auto px-20 h-full relative z-10">
-    <!-- Header -->
-    <header class="flex flex-col z-20 relative">
-      <div class="flex items-center justify-between h-[5rem] bg-transparent">
-        <!-- Brand Name -->
-        <h1 class="text-3xl font-bold flex items-center font-sans">
-          <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
-        </h1>
-        <!-- Navigation -->
-        <nav class="flex space-x-8 font-medium font-sans">
-          <a href="#about" class="text-lg text-white hover:text-white transition-colors duration-300">About</a>
-          <a href="#skills" class="text-lg text-white hover:text-white transition-colors duration-300">Skills</a>
-          <a href="#experience" class="text-lg text-white hover:text-white transition-colors duration-300">Experience</a>
-        </nav>
-      </div>
-    </header>
+
+<!-- Header -->
+<header class="flex flex-col z-20 relative bg-black/80 fixed top-0 left-0 w-full">
+  <div class="flex items-center justify-between h-[5rem] bg-transparent px-8">
+    <!-- Brand Name -->
+    <h1 class="text-3xl font-bold flex items-center font-sans">
+      <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
+    </h1>
+    <!-- Navigation -->
+    <nav class="flex space-x-8 font-medium font-sans">
+      <a href="#about" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="about">About</a>
+      <a href="#skills" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="skills">Skills</a>
+      <a href="#experience" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="experience">Experience</a>
+      <a href="#contact" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
     <!-- Horizontal Line -->
     <div class="border-t-[2px] border-[rgba(255,255,255,0.5)]"></div>
@@ -28,7 +30,7 @@
     <!-- Main Content -->
     <main class="grid grid-cols-6 gap-4 py-5 z-20 relative h-[calc(100%-10rem)]">
       <!-- Info Box -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center border-glow">
+      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center border-glow" id="about-reallign">
         <h2 class="text-6xl font-bold text-transparent">
           <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
           <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
@@ -48,7 +50,7 @@
       </div>
 
       <!-- Picture Box -->
-      <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full border-glow">
+      <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full border-glow" id="about-reallign">
         <img src="/src/assets/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
       </div>
     </main>
@@ -134,7 +136,7 @@
 
   <!-- Experience Content -->
   <div class="container mx-auto px-10 grid gap-6 z-10 relative">
-    <h2 class="text-4xl font-bold text-accent mb-6 text-center">Professional Experience</h2>
+    <h2 class="text-4xl font-bold text-accent mb-6 text-center" id="experience">Professional Experience</h2>
 
     <!-- Job 1 -->
     <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
@@ -218,6 +220,11 @@
 
 <!-- Styling for Contact Section -->
 <style>
+  
+#about-reallign{
+  margin-top: 5rem;
+}
+
   #contact {
     background-color: #121212;
     background-size: cover;
@@ -231,9 +238,27 @@
     color: #ffffff; /* Bright white for visibility */
     font-weight: 600; /* Bold for emphasis */
   }
+
+  #experience {
+    position: relative;
+    z-index: 1;
+  }
+
+  header {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+    z-index: 100;
+  }
+
+  .section-link.text-accent {
+    color: #d64423 !important;
+    font-weight: bold;
+  }
+
 </style>
 
-<!-- Smooth Scrolling Script -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // Smooth scrolling for navigation links
@@ -250,12 +275,28 @@
       });
     });
 
-    // Handle background effects
-    const aboutBg = document.querySelector("#about .background-image");
-    const expBg = document.querySelector("#experience .background-image");
+    // Highlight active section in navigation
+    const sections = document.querySelectorAll(".h-screen, #contact");
+    const navLinks = document.querySelectorAll(".section-link");
 
-    if (aboutBg) aboutBg.style.opacity = "1";
-    if (expBg) expBg.classList.add("mirrored");
+    window.addEventListener("scroll", () => {
+      let currentSection = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("text-accent");
+        if (link.dataset.section === currentSection) {
+          link.classList.add("text-accent");
+        }
+      });
+    });
   });
 </script>
 
