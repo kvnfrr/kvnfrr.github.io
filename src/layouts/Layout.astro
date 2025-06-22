@@ -1,26 +1,30 @@
 ---
-import './src/styles/global.css'
+export interface Props {
+  backgroundImage: string;
+}
+const { backgroundImage } = Astro.props;
+import '../styles/global.css';
 ---
 
-<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KVN Portfolio</title>
+    <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
+  </head>
+  <body class="relative min-h-screen bg-black text-white overflow-hidden">
+    <!-- Background -->
+    <img
+      src={backgroundImage}
+      alt=""
+      class="fixed top-0 left-0 w-screen h-screen object-cover blur brightness-50 z-[-1]"
+      style="object-position: center;"
+    />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- Page content -->
+    <main class="relative z-10">
+      <slot />
+    </main>
+  </body>
+</html>

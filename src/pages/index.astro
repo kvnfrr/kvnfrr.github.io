@@ -1,11 +1,89 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout backgroundImage="/bg-code.jpg">
+  <div x-data="{ section: 'about' }" class="flex">
+    <!-- Sidebar -->
+    <aside class="w-48 md:w-64 min-h-screen bg-black/60 backdrop-blur-sm p-6 flex flex-col justify-between border-r border-white/10 text-white">
+      <div>
+        <div class="text-2xl font-bold mb-8 tracking-tight">KVN</div>
+        <nav class="space-y-4">
+          <button
+            @click="section = 'about'"
+            class="group block text-left w-full transition text-gray-400 py-1"
+            :class="section === 'about' ? 'text-white font-semibold' : ''"
+          >
+            <span class="relative inline-block">
+              About
+              <span
+                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                :class="section === 'about' ? 'scale-x-100' : ''"
+              ></span>
+            </span>
+          </button>
+          <button
+            @click="section = 'experience'"
+            class="group block text-left w-full transition text-gray-400 py-1"
+            :class="section === 'experience' ? 'text-white font-semibold' : ''"
+          >
+            <span class="relative inline-block">
+              Experience
+              <span
+                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                :class="section === 'experience' ? 'scale-x-100' : ''"
+              ></span>
+            </span>
+          </button>
+          <button
+            @click="section = 'projects'"
+            class="group block text-left w-full transition text-gray-400 py-1"
+            :class="section === 'projects' ? 'text-white font-semibold' : ''"
+          >
+            <span class="relative inline-block">
+              Projects
+              <span
+                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                :class="section === 'projects' ? 'scale-x-100' : ''"
+              ></span>
+            </span>
+          </button>
+          <button
+            @click="section = 'contact'"
+            class="group block text-left w-full transition text-gray-400 py-1"
+            :class="section === 'contact' ? 'text-white font-semibold' : ''"
+          >
+            <span class="relative inline-block">
+              Contact
+              <span
+                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                :class="section === 'contact' ? 'scale-x-100' : ''"
+              ></span>
+            </span>
+          </button>
+        </nav>
+      </div>
+      <div class="text-xs text-gray-500">© 2025 KVN</div>
+    </aside>
+
+    <!-- Content Area -->
+    <div class="flex-1 p-6 overflow-auto text-white relative">
+      <div x-show="section === 'about'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
+        <h1 class="text-4xl font-bold mb-4">About</h1>
+        <p>About section content...</p>
+      </div>
+      <div x-show="section === 'experience'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
+        <h1 class="text-4xl font-bold mb-4">Experience</h1>
+        <p>Experience section content...</p>
+      </div>
+      <div x-show="section === 'projects'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
+        <h1 class="text-4xl font-bold mb-4">Projects</h1>
+        <p>Projects section content...</p>
+      </div>
+      <div x-show="section === 'contact'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
+        <h1 class="text-4xl font-bold mb-4">Contact</h1>
+        <p>Contact section content...</p>
+      </div>
+    </div>
+  </div>
 </Layout>
