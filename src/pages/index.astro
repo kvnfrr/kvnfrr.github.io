@@ -2,88 +2,63 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout backgroundImage="/bg-code.jpg">
-  <div x-data="{ section: 'about' }" class="flex">
-    <!-- Sidebar -->
-    <aside class="w-48 md:w-64 min-h-screen bg-black/60 backdrop-blur-sm p-6 flex flex-col justify-between border-r border-white/10 text-white">
-      <div>
-        <div class="text-2xl font-bold mb-8 tracking-tight">KVN</div>
-        <nav class="space-y-4">
-          <button
-            @click="section = 'about'"
-            class="group block text-left w-full transition text-gray-400 py-1"
-            :class="section === 'about' ? 'text-white font-semibold' : ''"
-          >
-            <span class="relative inline-block">
-              About
-              <span
-                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                :class="section === 'about' ? 'scale-x-100' : ''"
-              ></span>
-            </span>
-          </button>
-          <button
-            @click="section = 'experience'"
-            class="group block text-left w-full transition text-gray-400 py-1"
-            :class="section === 'experience' ? 'text-white font-semibold' : ''"
-          >
-            <span class="relative inline-block">
-              Experience
-              <span
-                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                :class="section === 'experience' ? 'scale-x-100' : ''"
-              ></span>
-            </span>
-          </button>
-          <button
-            @click="section = 'projects'"
-            class="group block text-left w-full transition text-gray-400 py-1"
-            :class="section === 'projects' ? 'text-white font-semibold' : ''"
-          >
-            <span class="relative inline-block">
-              Projects
-              <span
-                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                :class="section === 'projects' ? 'scale-x-100' : ''"
-              ></span>
-            </span>
-          </button>
-          <button
-            @click="section = 'contact'"
-            class="group block text-left w-full transition text-gray-400 py-1"
-            :class="section === 'contact' ? 'text-white font-semibold' : ''"
-          >
-            <span class="relative inline-block">
-              Contact
-              <span
-                class="absolute left-0 -bottom-0.5 h-0.5 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                :class="section === 'contact' ? 'scale-x-100' : ''"
-              ></span>
-            </span>
-          </button>
-        </nav>
-      </div>
-      <div class="text-xs text-gray-500">© 2025 KVN</div>
+<Layout>
+  <!-- Sidebar -->
+  <div slot="sidebar">
+    <aside class="w-48 bg-[#2d2d2d] fixed top-0 left-0 h-full flex flex-col py-6 gap-4 px-3">
+      <button class="flex items-center gap-3 px-3 py-2 bg-zinc-900 rounded hover:bg-zinc-800">
+        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+        <span class="text-sm">Home</span>
+      </button>
+      <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded hover:bg-zinc-700">
+        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+        <span class="text-sm">About</span>
+      </button>
+      <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded hover:bg-zinc-600">
+        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+        <span class="text-sm">Projects</span>
+      </button>
+      <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded hover:bg-zinc-600">
+        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+        <span class="text-sm">Contact</span>
+      </button>
     </aside>
+  </div>
 
-    <!-- Content Area -->
-    <div class="flex-1 p-6 overflow-auto text-white relative">
-      <div x-show="section === 'about'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
-        <h1 class="text-4xl font-bold mb-4">About</h1>
-        <p>About section content...</p>
+  <!-- Main content -->
+  <main class="ml-48 bg-[#181818] min-h-screen text-white relative">
+    <!-- Background banner -->
+    <div class="absolute top-0 left-0 w-full h-[380px] bg-cover bg-center border-b border-zinc-700" style="background-image: url('/bg.jpg'); z-index: 0;"></div>
+
+    <div class="px-8 pt-[18rem] pb-10 relative z-10">
+      <!-- Profile Card Container -->
+      <div class="max-w-4xl mx-auto bg-zinc-800/90 backdrop-blur-md border border-zinc-700 rounded-lg p-6 text-center">
+        <img
+          src="/profile-placeholder.jpg"
+          alt="Profile"
+          class="w-56 rounded-full border-2 border-zinc-700 mx-auto -mt-28 object-cover aspect-square shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+        />
+        <p class="text-zinc-300 mt-4 text-base">Hello, my name is</p>
+        <h1 class="text-4xl font-semibold mt-1 mb-1">firstName lastName</h1>
+        <p class="text-zinc-400 text-sm">Career</p>
+
+        <!-- Buttons -->
+        <div class="mt-5 flex justify-center gap-3">
+          <button class="bg-zinc-800 border border-zinc-600 px-4 py-2 rounded">Button #1</button>
+          <button class="bg-zinc-800 border border-zinc-600 px-4 py-2 rounded">Button #2</button>
+          <button class="bg-zinc-800 border border-zinc-600 px-4 py-2 rounded">Button #3</button>
+        </div>
       </div>
-      <div x-show="section === 'experience'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
-        <h1 class="text-4xl font-bold mb-4">Experience</h1>
-        <p>Experience section content...</p>
-      </div>
-      <div x-show="section === 'projects'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
-        <h1 class="text-4xl font-bold mb-4">Projects</h1>
-        <p>Projects section content...</p>
-      </div>
-      <div x-show="section === 'contact'" x-transition.opacity.duration.500ms class="absolute inset-0 p-6" x-cloak>
-        <h1 class="text-4xl font-bold mb-4">Contact</h1>
-        <p>Contact section content...</p>
+
+      <!-- Introduction -->
+      <div class="mt-16 max-w-4xl mx-auto">
+        <h2 class="text-xl font-semibold mb-2">Introduction</h2>
+        <p class="text-zinc-400">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+          velit nec nunc efficitur sodales. Sed facilisis dignissim tellus non
+          congue.
+        </p>
       </div>
     </div>
-  </div>
+  </main>
 </Layout>

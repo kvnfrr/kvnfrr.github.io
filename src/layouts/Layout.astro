@@ -1,30 +1,17 @@
 ---
-export interface Props {
-  backgroundImage: string;
-}
-const { backgroundImage } = Astro.props;
+// src/layouts/Layout.astro
 import '../styles/global.css';
 ---
 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KVN Portfolio</title>
-    <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
+    <title>Astro Profile Page</title>
   </head>
-  <body class="relative min-h-screen bg-black text-white overflow-hidden">
-    <!-- Background -->
-    <img
-      src={backgroundImage}
-      alt=""
-      class="fixed top-0 left-0 w-screen h-screen object-cover blur brightness-50 z-[-1]"
-      style="object-position: center;"
-    />
-
-    <!-- Page content -->
-    <main class="relative z-10">
-      <slot />
-    </main>
+  <body class="bg-zinc-900 text-white font-sans">
+    <slot name="sidebar" />
+    <slot />
   </body>
 </html>
