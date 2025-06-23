@@ -1,21 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { User, Folder, Mail } from 'lucide-react';
 ---
 
 <Layout>
   <!-- Sidebar -->
   <div slot="sidebar">
     <aside class="w-48 bg-[#2d2d2d] fixed top-0 left-0 h-full flex flex-col py-6 gap-4 px-3">
-      <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded transition-colors duration-200 transition-colors duration-200 hover:bg-zinc-500">
-        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+      <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded transition-colors duration-200 hover:bg-zinc-500">
+        <User className="w-6 h-6 text-zinc-400" />
         <span class="text-sm">About</span>
       </button>
             <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded transition-colors duration-200 hover:bg-zinc-600">
-        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+        <Folder className="w-6 h-6 text-zinc-400" />
         <span class="text-sm">Projects</span>
       </button>
       <button class="flex items-center gap-3 px-3 py-2 bg-zinc-700 rounded transition-colors duration-200 hover:bg-zinc-600">
-        <div class="w-6 h-6 bg-zinc-500 rounded"></div>
+        <Mail className="w-6 h-6 text-zinc-400" />
         <span class="text-sm">Contact</span>
       </button>
     </aside>
