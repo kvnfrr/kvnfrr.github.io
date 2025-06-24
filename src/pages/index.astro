@@ -9,15 +9,15 @@ import { User, Folder, Mail, Linkedin, Github, FileText, Feather } from 'lucide-
     <aside class="w-48 bg-[#262626] fixed top-0 left-0 h-full flex flex-col py-6 gap-4 px-3">
       <button class="flex items-center gap-3 px-3 py-2 rounded transition-colors duration-200 hover:bg-zinc-700 bg-zinc-700">
         <User className="w-6 h-6 text-zinc-400" />
-        <span class="text-sm">About</span>
+        <span class="text-base">About</span>
       </button>
       <button class="flex items-center gap-3 px-3 py-2 rounded transition-colors duration-200 hover:bg-zinc-700">
         <Folder className="w-6 h-6 text-zinc-400" />
-        <span class="text-sm">Projects</span>
+        <span class="text-base">Projects</span>
       </button>
       <button class="flex items-center gap-3 px-3 py-2 rounded transition-colors duration-200 hover:bg-zinc-700">
         <Mail className="w-6 h-6 text-zinc-400" />
-        <span class="text-sm">Contact</span>
+        <span class="text-base">Contact</span>
       </button>
     </aside>
   </div>
@@ -29,40 +29,40 @@ import { User, Folder, Mail, Linkedin, Github, FileText, Feather } from 'lucide-
 
     <div class="px-8 pt-[18rem] pb-10 relative z-10">
       <!-- Profile Card Container -->
-      <div class="max-w-6xl mx-auto bg-[#171716]/90 backdrop-blur-md border border-zinc-700 rounded-lg p-6 text-center">
+      <div class="max-w-6xl mx-auto bg-[#171716]/90 backdrop-blur-md border border-zinc-700 rounded-lg p-8 text-center">
         <img
           src="/profile-placeholder.jpg"
           alt="Profile"
           class="w-56 rounded-full border-2 border-zinc-700 mx-auto -mt-36 object-cover aspect-square shadow-[0_0_15px_rgba(255,255,255,0.1)]"
         />
-        <p class="text-zinc-300 mt-4 text-lg">Hello, my name is</p>
-        <h1 class="text-4xl font-semibold mt-1 mb-1">firstName lastName</h1>
-        <p class="text-zinc-400 text-base">Career</p>
+        <p class="text-zinc-300 mt-4 text-xl">Hello, my name is</p>
+        <h1 class="text-5xl font-semibold mt-1 mb-1">Kevin Ferrer</h1>
+        <p class="text-zinc-400 text-base">Software Developer driven by accessibility, and a love for open source.</p>
 
         <!-- Buttons -->
-        <div class="mt-5 flex justify-center gap-3">
-          <a href="https://www.linkedin.com" target="_blank" class="flex items-center justify-center gap-2 bg-zinc-800 border border-zinc-600 px-6 py-2 rounded transition-colors duration-200 hover:bg-white hover:text-black">
-            <Linkedin className="w-5 h-5 text-zinc-300 hover:text-black" />
-            <span class="font-medium">LinkedIn</span>
+        <div class="mt-6 flex justify-center gap-4">
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="flex items-center justify-center gap-2 bg-zinc-800 border border-zinc-600 px-6 py-3 rounded transition-colors duration-200 hover:bg-white hover:text-black">
+            <Linkedin className="w-6 h-6 text-zinc-300 hover:text-black" />
+            <span class="font-medium text-base">LinkedIn</span>
           </a>
-          <a href="https://www.github.com" target="_blank" class="flex items-center justify-center gap-2 bg-zinc-800 border border-zinc-600 px-6 py-2 rounded transition-colors duration-200 hover:bg-white hover:text-black">
-            <Github className="w-5 h-5 text-zinc-300 hover:text-black" />
-            <span class="font-medium">GitHub</span>
+          <a href="https://github.com/kvnfrr" target="_blank" class="flex items-center justify-center gap-2 bg-zinc-800 border border-zinc-600 px-6 py-3 rounded transition-colors duration-200 hover:bg-white hover:text-black">
+            <Github className="w-6 h-6 text-zinc-300 hover:text-black" />
+            <span class="font-medium text-base">GitHub</span>
           </a>
-          <a href="/resume.pdf" target="_blank" class="flex items-center justify-center gap-2 bg-zinc-800 border border-zinc-600 px-6 py-2 rounded transition-colors duration-200 hover:bg-white hover:text-black">
-            <FileText className="w-5 h-5 text-zinc-300 hover:text-black" />
-            <span class="font-medium">Resume</span>
+          <a href="/resume.pdf" target="_blank" class="flex items-center justify-center gap-2 bg-zinc-800 border border-zinc-600 px-6 py-3 rounded transition-colors duration-200 hover:bg-white hover:text-black">
+            <FileText className="w-6 h-6 text-zinc-300 hover:text-black" />
+            <span class="font-medium text-base">Resume</span>
           </a>
         </div>
       </div>
 
       <!-- Introduction -->
-      <div class="mt-16 max-w-6xl mx-auto">
-        <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
-          <Feather className="w-5 h-5 text-zinc-400" /> Introduction
+      <div class="mt-20 max-w-6xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-3 flex items-center gap-3">
+          <Feather className="w-6 h-6 text-zinc-400" /> Introduction
         </h2>
-        <p class="text-zinc-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at velit nec nunc efficitur sodales. Sed facilisis dignissim tellus non congue. Proin tristique imperdiet lacus, sed tristique justo gravida a. In ut justo nec arcu suscipit porta a ut purus. Suspendisse congue ex at luctus pretium. Vivamus tempor libero sit amet lectus pretium convallis. Ut eget sapien velit. Aenean sed facilisis erat.
+        <p class="text-zinc-400 text-lg">
+          Hi, I'm Kevin Ferrer — a software developer passionate about open source and experienced in cloud architecture and DevOps workflows. I'm currently pursuing a degree in Computer Science at Florida International University, where I’ve combined academic learning with hands-on contributions to real-world codebases. Whether collaborating on open source projects or optimizing infrastructure, I enjoy solving complex problems and building tools that scale.
         </p>
       </div>
     </div>
