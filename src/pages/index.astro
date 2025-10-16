@@ -1,366 +1,306 @@
-<div class="h-screen bg-black relative" id="about">
-  <!-- Particle Effect -->
-  <div class="particles absolute inset-0 pointer-events-none z-0"></div>
+---
+// If you use Astro components/layouts, import them here.
+// Example: import Layout from "@/layouts/BaseLayout.astro";
+// For a standalone file, this works as index.astro content.
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kevin Ferrer – Software Engineer</title>
+    <meta name="description" content="Portfolio of Kevin Ferrer, a Software Engineer experienced in Java, C, and modern web development." />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="min-h-screen bg-black text-white font-sans">
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[1000] bg-accent text-white px-3 py-2 rounded">Skip to content</a>
 
-  <!-- Fading Background Image -->
-  <div class="background-image absolute inset-0 bg-cover bg-center z-0 opacity-100 transition-opacity duration-2000"></div>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur border-b border-white/10">
+      <div class="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
+        <a href="#about" class="text-3xl font-bold flex items-center focus:outline-none focus:ring-2 focus:ring-accent rounded">
+          <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
+        </a>
+        <nav aria-label="Primary" class="flex items-center gap-8">
+          <a href="#about" class="text-lg section-link" data-section="about">About</a>
+          <a href="#skills" class="text-lg section-link" data-section="skills">Skills</a>
+          <a href="#experience" class="text-lg section-link" data-section="experience">Experience</a>
+          <a href="#contact" class="text-lg section-link" data-section="contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <div class="mx-auto px-20 h-full relative z-10">
+    <!-- Main -->
+    <main id="main" class="pt-10">
+      <!-- About Section -->
+<section id="about" class="section relative h-[90vh]">
+  <!-- Background layers -->
+  <div class="particles absolute inset-0 pointer-events-none z-0" aria-hidden="true"></div>
+  <div class="background-image absolute inset-0 bg-cover bg-center z-0 opacity-100 transition-opacity duration-[2000ms]" aria-hidden="true"></div>
 
-<!-- Header -->
-<header class="flex flex-col z-20 relative bg-black/80 fixed top-0 left-0 w-full">
-  <div class="flex items-center justify-between h-[5rem] bg-transparent px-8">
-    <!-- Brand Name -->
-    <h1 class="text-3xl font-bold flex items-center font-sans">
-      <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
-    </h1>
-    <!-- Navigation -->
-    <nav class="flex space-x-8 font-medium font-sans">
-      <a href="#about" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="about">About</a>
-      <a href="#skills" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="skills">Skills</a>
-      <a href="#experience" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="experience">Experience</a>
-      <a href="#contact" class="text-lg text-white hover:text-white transition-colors duration-300 section-link" data-section="contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-    <!-- Horizontal Line -->
-    <div class="border-t-[2px] border-[rgba(255,255,255,0.5)]"></div>
-
-    <!-- Main Content -->
-    <main class="grid grid-cols-6 gap-4 py-5 z-20 relative h-[calc(100%-10rem)]">
-      <!-- Info Box -->
-      <div class="col-span-4 bg-black/20 rounded-lg border border-[rgba(255,255,255,0.5)] p-12 font-sans h-full flex flex-col justify-center border-glow" id="about-reallign">
-        <h2 class="text-6xl font-bold text-transparent">
-          <span style="text-stroke: 1px white; -webkit-text-stroke: 1px white;">Hi, I'm</span>
-          <span class="text-white">Kevin</span> <span class="text-accent">Ferrer</span>
-        </h2>
+  <div class="mx-auto max-w-[1750px] px-3 md:px-5 h-full relative z-10">
+    <div class="grid grid-cols-12 gap-4 lg:gap-6 items-center h-full">
+      <!-- LEFT: Wide info panel (≈ ~68–70%) -->
+      <div class="col-span-12 md:col-span-8 lg:col-span-8 bg-white/5 rounded-lg border border-white/40 p-8 md:p-10 lg:p-12 flex flex-col justify-center border-glow h-[70vh]">
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+          <span class="text-transparent [text-stroke:1px_white] [-webkit-text-stroke:1px_white]">Hi, I'm</span>
+          <span class="text-white"> Kevin</span> <span class="text-accent">Ferrer</span>
+        </h1>
         <p class="mt-6 text-xl text-gray-300 font-medium leading-relaxed">
-          A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites. Always finding new ways to approach problems and learn with others.
+          A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites.
+          Always finding new ways to approach problems and learn with others.
         </p>
-        <div class="mt-8 flex items-center space-x-4 text-lg font-bold">
-          <a href="/KevinFerrer_Resume.pdf" download="Kevin_Ferrer_Resume" class="flex items-center justify-center bg-accent text-white py-1 px-6 rounded-lg hover:bg-[#a63517] transition-colors duration-300 focus:outline-none">Resume</a>
-          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
-            <img src="/linkedin-icon.png" alt="LinkedIn" class="w-8 h-8" />
+        <div class="mt-8 flex items-center gap-4 text-lg font-bold">
+          <a href="/KevinFerrer_Resume.pdf" download="Kevin_Ferrer_Resume" class="inline-flex items-center justify-center bg-accent text-white py-2 px-6 rounded-lg hover:opacity-90 transition" aria-label="Download resume">Resume</a>
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" rel="noopener noreferrer" class="hover:bg-gray-800 inline-flex items-center justify-center text-white rounded-lg w-10 h-10 transition" aria-label="LinkedIn">
+            <img src="/linkedin-icon.png" alt="LinkedIn logo" class="w-8 h-8" loading="lazy" decoding="async" />
           </a>
-          <a href="https://github.com/kvnfrr" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
-            <img src="/github-icon.png" alt="GitHub" class="w-8 h-8" />
+          <a href="https://github.com/kvnfrr" target="_blank" rel="noopener noreferrer" class="hover:bg-gray-800 inline-flex items-center justify-center text-white rounded-lg w-10 h-10 transition" aria-label="GitHub">
+            <img src="/github-icon.png" alt="GitHub logo" class="w-8 h-8" loading="lazy" decoding="async" />
           </a>
         </div>
       </div>
 
-      <!-- Picture Box -->
-      <div class="col-span-2 bg-transparent rounded-lg border border-[rgba(255,255,255,0.5)] overflow-hidden h-full border-glow" id="about-reallign">
-        <img src="/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" draggable="false" />
+      <!-- RIGHT: Wider portrait (≈ ~30–32%) -->
+      <div class="col-span-12 md:col-span-4 lg:col-span-4 rounded-lg border border-white/40 overflow-hidden border-glow h-[70vh]">
+        <img
+          src="/photo.jpg"
+          alt="Portrait of Kevin Ferrer"
+          class="w-full h-full object-cover object-center select-none"
+          draggable="false"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
-    </main>
+    </div>
 
-    <!-- Scroll to Learn More -->
-    <div class="absolute bottom-12 flex items-center text-gray-400 font-sans text-lg tracking-[0.3em]">
-      <img src="/asterisk-icon.png" alt="Asterisk" class="inline-block w-5 h-5 mr-2 align-middle rotate-asterisk" draggable="false" />
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-6 flex items-center text-gray-400 text-lg tracking-[0.3em]">
+      <img src="/asterisk-icon.png" alt="Asterisk decorative" class="inline-block w-5 h-5 mr-2 rotate-asterisk select-none" draggable="false" loading="lazy" decoding="async" />
       <span>SCROLL TO LEARN MORE</span>
     </div>
   </div>
-</div>
+</section>
 
-<!-- Skills Section -->
-<div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t-[2px] border-[rgba(255,255,255,0.5)]" id="skills">
-  <h2 class="text-4xl font-bold text-accent mb-6">Skills</h2>
-  <div class="container mx-auto grid grid-cols-3 gap-6">
-    <!-- Frontend Development Box -->
-    <div class="bg-black/30 rounded-lg p-8 text-center border border-[rgba(255,255,255,0.5)] flex flex-col justify-between">
-      <div>
-        <img src="/react-logo.png" alt="react-logo" class="w-12 h-12 mx-auto mb-4" />
-        <h3 class="text-2xl font-bold text-accent mb-2">Frontend Development</h3>
-        <p class="text-sm text-gray-300">Working experience with HTML, Tailwind CSS, React, Astro, and JavaScript to create modern and easy to use websites. </p>
-      </div>
-      <div class="relative mt-8">
-        <a href="https://github.com/kvnfrr/kvnfrr.github.io" target="_blank">
-        <img src="/frontend-project.png" alt="Frontend Project" class="w-full h-48 object-cover rounded-md border border-[rgba(255,255,255,0.3)]" />
-        <div class="absolute inset-0 bg-black/55 flex items-center justify-center rounded-md">
-          <p class="text-white font-bold text-lg">Website Portfolio</p>
+      <!-- Skills Section -->
+      <section id="skills" class="section h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t border-white/40">
+        <h2 class="text-4xl font-bold text-accent mb-6">Skills</h2>
+        <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+          <!-- Frontend Development Box -->
+          <article class="bg-white/5 rounded-lg p-8 text-center border border-white/40 flex flex-col justify-between">
+            <div>
+              <img src="/react-logo.png" alt="React logo" class="w-12 h-12 mx-auto mb-4" loading="lazy" decoding="async" />
+              <h3 class="text-2xl font-bold text-accent mb-2">Frontend Development</h3>
+              <p class="text-sm text-gray-300">Working experience with HTML, Tailwind CSS, React, Astro, and JavaScript to create modern and easy to use websites.</p>
+            </div>
+            <div class="relative mt-8">
+              <a href="https://github.com/kvnfrr/kvnfrr.github.io" target="_blank" rel="noopener noreferrer" class="group block rounded-md overflow-hidden border border-white/30">
+                <img src="/frontend-project.png" alt="Screenshot of website portfolio" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-black/55 grid place-items-center rounded-md">
+                  <p class="text-white font-bold text-lg">Website Portfolio</p>
+                </div>
+              </a>
+            </div>
+            <div class="mt-4 flex items-center justify-center">
+              <img src="/asterisk-icon.png" alt="Asterisk decorative" class="w-5 h-5 mr-2" loading="lazy" decoding="async" />
+              <p class="text-white font-bold text-lg">Featured Project</p>
+            </div>
+          </article>
+
+          <!-- Backend Development Box -->
+          <article class="bg-white/5 rounded-lg p-8 text-center border border-white/40 flex flex-col justify-between">
+            <div>
+              <img src="/c-logo.png" alt="C programming logo" class="w-12 h-12 mx-auto mb-4" loading="lazy" decoding="async" />
+              <h3 class="text-2xl font-bold text-accent mb-2">Backend Development</h3>
+              <p class="text-sm text-gray-300">Passionate backend developer with years of experience in Java and C to create high-performance applications.</p>
+            </div>
+            <div class="relative mt-8">
+              <a href="https://github.com/kvnfrr" target="_blank" rel="noopener noreferrer" class="group block rounded-md overflow-hidden border border-white/30">
+                <img src="/backend-project.png" alt="Screenshot of C Railcypher project" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-black/70 grid place-items-center rounded-md">
+                  <p class="text-white font-bold text-lg">C Railcypher Encryption/Decryption</p>
+                </div>
+              </a>
+            </div>
+            <div class="mt-4 flex items-center justify-center">
+              <img src="/asterisk-icon.png" alt="Asterisk decorative" class="w-5 h-5 mr-2" loading="lazy" decoding="async" />
+              <p class="text-white font-bold text-lg">Featured Project</p>
+            </div>
+          </article>
+
+          <!-- Tools and Platforms Box -->
+          <article class="bg-white/5 rounded-lg p-8 text-center border border-white/40 flex flex-col justify-between">
+            <div>
+              <img src="/tools-icon.png" alt="Tools icon" class="w-12 h-12 mx-auto mb-4" loading="lazy" decoding="async" />
+              <h3 class="text-2xl font-bold text-accent mb-2">Tools and Platforms</h3>
+              <p class="text-sm text-gray-300">Occasionally reinventing the wheel, but always eager to explore new AI algorithms and APIs to streamline work and drive innovation.</p>
+            </div>
+            <div class="relative mt-8">
+              <a href="https://github.com/kvnfrr/worldwide-recipe-finder" target="_blank" rel="noopener noreferrer" class="group block rounded-md overflow-hidden border border-white/30">
+                <img src="/tools-project.png" alt="Screenshot of AI-powered WorldWide Recipe Finder" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center rounded-md">
+                  <p class="text-white font-bold text-lg">AI-Powered</p>
+                  <p class="text-white font-bold text-lg">WorldWide Recipe Finder</p>
+                </div>
+              </a>
+            </div>
+            <div class="mt-4 flex items-center justify-center">
+              <img src="/asterisk-icon.png" alt="Asterisk decorative" class="w-5 h-5 mr-2" loading="lazy" decoding="async" />
+              <p class="text-white font-bold text-lg">Featured Project</p>
+            </div>
+          </article>
         </div>
-        </a>
-      </div>
-      <div class="mt-4 flex items-center justify-center">
-        <img src="/asterisk-icon.png" alt="Asterisk" class="w-5 h-5 mr-2" />
-        <p class="text-white font-bold text-lg">Featured Project</p>
-      </div>
-    </div>
+      </section>
 
-    <!-- Backend Development Box -->
-    <div class="bg-black/30 rounded-lg p-8 text-center border border-[rgba(255,255,255,0.5)] flex flex-col justify-between">
-      <div>
-        <img src="/c-logo.png" alt="c-logo" class="w-12 h-12 mx-auto mb-4" />
-        <h3 class="text-2xl font-bold text-accent mb-2">Backend Development</h3>
-        <p class="text-sm text-gray-300">Passionate backend developer with years of experience in Java and C to create high-performance applications.</p>
-      </div>
-      <div class="relative mt-8">
-        <a href="https://github.com/kvnfrr" target="_blank">
-        <img src="/backend-project.png" alt="Backend Project" class="w-full h-48 object-cover rounded-md border border-[rgba(255,255,255,0.3)]" />
-        <div class="absolute inset-0 bg-black/70 flex items-center justify-center rounded-md">
-          <p class="text-white font-bold text-lg">C Railcypher Encryption/Decryption</p>
+      <!-- Experience Section -->
+      <section id="experience" class="section relative h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t border-white/40">
+        <div class="absolute inset-0 pointer-events-none z-0 particles" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-cover bg-center z-0 [transform:scaleX(-1)] background-image" style="background-image:url('/background.png');" aria-hidden="true"></div>
+
+        <div class="container mx-auto px-6 grid gap-6 z-10 relative max-w-7xl">
+          <h2 class="text-4xl font-bold text-accent mb-6 text-center" id="experience-heading">Professional Experience</h2>
+
+          <!-- Job 1 -->
+          <article class="bg-zinc-800/90 rounded-lg p-6 border border-white/40">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-xl font-bold text-accent">Geographic Information SWE Intern (GIS)</h3>
+              <time class="text-sm text-gray-400" datetime="2024-09">September 2024 - December 2024</time>
+            </div>
+            <div class="mt-2 text-sm text-gray-300 flex flex-wrap items-center gap-4">
+              <span class="inline-flex items-center">
+                <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> Coral Gables, Florida
+              </span>
+              <span class="inline-flex items-center">
+                <img src="/building-icon.png" alt="Company" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> City of Coral Gables
+              </span>
+            </div>
+            <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm space-y-1">
+              <li>Implemented real-time phone call transcription scripts in Java, reducing troubleshooting time by 30%.</li>
+              <li>Resolved 50+ support tickets by troubleshooting hardware/software issues for county workers.</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Java</span>
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Lua</span>
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Linux</span>
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">VOIP</span>
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">AI</span>
+            </div>
+          </article>
+
+          <!-- Job 2 -->
+          <article class="bg-zinc-800/90 rounded-lg p-6 border border-white/40">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-xl font-bold text-accent">Technology Education Volunteer</h3>
+              <time class="text-sm text-gray-400" datetime="2019-06">June 2019 - August 2019</time>
+            </div>
+            <div class="mt-2 text-sm text-gray-300 flex flex-wrap items-center gap-4">
+              <span class="inline-flex items-center">
+                <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> Miami, Florida
+              </span>
+              <span class="inline-flex items-center">
+                <img src="/building-icon.png" alt="Company" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> Miami-Dade Public Schools
+              </span>
+            </div>
+            <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm space-y-1">
+              <li>Delivered engaging presentations on the importance of technology to 20-40 elementary students.</li>
+              <li>Facilitated workshops to enhance students' tech literacy and practical understanding of technology.</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Public Speaking</span>
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Teaching</span>
+              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Communication</span>
+            </div>
+          </article>
         </div>
-        </a>
-      </div>
-      <div class="mt-4 flex items-center justify-center">
-        <img src="/asterisk-icon.png" alt="Asterisk" class="w-5 h-5 mr-2" />
-        <p class="text-white font-bold text-lg">Featured Project</p>
-      </div>
-    </div>
+      </section>
 
-    <!-- Tools and Platforms Box -->
-    <div class="bg-black/30 rounded-lg p-8 text-center border border-[rgba(255,255,255,0.5)] flex flex-col justify-between">
-      <div>
-        <img src="/tools-icon.png" alt="tools-icon" class="w-12 h-12 mx-auto mb-4" />
-        <h3 class="text-2xl font-bold text-accent mb-2">Tools and Platforms</h3>
-        <p class="text-sm text-gray-300">Occasionally reinventing the wheel, but always eager to explore new AI algorithms and APIs to streamline work and drive innovation.</p>
-      </div>
-      <div class="relative mt-8">
-        <a href="https://github.com/kvnfrr/worldwide-recipe-finder" target="_blank">
-          <img src="/tools-project.png" alt="Tools Project" class="w-full h-48 object-cover rounded-md border border-[rgba(255,255,255,0.3)]" />
-          <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center rounded-md">
-            <p class="text-white font-bold text-lg">AI-Powered</p>
-            <p class="text-white font-bold text-lg">WorldWide Recipe Finder</p>
+      <!-- Contact Section -->
+      <section id="contact" class="section h-[33vh] bg-black/90 text-white grid place-items-center border-t border-white/40 text-center">
+        <div>
+          <h2 class="text-4xl font-bold text-accent mb-6">Contact Me</h2>
+          <p class="text-lg font-semibold mb-6">
+            <a href="mailto:kevinferrercs@gmail.com" class="underline underline-offset-4 hover:no-underline">kevinferrercs@gmail.com</a>
+          </p>
+          <div class="flex items-center justify-center gap-6">
+            <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" rel="noopener noreferrer" class="hover:bg-gray-800 inline-flex items-center justify-center text-white rounded-lg w-10 h-10 transition" aria-label="LinkedIn">
+              <img src="/linkedin-icon.png" alt="LinkedIn logo" class="w-8 h-8" loading="lazy" decoding="async" />
+            </a>
+            <a href="https://github.com/kvnfrr" target="_blank" rel="noopener noreferrer" class="hover:bg-gray-800 inline-flex items-center justify-center text-white rounded-lg w-10 h-10 transition" aria-label="GitHub">
+              <img src="/github-icon.png" alt="GitHub logo" class="w-8 h-8" loading="lazy" decoding="async" />
+            </a>
           </div>
-        </a>
-      </div>
-      <div class="mt-4 flex items-center justify-center">
-        <img src="/asterisk-icon.png" alt="Asterisk" class="w-5 h-5 mr-2" />
-        <p class="text-white font-bold text-lg">Featured Project</p>
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
+      </section>
+    </main>
 
-<!-- Experience Section -->
-<div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t-[2px] border-[rgba(255,255,255,0.5)] relative" id="experience">
-  <!-- Particle Effect -->
-  <div class="absolute inset-0 pointer-events-none z-0 particles"></div>
+    <!-- Styles -->
+    <style>
+      :root { color-scheme: dark; }
+      .bg-accent { background-color: #d64423; }
+      .text-accent { color: #d64423; }
+      .border-glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px rgba(214,68,35,0.08) inset; }
+      .rotate-asterisk { animation: rotate 10s linear infinite; }
+      @keyframes rotate { to { transform: rotate(360deg); } }
 
-  <!-- Mirrored Background -->
-  <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('/background.png'); transform: scaleX(-1);"></div>
+      .section { scroll-margin-top: 6rem; }
 
-  <!-- Experience Content -->
-  <div class="container mx-auto px-10 grid gap-6 z-10 relative">
-    <h2 class="text-4xl font-bold text-accent mb-6 text-center" id="experience">Professional Experience</h2>
+      .h-screen { background-color: #121212; background-size: cover; background-position: center; background-repeat: no-repeat; }
+      .particles { background: url('/particles.png'); background-size: 15%; animation: floatParticles 70s linear infinite; opacity: 0.06; z-index: 1; }
+      .background-image { background-image: url('/background.png'); background-size: cover; background-position: center; opacity: 1; transition: opacity 2s ease-in-out; }
+      @keyframes floatParticles { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
 
-    <!-- Job 1 -->
-    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
-      <div class="flex justify-between items-center">
-        <h3 class="text-xl font-bold text-accent">Geographic Information SWE Intern (GIS)</h3>
-        <span class="text-sm text-gray-400">September 2024 - December 2024</span>
-      </div>
-      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
-        <!-- Location -->
-        <span class="flex items-center">
-          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
-          Coral Gables, Florida
-        </span>
-        <!-- Company -->
-        <span class="flex items-center">
-          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
-          City of Coral Gables
-        </span>
-      </div>
-      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
-        <li>Implemented real-time phone call transcription scripts in Java, reducing troubleshooting time by 30%.</li>
-        <li>Resolved 50+ support tickets by troubleshooting hardware/software issues for county workers.</li>
-      </ul>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Java</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Lua</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Linux</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">VOIP</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">AI</span>
-      </div>
-    </div>
+      /* Active link */
+      .section-link { color: #fff; transition: color .2s ease; }
+      .section-link[aria-current="true"], .section-link.active { color: #d64423; font-weight: 700; }
 
-    <!-- Job 2 -->
-    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
-      <div class="flex justify-between items-center">
-        <h3 class="text-xl font-bold text-accent">Technology Education Volunteer</h3>
-        <span class="text-sm text-gray-400">June 2019 - August 2019</span>
-      </div>
-      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
-        <!-- Location -->
-        <span class="flex items-center">
-          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
-          Miami, Florida
-        </span>
-        <!-- Company -->
-        <span class="flex items-center">
-          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
-          Miami-Dade Public Schools
-        </span>
-      </div>
-      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
-        <li>Delivered engaging presentations on the importance of technology to 20-40 elementary students.</li>
-        <li>Facilitated workshops to enhance students' tech literacy and practical understanding of technology.</li>
-      </ul>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Public Speaking</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Teaching</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Communication</span>
-      </div>
-    </div>
-  </div>
-</div>
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        html:focus-within { scroll-behavior: auto; }
+        .rotate-asterisk { animation: none; }
+        .particles { animation: none; }
+      }
+    </style>
 
-<!-- Contact Section -->
-<div class="h-[33vh] bg-black/90 text-white flex flex-col items-center justify-center border-t-[2px] border-[rgba(255,255,255,0.5)]" id="contact">
-  <h2 class="text-4xl font-bold text-accent mb-6">Contact Me</h2>
-  <p class="text-lg text-white font-semibold mb-6">
-    kevinferrercs@gmail.com
-  </p>
-  <div class="flex space-x-6">
-    <!-- LinkedIn Button -->
-    <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
-      <img src="/linkedin-icon.png" alt="LinkedIn" class="w-8 h-8" />
-    </a>
-    <!-- GitHub Button -->
-    <a href="https://github.com/kvnfrr" target="_blank" class="hover:bg-gray-700 flex items-center justify-center text-black rounded-lg w-10 h-10 transition-colors duration-300">
-      <img src="/github-icon.png" alt="GitHub" class="w-8 h-8" />
-    </a>
-  </div>
-</div>
+    <!-- Scripts -->
+    <script>
+      // @ts-check
+      // IntersectionObserver to highlight active section and manage aria-current
+      /** @type {HTMLAnchorElement[]} */
+      const navLinks = Array.from(document.querySelectorAll('.section-link'));
+      /** @type {HTMLElement[]} */
+      const sections = Array.from(document.querySelectorAll('.section'));
 
-<!-- Styling for Contact Section -->
-<style>
-  
-#about-reallign{
-  margin-top: 5rem;
-}
+      /**
+       * Set active nav item by section id
+       * @param {string} id
+       * @returns {void}
+       */
+      const setActive = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') ?? '';
+          const match = href.replace('#','');
+          const isActive = match === id;
+          link.classList.toggle('active', isActive);
+          link.setAttribute('aria-current', isActive ? 'true' : 'false');
+        });
+      };
 
-  #contact {
-    background-color: #121212;
-    background-size: cover;
-    background-position: center;
-    padding: 4rem 2rem;
-    text-align: center;
-  }
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(/** @type {HTMLElement} */(entry.target).id);
+        }
+      }, { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0.2 });
 
-  #contact p {
-    font-size: 1.25rem; /* Large, clear font size */
-    color: #ffffff; /* Bright white for visibility */
-    font-weight: 600; /* Bold for emphasis */
-  }
+      sections.forEach((sec) => observer.observe(sec));
 
-  #experience {
-    position: relative;
-    z-index: 1;
-  }
-
-  header {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease;
-    z-index: 100;
-  }
-
-  .section-link.text-accent {
-    color: #d64423 !important;
-    font-weight: bold;
-  }
-
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll("nav a").forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
+      // Mirror experience background on load
+      document.addEventListener('DOMContentLoaded', () => {
+        const expBg = document.querySelector('#experience .background-image');
+        if (expBg instanceof HTMLElement) {
+          expBg.classList.add('mirrored');
         }
       });
-    });
-
-    // Highlight active section in navigation
-    const sections = document.querySelectorAll(".h-screen, #contact");
-    const navLinks = document.querySelectorAll(".section-link");
-
-    window.addEventListener("scroll", () => {
-      let currentSection = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-          currentSection = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("text-accent");
-        if (link.dataset.section === currentSection) {
-          link.classList.add("text-accent");
-        }
-      });
-    });
-  });
-</script>
-
-
-
-<style>
-  .h-screen {
-    background-color: #121212;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .particles {
-    background: url('/particles.png');
-    background-size: 15%;
-    animation: floatParticles 70s linear infinite;
-    opacity: 0.02;
-    z-index: 1;
-  }
-
-  .background-image {
-    background-image: url('/background.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 1;
-    transition: opacity 2s ease-in-out;
-  }
-
-  .background-image.mirrored {
-    transform: scaleX(-1);
-  }
-
-  @keyframes floatParticles {
-    from {
-      background-position: 0% 0%;
-    }
-    to {
-      background-position: 100% 100%;
-    }
-  }
-
-  .bg-accent {
-    background-color: #d64423;
-  }
-
-  .hover\:bg-[#a63517]:hover {
-    background-color: #8b2d13;
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const aboutBg = document.querySelector("#about .background-image");
-    const expBg = document.querySelector("#experience .background-image");
-
-    if (aboutBg) aboutBg.style.opacity = "1";
-    if (expBg) expBg.classList.add("mirrored");
-  });
-</script>
+    </script>
+  </body>
+</html>
