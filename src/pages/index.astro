@@ -153,67 +153,104 @@
         </div>
       </section>
 
-      <!-- Experience Section -->
-      <section id="experience" class="section relative h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t border-white/40">
-        <div class="absolute inset-0 pointer-events-none z-0 particles" aria-hidden="true"></div>
-        <div class="absolute inset-0 bg-cover bg-center z-0 [transform:scaleX(-1)] background-image" style="background-image:url('/background.png');" aria-hidden="true"></div>
+<!-- Experience Section -->
+<div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t-[2px] border-[rgba(255,255,255,0.5)] relative" id="experience">
+  <!-- Particle Effect -->
+  <div class="absolute inset-0 pointer-events-none z-0 particles"></div>
 
-        <div class="container mx-auto px-6 grid gap-6 z-10 relative max-w-7xl">
-          <h2 class="text-4xl font-bold text-accent mb-6 text-center" id="experience-heading">Professional Experience</h2>
+  <!-- Mirrored Background -->
+  <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('/background.png'); transform: scaleX(-1);"></div>
 
-          <!-- Job 1 -->
-          <article class="bg-zinc-800/90 rounded-lg p-6 border border-white/40">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <h3 class="text-xl font-bold text-accent">Geographic Information SWE Intern (GIS)</h3>
-              <time class="text-sm text-gray-400" datetime="2024-09">September 2024 - December 2024</time>
-            </div>
-            <div class="mt-2 text-sm text-gray-300 flex flex-wrap items-center gap-4">
-              <span class="inline-flex items-center">
-                <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> Coral Gables, Florida
-              </span>
-              <span class="inline-flex items-center">
-                <img src="/building-icon.png" alt="Company" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> City of Coral Gables
-              </span>
-            </div>
-            <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm space-y-1">
-              <li>Implemented real-time phone call transcription scripts in Java, reducing troubleshooting time by 30%.</li>
-              <li>Resolved 50+ support tickets by troubleshooting hardware/software issues for county workers.</li>
-            </ul>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Java</span>
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Lua</span>
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Linux</span>
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">VOIP</span>
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">AI</span>
-            </div>
-          </article>
+  <!-- Experience Content -->
+  <div class="container mx-auto px-10 grid gap-6 z-10 relative">
+    <h2 class="text-4xl font-bold text-accent mb-6 text-center">Professional Experience</h2>
 
-          <!-- Job 2 -->
-          <article class="bg-zinc-800/90 rounded-lg p-6 border border-white/40">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <h3 class="text-xl font-bold text-accent">Technology Education Volunteer</h3>
-              <time class="text-sm text-gray-400" datetime="2019-06">June 2019 - August 2019</time>
-            </div>
-            <div class="mt-2 text-sm text-gray-300 flex flex-wrap items-center gap-4">
-              <span class="inline-flex items-center">
-                <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> Miami, Florida
-              </span>
-              <span class="inline-flex items-center">
-                <img src="/building-icon.png" alt="Company" class="w-4 h-4 mr-1" loading="lazy" decoding="async" /> Miami-Dade Public Schools
-              </span>
-            </div>
-            <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm space-y-1">
-              <li>Delivered engaging presentations on the importance of technology to 20-40 elementary students.</li>
-              <li>Facilitated workshops to enhance students' tech literacy and practical understanding of technology.</li>
-            </ul>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Public Speaking</span>
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Teaching</span>
-              <span class="bg-zinc-900 text-white py-1 px-3 rounded-full text-xs">Communication</span>
-            </div>
-          </article>
-        </div>
-      </section>
+    <!-- Job 1 -->
+    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-bold text-accent">Cloud & DevOps Intern — BankUnited</h3>
+        <span class="text-sm text-gray-400">May 2025 – July 2025</span>
+      </div>
+      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
+        <span class="flex items-center">
+          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
+          Miami Lakes, Florida
+        </span>
+        <span class="flex items-center">
+          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
+          BankUnited
+        </span>
+      </div>
+      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
+        <li>Designed and deployed an event-driven EC2 monitoring pipeline using AWS EventBridge, SNS, and CloudWatch, automating alerts and reducing manual monitoring by 80%.</li>
+        <li>Validated production configs and disaster recovery with AWS Elastic DRS for 20+ critical workloads, improving reliability and compliance.</li>
+        <li>Contributed feedback in stand-ups and automation reviews across 5+ workflows to enhance reliability and efficiency.</li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">AWS</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">EventBridge</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">SNS</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">CloudWatch</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Elastic DRS</span>
+      </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-bold text-accent">GIS Intern (IT Support) — City of Coral Gables</h3>
+        <span class="text-sm text-gray-400">September 2024 – December 2024</span>
+      </div>
+      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
+        <span class="flex items-center">
+          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
+          Coral Gables, Florida
+        </span>
+        <span class="flex items-center">
+          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
+          City of Coral Gables
+        </span>
+      </div>
+      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
+        <li>Led a team of 3 to implement Python-based phone call transcription scripts, reducing troubleshooting time for non-native speakers by 30%.</li>
+        <li>Resolved 50+ hardware/software support tickets across departments, improving efficiency and uptime.</li>
+        <li>Documented internal troubleshooting workflows and supported onboarding of new interns, enhancing team knowledge sharing.</li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Python</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Automation</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">IT Support</span>
+      </div>
+    </div>
+
+    <!-- Job 3 -->
+    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-bold text-accent">Technology Education Volunteer</h3>
+        <span class="text-sm text-gray-400">June 2019 – August 2019</span>
+      </div>
+      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
+        <span class="flex items-center">
+          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
+          Miami, Florida
+        </span>
+        <span class="flex items-center">
+          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
+          Miami-Dade Public Schools
+        </span>
+      </div>
+      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
+        <li>Delivered presentations on technology’s importance to 20–40 elementary students.</li>
+        <li>Facilitated workshops to enhance tech literacy and understanding of digital tools.</li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Public Speaking</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Teaching</span>
+        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Communication</span>
+      </div>
+    </div>
+  </div>
+</div>
 
       <!-- Contact Section -->
       <section id="contact" class="section h-[33vh] bg-black/90 text-white grid place-items-center border-t border-white/40 text-center">
