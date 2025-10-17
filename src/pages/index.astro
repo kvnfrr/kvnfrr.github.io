@@ -1,371 +1,194 @@
 ---
-// If you use Astro components/layouts, import them here.
-// Example: import Layout from "@/layouts/BaseLayout.astro";
-// For a standalone file, this works as index.astro content.
+// index.astro (from-scratch homepage)
+const stacks = [
+  "AWS","Java","C","Docker","Git/GitHub","PostgreSQL","Spring Boot","Node.js","React","Astro","Tailwind"
+];
 ---
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kevin Ferrer – Software Engineer</title>
-    <meta name="description" content="Portfolio of Kevin Ferrer, a Software Engineer experienced in Java, C, and modern web development." />
-    <link rel="icon" href="/favicon.ico" />
+    <title>kvnfrr — Software Developer</title>
   </head>
-  <body class="min-h-screen bg-black text-white font-sans">
-    <!-- Skip link for accessibility -->
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[1000] bg-accent text-white px-3 py-2 rounded">Skip to content</a>
-
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-        <a href="#about" class="text-3xl font-bold flex items-center focus:outline-none focus:ring-2 focus:ring-accent rounded">
-          <span class="text-white">Kevin</span><span class="text-accent">.cs</span>
+  <body class="min-h-full bg-[#0f1011] text-white antialiased">
+    <!-- Top Bar -->
+    <header class="px-6 md:px-8">
+      <div class="mx-auto max-w-[1380px] rounded-2xl bg-[#131516] border border-white/10 mt-6 p-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#home" class="font-semibold tracking-wide text-2xl">
+          <span class="text-white">kvn</span><span class="text-sky-400">frr</span>
         </a>
-        <nav aria-label="Primary" class="flex items-center gap-8">
-          <a href="#about" class="text-lg section-link" data-section="about">About</a>
-          <a href="#skills" class="text-lg section-link" data-section="skills">Skills</a>
-          <a href="#experience" class="text-lg section-link" data-section="experience">Experience</a>
-          <a href="#contact" class="text-lg section-link" data-section="contact">Contact</a>
+
+        <!-- Nav -->
+        <nav aria-label="Primary">
+          <ul class="flex gap-3 md:gap-4">
+            <!-- Active example (HOME) -->
+            <li>
+              <a href="#home" aria-current="page"
+                 class="flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 text-sky-400">
+                <!-- Home icon -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-10.5z"/></svg>
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 hover:text-sky-300">
+                <!-- Paper (about) -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path stroke-width="2" d="M14 3v5h5"/></svg>
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">About</span>
+              </a>
+            </li>
+            <li>
+              <a href="#skills" class="flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 hover:text-sky-300">
+                <!-- Sparkles -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.1 4.9L19 9l-4.9 2.1L12 16l-2.1-4.9L5 9l4.9-2.1L12 2zM4 18l1.1 2.6L8 22l-2.6 1.1L4 26l-1.1-2.6L0 22l2.6-1.4L4 18zm16 0 1.1 2.6L24 22l-2.6 1.1L20 26l-1.1-2.6L16 22l2.6-1.4L20 18z"/></svg>
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">Skills</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 hover:text-sky-300">
+                <!-- Layers -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="m12 2 9 5-9 5-9-5 9-5z"/><path stroke-width="2" d="m3 12 9 5 9-5"/><path stroke-width="2" d="m3 17 9 5 9-5"/></svg>
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="#experience" class="flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 hover:text-sky-300">
+                <!-- Briefcase -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><rect width="20" height="14" x="2" y="7" rx="2"/><path stroke-width="2" d="M2 12h20"/></svg>
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">Experience</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 hover:text-sky-300">
+                <!-- Mail -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path stroke-width="2" d="m22 6-10 7L2 6"/></svg>
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">Contact</span>
+              </a>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
 
     <!-- Main -->
-    <main id="main" class="pt-10">
-      <!-- About Section -->
-<section id="about" class="section relative h-[90vh]">
-  <!-- Background layers -->
-  <div class="particles absolute inset-0 pointer-events-none z-0" aria-hidden="true"></div>
-  <div class="background-image absolute inset-0 bg-cover bg-center z-0 opacity-100 transition-opacity duration-[2000ms]" aria-hidden="true"></div>
+    <main id="home" class="px-6 md:px-8">
+      <div class="mx-auto max-w-[1380px]">
+        <!-- Hero Grid -->
+        <section class="mt-6 grid grid-cols-12 gap-6">
+          <!-- Left big card -->
+          <article class="col-span-12 lg:col-span-8 rounded-2xl bg-[#131516] border border-white/10 p-8 md:p-12 relative">
+            <button class="absolute right-6 top-6 text-sky-400/90" aria-label="Edit">
+              <!-- pen icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 20h9"/><path stroke-width="2" d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            </button>
 
-  <div class="mx-auto max-w-[1750px] px-3 md:px-5 h-full relative z-10">
-    <div class="grid grid-cols-12 gap-4 lg:gap-6 items-center h-full">
-      <!-- LEFT: Wide info panel (≈ ~68–70%) -->
-      <div class="col-span-12 md:col-span-8 lg:col-span-8 bg-white/5 rounded-lg border border-white/40 p-8 md:p-10 lg:p-12 flex flex-col justify-center border-glow h-[70vh]">
-        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-          <span class="text-transparent [text-stroke:1px_white] [-webkit-text-stroke:1px_white]">Hi, I'm</span>
-          <span class="text-white"> Kevin</span> <span class="text-accent">Ferrer</span>
-        </h1>
-        <p class="mt-6 text-xl text-gray-300 font-medium leading-relaxed">
-          A <span class="font-bold text-white">Software Engineer</span> with experience in Java, C, and building modern websites.
-          Always finding new ways to approach problems and learn with others.
-        </p>
-        <div class="mt-8 flex items-center gap-4 text-lg font-bold">
-          <a href="/KevinFerrer_Resume.pdf" download="Kevin_Ferrer_Resume" class="inline-flex items-center justify-center bg-accent text-white py-2 px-6 rounded-lg hover:opacity-90 transition" aria-label="Download resume">Resume</a>
-          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" rel="noopener noreferrer" class="hover:bg-gray-800 inline-flex items-center justify-center text-white rounded-lg w-10 h-10 transition" aria-label="LinkedIn">
-            <img src="/linkedin-icon.png" alt="LinkedIn logo" class="w-8 h-8" loading="lazy" decoding="async" />
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">SOFTWARE DEVELOPER</h1>
+            <h2 class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight">TEXT</h2>
+            <p class="mt-6 max-w-3xl text-zinc-300">
+              Super Cool Description Super Cool Description Super Cool Description Super Cool Description
+              Super Cool Description Super Cool Description
+            </p>
+
+            <!-- Tech stack ribbon -->
+            <div class="mt-8 overflow-hidden rounded-xl bg-black/40 border border-white/10">
+              <div class="marquee flex gap-8 py-3 pl-6 pr-12 whitespace-nowrap">
+                {Array.from({ length: 3 }).map((_, loopIdx) => (
+                  <div class="flex items-center gap-8" aria-hidden={loopIdx > 0 ? "true" : "false"}>
+                    {stacks.map((s, i) => (
+                      <span class="text-sm tracking-wide text-zinc-100/90" >
+                        {s}{i < stacks.length ? " •" : ""}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </article>
+
+          <!-- Right photo card -->
+          <aside class="col-span-12 lg:col-span-4 rounded-2xl bg-[#131516] border border-white/10 overflow-hidden">
+            <img src="/photo.jpg" alt="Kevin Ferrer" class="w-full aspect-[4/5] object-cover" />
+            <div class="p-4">
+              <p class="font-semibold">ESTATEIN REAL ESTATE</p>
+              <p class="text-zinc-400 text-sm">Web Development.</p>
+            </div>
+          </aside>
+        </section>
+
+        <!-- Social row -->
+        <section class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <!-- Email -->
+          <a href="mailto:kevinferrer.dev@gmail.com" target="_blank" rel="noopener noreferrer"
+             class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40">
+            <span class="text-zinc-400 text-xs tracking-widest">EMAIL</span>
+            <!-- envelope (accent) -->
+            <svg class="w-10 h-10 text-sky-400 group-hover:text-sky-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="2"/><path d="M3 7.5 12 13l9-5.5" stroke-width="2"/></svg>
           </a>
-          <a href="https://github.com/kvnfrr" target="_blank" rel="noopener noreferrer" class="hover:bg-gray-800 inline-flex items-center justify-center text-white rounded-lg w-10 h-10 transition" aria-label="GitHub">
-            <img src="/github-icon.png" alt="GitHub logo" class="w-8 h-8" loading="lazy" decoding="async" />
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/kevinferrercs/" target="_blank" rel="noopener noreferrer"
+             class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40">
+            <span class="text-zinc-400 text-xs tracking-widest">LINKEDIN</span>
+            <!-- LinkedIn mark -->
+            <svg class="w-10 h-10 text-sky-400 group-hover:text-sky-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.45 20.45h-3.56v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.69H9.3v-11.5h3.41v1.57h.05c.47-.89 1.62-1.82 3.33-1.82 3.56 0 4.22 2.34 4.22 5.38v6.37ZM5.34 7.38a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V8.95h3.57v11.5Z"/>
+            </svg>
           </a>
-        </div>
+
+          <!-- Handshake -->
+          <a href="https://app.joinhandshake.com/" target="_blank" rel="noopener noreferrer"
+             class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40">
+            <span class="text-zinc-400 text-xs tracking-widest">HANDSHAKE</span>
+            <!-- handshake glyph -->
+            <svg class="w-10 h-10 text-sky-400 group-hover:text-sky-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-width="2" d="M8 12 3 7l3-3 5 5m3 3 5-5 3 3-5 5m-6-1 3 3a2 2 0 0 0 3 0l3-3m-6-6-3-3a2 2 0 0 0-3 0L3 8"/>
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/kvnfrr" target="_blank" rel="noopener noreferrer"
+             class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40">
+            <span class="text-zinc-400 text-xs tracking-widest">GITHUB</span>
+            <!-- GitHub mark -->
+            <svg class="w-10 h-10 text-sky-400 group-hover:text-sky-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 .5C5.7.5.9 5.28.9 11.55c0 4.86 3.15 8.97 7.52 10.42.55.1.75-.24.75-.53v-1.97c-3.06.67-3.7-1.29-3.7-1.29-.5-1.24-1.22-1.58-1.22-1.58-.99-.67.07-.66.07-.66 1.1.08 1.68 1.15 1.68 1.15 1.0 1.7 2.63 1.21 3.27.93.1-.7.4-1.22.73-1.5-2.44-.28-5-1.22-5-5.43 0-1.2.43-2.18 1.15-2.95-.12-.29-.52-1.4.11-2.92 0 0 .98-.31 3.22 1.2.93-.26 1.92-.4 2.91-.4.99 0 1.98.14 2.91.4 2.24-1.51 3.21-1.2 3.21-1.2.63 1.52.23 2.63.11 2.92.72.77 1.15 1.75 1.15 2.95 0 4.22-2.57 5.14-5.02 5.41.41.35.79 1.04.79 2.1v3.06c0 .29.19.64.75.53 4.36-1.45 7.51-5.56 7.51-10.42C23.1 5.28 18.3.5 12 .5Z"/>
+            </svg>
+          </a>
+
+          <!-- Resume -->
+          <a href="/KevinFerrer_Resume.pdf" target="_blank" rel="noopener noreferrer"
+             class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40">
+            <span class="text-zinc-400 text-xs tracking-widest">RESUME</span>
+            <!-- file-text -->
+            <svg class="w-10 h-10 text-sky-400 group-hover:text-sky-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-width="2" d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path stroke-width="2" d="M14 2v5h5"/><path stroke-width="2" d="M9 13h6M9 17h6M9 9h2"/>
+            </svg>
+          </a>
+        </section>
       </div>
 
-      <!-- RIGHT: Wider portrait (≈ ~30–32%) -->
-      <div class="col-span-12 md:col-span-4 lg:col-span-4 rounded-lg border border-white/40 overflow-hidden border-glow h-[70vh]">
-        <img
-          src="/photo.jpg"
-          alt="Portrait of Kevin Ferrer"
-          class="w-full h-full object-cover object-center select-none"
-          draggable="false"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-    </div>
+      <!-- Placeholder sections for anchors -->
+      <section id="about" class="h-24"></section>
+      <section id="skills" class="h-24"></section>
+      <section id="projects" class="h-24"></section>
+      <section id="experience" class="h-24"></section>
+      <section id="contact" class="h-24"></section>
+    </main>
 
-    <!-- Scroll hint -->
-    <div class="absolute bottom-8 left-6 flex items-center text-gray-400 text-lg tracking-[0.3em]">
-      <img src="/asterisk-icon.png" alt="Asterisk decorative" class="inline-block w-5 h-5 mr-2 rotate-asterisk select-none" draggable="false" loading="lazy" decoding="async" />
-      <span>SCROLL TO LEARN MORE</span>
-    </div>
-  </div>
-</section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="section h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t border-white/40">
-        <h2 class="text-4xl font-bold text-accent mb-6">Skills</h2>
-        <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
-          <!-- Frontend Development Box -->
-          <article class="bg-white/5 rounded-lg p-8 text-center border border-white/40 flex flex-col justify-between">
-            <div>
-              <img src="/react-logo.png" alt="React logo" class="w-12 h-12 mx-auto mb-4" loading="lazy" decoding="async" />
-              <h3 class="text-2xl font-bold text-accent mb-2">Frontend Development</h3>
-              <p class="text-sm text-gray-300">Working experience with HTML, Tailwind CSS, React, Astro, and JavaScript to create modern and easy to use websites.</p>
-            </div>
-            <div class="relative mt-8">
-              <a href="https://github.com/kvnfrr/kvnfrr.github.io" target="_blank" rel="noopener noreferrer" class="group block rounded-md overflow-hidden border border-white/30">
-                <img src="/frontend-project.png" alt="Screenshot of website portfolio" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
-                <div class="absolute inset-0 bg-black/55 grid place-items-center rounded-md">
-                  <p class="text-white font-bold text-lg">Website Portfolio</p>
-                </div>
-              </a>
-            </div>
-            <div class="mt-4 flex items-center justify-center">
-              <img src="/asterisk-icon.png" alt="Asterisk decorative" class="w-5 h-5 mr-2" loading="lazy" decoding="async" />
-              <p class="text-white font-bold text-lg">Featured Project</p>
-            </div>
-          </article>
-
-          <!-- Backend Development Box -->
-          <article class="bg-white/5 rounded-lg p-8 text-center border border-white/40 flex flex-col justify-between">
-            <div>
-              <img src="/c-logo.png" alt="C programming logo" class="w-12 h-12 mx-auto mb-4" loading="lazy" decoding="async" />
-              <h3 class="text-2xl font-bold text-accent mb-2">Backend Development</h3>
-              <p class="text-sm text-gray-300">Passionate backend developer with years of experience in Java and C to create high-performance applications.</p>
-            </div>
-            <div class="relative mt-8">
-              <a href="https://github.com/kvnfrr" target="_blank" rel="noopener noreferrer" class="group block rounded-md overflow-hidden border border-white/30">
-                <img src="/backend-project.png" alt="Screenshot of C Railcypher project" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
-                <div class="absolute inset-0 bg-black/70 grid place-items-center rounded-md">
-                  <p class="text-white font-bold text-lg">C Railcypher Encryption/Decryption</p>
-                </div>
-              </a>
-            </div>
-            <div class="mt-4 flex items-center justify-center">
-              <img src="/asterisk-icon.png" alt="Asterisk decorative" class="w-5 h-5 mr-2" loading="lazy" decoding="async" />
-              <p class="text-white font-bold text-lg">Featured Project</p>
-            </div>
-          </article>
-
-          <!-- Tools and Platforms Box -->
-          <article class="bg-white/5 rounded-lg p-8 text-center border border-white/40 flex flex-col justify-between">
-            <div>
-              <img src="/tools-icon.png" alt="Tools icon" class="w-12 h-12 mx-auto mb-4" loading="lazy" decoding="async" />
-              <h3 class="text-2xl font-bold text-accent mb-2">Tools and Platforms</h3>
-              <p class="text-sm text-gray-300">Occasionally reinventing the wheel, but always eager to explore new AI algorithms and APIs to streamline work and drive innovation.</p>
-            </div>
-            <div class="relative mt-8">
-              <a href="https://github.com/kvnfrr/worldwide-recipe-finder" target="_blank" rel="noopener noreferrer" class="group block rounded-md overflow-hidden border border-white/30">
-                <img src="/tools-project.png" alt="Screenshot of AI-powered WorldWide Recipe Finder" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
-                <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center rounded-md">
-                  <p class="text-white font-bold text-lg">AI-Powered</p>
-                  <p class="text-white font-bold text-lg">WorldWide Recipe Finder</p>
-                </div>
-              </a>
-            </div>
-            <div class="mt-4 flex items-center justify-center">
-              <img src="/asterisk-icon.png" alt="Asterisk decorative" class="w-5 h-5 mr-2" loading="lazy" decoding="async" />
-              <p class="text-white font-bold text-lg">Featured Project</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-<!-- Experience Section -->
-<div class="h-screen bg-black/90 text-white flex flex-col items-center justify-start pt-24 border-t-[2px] border-[rgba(255,255,255,0.5)] relative" id="experience">
-  <!-- Particle Effect -->
-  <div class="absolute inset-0 pointer-events-none z-0 particles"></div>
-
-  <!-- Mirrored Background -->
-  <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('/background.png'); transform: scaleX(-1);"></div>
-
-  <!-- Experience Content -->
-  <div class="container mx-auto px-10 grid gap-6 z-10 relative">
-    <h2 class="text-4xl font-bold text-accent mb-6 text-center">Professional Experience</h2>
-
-    <!-- Job 1 -->
-    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
-      <div class="flex justify-between items-center">
-        <h3 class="text-xl font-bold text-accent">Cloud & DevOps Intern — BankUnited</h3>
-        <span class="text-sm text-gray-400">May 2025 – July 2025</span>
-      </div>
-      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
-        <span class="flex items-center">
-          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
-          Miami Lakes, Florida
-        </span>
-        <span class="flex items-center">
-          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
-          BankUnited
-        </span>
-      </div>
-      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
-        <li>Designed and deployed an event-driven EC2 monitoring pipeline using AWS EventBridge, SNS, and CloudWatch, automating alerts and reducing manual monitoring by 80%.</li>
-        <li>Validated production configs and disaster recovery with AWS Elastic DRS for 20+ critical workloads, improving reliability and compliance.</li>
-        <li>Contributed feedback in stand-ups and automation reviews across 5+ workflows to enhance reliability and efficiency.</li>
-      </ul>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">AWS</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">EventBridge</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">SNS</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">CloudWatch</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Elastic DRS</span>
-      </div>
-    </div>
-
-    <!-- Job 2 -->
-    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
-      <div class="flex justify-between items-center">
-        <h3 class="text-xl font-bold text-accent">GIS Intern (IT Support) — City of Coral Gables</h3>
-        <span class="text-sm text-gray-400">September 2024 – December 2024</span>
-      </div>
-      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
-        <span class="flex items-center">
-          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
-          Coral Gables, Florida
-        </span>
-        <span class="flex items-center">
-          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
-          City of Coral Gables
-        </span>
-      </div>
-      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
-        <li>Led a team of 3 to implement Python-based phone call transcription scripts, reducing troubleshooting time for non-native speakers by 30%.</li>
-        <li>Resolved 50+ hardware/software support tickets across departments, improving efficiency and uptime.</li>
-        <li>Documented internal troubleshooting workflows and supported onboarding of new interns, enhancing team knowledge sharing.</li>
-      </ul>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Python</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Automation</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">IT Support</span>
-      </div>
-    </div>
-
-    <!-- Job 3 -->
-    <div class="bg-[#27272a]/90 rounded-lg p-6 border border-[rgba(255,255,255,0.5)]">
-      <div class="flex justify-between items-center">
-        <h3 class="text-xl font-bold text-accent">Technology Education Volunteer</h3>
-        <span class="text-sm text-gray-400">June 2019 – August 2019</span>
-      </div>
-      <div class="mt-2 text-sm text-gray-300 flex items-center space-x-4">
-        <span class="flex items-center">
-          <img src="/location-icon.png" alt="Location" class="w-4 h-4 mr-1" />
-          Miami, Florida
-        </span>
-        <span class="flex items-center">
-          <img src="/building-icon.png" alt="Building" class="w-4 h-4 mr-1" />
-          Miami-Dade Public Schools
-        </span>
-      </div>
-      <ul class="list-disc mt-4 pl-5 text-gray-300 text-sm">
-        <li>Delivered presentations on technology’s importance to 20–40 elementary students.</li>
-        <li>Facilitated workshops to enhance tech literacy and understanding of digital tools.</li>
-      </ul>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Public Speaking</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Teaching</span>
-        <span class="bg-[#1f1f1f] text-white py-1 px-3 rounded-full text-xs">Communication</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Contact Section -->
-<section id="contact" class="bg-zinc-900 section relative py-12 text-center border-t border-white/40">
-  <div class="relative z-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-accent mb-4">Contact Me</h2>
-
-    <!-- Email -->
-    <a
-      href="mailto:kevinferrercs@gmail.com"
-      class="text-white font-semibold hover:text-accent transition-colors duration-200"
-    >
-      kevinferrercs@gmail.com
-    </a>
-
-    <!-- Social Links -->
-    <div class="flex justify-center items-center gap-6 mt-6">
-      <a
-        href="https://www.linkedin.com/in/kevinferrercs/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-        class="hover:text-accent transition-colors duration-200"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
-          <path
-            d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.77 0 5-2.24 5-5v-14c0-2.76-2.23-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.3h-3v-5.5c0-1.32-.02-3.02-1.84-3.02-1.85 0-2.13 1.44-2.13 2.93v5.59h-3v-10h2.88v1.37h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.58z"
-          />
-        </svg>
-      </a>
-
-      <a
-        href="https://github.com/kvnfrr"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-        class="hover:text-accent transition-colors duration-200"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
-          <path
-            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.998.108-.776.418-1.305.762-1.604-2.665-.305-5.466-1.334-5.466-5.931 0-1.311.469-2.382 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.48 11.48 0 013.003-.404c1.018.005 2.044.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.839 1.235 1.91 1.235 3.221 0 4.61-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222v3.293c0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"
-          />
-        </svg>
-      </a>
-    </div>
-  </div>
-</section>
-</main>
-
-    <!-- Styles -->
+    <!-- Styles for marquee + polish -->
     <style>
-      :root { color-scheme: dark; }
-      .bg-accent { background-color: #d64423; }
-      .text-accent { color: #d64423; }
-      .border-glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px rgba(214,68,35,0.08) inset; }
-      .rotate-asterisk { animation: rotate 10s linear infinite; }
-      @keyframes rotate { to { transform: rotate(360deg); } }
-
-      .section { scroll-margin-top: 6rem; }
-
-      .h-screen { background-color: #121212; background-size: cover; background-position: center; background-repeat: no-repeat; }
-      .particles { background: url('/particles.png'); background-size: 15%; animation: floatParticles 70s linear infinite; opacity: 0.06; z-index: 1; }
-      .background-image { background-image: url('/background.png'); background-size: cover; background-position: center; opacity: 1; transition: opacity 2s ease-in-out; }
-      @keyframes floatParticles { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
-
-      /* Active link */
-      .section-link { color: #fff; transition: color .2s ease; }
-      .section-link[aria-current="true"], .section-link.active { color: #d64423; font-weight: 700; }
-
-      /* Reduced motion */
-      @media (prefers-reduced-motion: reduce) {
-        html:focus-within { scroll-behavior: auto; }
-        .rotate-asterisk { animation: none; }
-        .particles { animation: none; }
+      @keyframes marquee-x {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .marquee {
+        animation: marquee-x 24s linear infinite;
+        will-change: transform;
+        mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
       }
     </style>
-
-    <!-- Scripts -->
-    <script>
-      // @ts-check
-      // IntersectionObserver to highlight active section and manage aria-current
-      /** @type {HTMLAnchorElement[]} */
-      const navLinks = Array.from(document.querySelectorAll('.section-link'));
-      /** @type {HTMLElement[]} */
-      const sections = Array.from(document.querySelectorAll('.section'));
-
-      /**
-       * Set active nav item by section id
-       * @param {string} id
-       * @returns {void}
-       */
-      const setActive = (id) => {
-        navLinks.forEach((link) => {
-          const href = link.getAttribute('href') ?? '';
-          const match = href.replace('#','');
-          const isActive = match === id;
-          link.classList.toggle('active', isActive);
-          link.setAttribute('aria-current', isActive ? 'true' : 'false');
-        });
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(/** @type {HTMLElement} */(entry.target).id);
-        }
-      }, { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0.2 });
-
-      sections.forEach((sec) => observer.observe(sec));
-
-      // Mirror experience background on load
-      document.addEventListener('DOMContentLoaded', () => {
-        const expBg = document.querySelector('#experience .background-image');
-        if (expBg instanceof HTMLElement) {
-          expBg.classList.add('mirrored');
-        }
-      });
-    </script>
   </body>
 </html>
