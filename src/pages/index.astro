@@ -89,20 +89,6 @@ const stacks = [
               Super Cool Description Super Cool Description Super Cool Description Super Cool Description
               Super Cool Description Super Cool Description
             </p>
-
-          <!-- Tech stack ribbon -->
-          <div class="tech-ribbon mt-8 overflow-hidden rounded-xl bg-black/40 border border-white/10">
-            <div class="tech-ribbon__track">
-              <!-- copy #1 -->
-              <ul class="tech-ribbon__seq" aria-hidden="false">
-                {stacks.map((s) => <li class="tech-ribbon__item">{s}</li>)}
-              </ul>
-              <!-- copy #2 -->
-              <ul class="tech-ribbon__seq" aria-hidden="true">
-                {stacks.map((s) => <li class="tech-ribbon__item">{s}</li>)}
-              </ul>
-            </div>
-          </div>
         </article>
 
           <!-- Right photo card -->
@@ -187,70 +173,7 @@ const stacks = [
         mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
         -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
       }
-
-/* === Tech ribbon (scoped) === */
-@keyframes tech-ribbon-scroll {
-  to { transform: translateX(-50%); }
-}
-
-.tech-ribbon {
-  position: relative;
-  isolation: isolate;            /* contain fades */
-}
-
-.tech-ribbon__track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: tech-ribbon-scroll 26s linear infinite;
-  will-change: transform;
-}
-
-.tech-ribbon__seq {
-  display: inline-flex;
-  gap: 2rem;
-  padding: 0.75rem 1.5rem;
-  flex: 0 0 auto;
-}
-
-.tech-ribbon__item {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: .2px;
-  flex: 0 0 auto;
-  position: relative;
-}
-.tech-ribbon__item::after {
-  content: " •";
-  margin-left: .6rem;
-  color: rgba(255,255,255,0.55);
-}
-
-/* Edge fades (pseudo elements on the container) */
-.tech-ribbon::before,
-.tech-ribbon::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 60px;
-  pointer-events: none;
-  z-index: 2;
-}
-.tech-ribbon::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(19,21,22,1) 0%, rgba(19,21,22,0) 100%);
-}
-.tech-ribbon::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(19,21,22,1) 0%, rgba(19,21,22,0) 100%);
-}
-
-/* Optional tighter spacing on small screens */
-@media (max-width: 640px){
-  .tech-ribbon__seq { gap: 1.25rem; padding: .65rem 1rem; }
-  .tech-ribbon__item { font-size: .9rem; }
-}
-
-
+      
     </style>
   </body>
 </html>
