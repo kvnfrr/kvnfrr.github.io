@@ -84,7 +84,7 @@ const stacks = [
             </button>
 
             <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">SOFTWARE DEVELOPER</h1>
-            <h2 class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight">TEXT</h2>
+            <h2 class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight">Professional Night owl</h2>
             <p class="mt-6 max-w-3xl text-zinc-300">
               Super Cool Description Super Cool Description Super Cool Description Super Cool Description
               Super Cool Description Super Cool Description
@@ -157,6 +157,23 @@ const stacks = [
         </section>
       </div>
 
+      <!-- Scroll hint (bottom-center) -->
+      <div class="fixed left-1/2 -translate-x-1/2 bottom-10 z-40 pointer-events-none">
+        <div class="flex items-center gap-4 text-zinc-400/80 font-light tracking-[0.25em] text-xs md:text-sm">
+          <!-- left arrow -->
+          <svg class="w-4 h-4 animate-bob opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6"/>
+          </svg>
+
+          <span class="uppercase">Scroll for more</span>
+
+          <!-- right arrow (slight delay) -->
+          <svg class="w-4 h-4 animate-bob opacity-80" style="animation-delay:.25s" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+
       <!-- Placeholder sections for anchors -->
       <section id="about" class="h-24"></section>
       <section id="skills" class="h-24"></section>
@@ -178,6 +195,12 @@ const stacks = [
         -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
       }
       
+      @keyframes bob {
+        0%,100% { transform: translateY(0); }
+        50%     { transform: translateY(-6px); }
+      }
+      .animate-bob { animation: bob 1.8s ease-in-out infinite; }
+
     </style>
   </body>
 </html>
