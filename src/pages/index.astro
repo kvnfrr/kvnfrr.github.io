@@ -90,18 +90,21 @@ const stacks = [
               Super Cool Description Super Cool Description
             </p>
 
-            <!-- Tech stack ribbon -->
+            <!-- Tech stack ribbon (seamless marquee) -->
             <div class="mt-8 overflow-hidden rounded-xl bg-black/40 border border-white/10">
-              <div class="marquee flex gap-8 py-3 pl-6 pr-12 whitespace-nowrap">
-                {Array.from({ length: 3 }).map((_, loopIdx) => (
-                  <div class="flex items-center gap-8" aria-hidden={loopIdx > 0 ? "true" : "false"}>
-                    {stacks.map((s, i) => (
-                      <span class="text-sm tracking-wide text-zinc-100/90" >
-                        {s}{i < stacks.length ? " •" : ""}
-                      </span>
-                    ))}
-                  </div>
-                ))}
+              <div class="ribbon-track">
+                <!-- copy #1 -->
+                <ul class="ribbon-seq" aria-hidden="false">
+                  {stacks.map((s, i) => (
+                    <li class="ribbon-item">{s}</li>
+                  ))}
+                </ul>
+                <!-- copy #2 (identical) -->
+                <ul class="ribbon-seq" aria-hidden="true">
+                  {stacks.map((s, i) => (
+                    <li class="ribbon-item">{s}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </article>
@@ -110,7 +113,7 @@ const stacks = [
           <aside class="col-span-12 lg:col-span-4 2xl:col-span-3 rounded-2xl bg-[#131516] border border-white/10 overflow-hidden h-[68vh]">
             <img src="/photo.jpg" alt="Kevin Ferrer" class="w-full h-full object-cover" />
             <div class="p-4">
-              <p class="font-semibold">ESTATEIN REAL ESTATE</p>
+              <p class="font-semibold">test</p>
               <p class="text-zinc-400 text-sm">Web Development.</p>
             </div>
           </aside>
@@ -188,6 +191,41 @@ const stacks = [
         mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
         -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
       }
+
+      @keyframes ribbon-scroll {
+        to { transform: translateX(-50%); }
+      }
+      .ribbon-track{
+        display: inline-flex;
+        white-space: nowrap;
+        animation: ribbon-scroll 26s linear infinite;
+        will-change: transform;
+        mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+      }
+      .ribbon-seq{
+        display: inline-flex;
+        gap: 2rem;
+        padding: 0.75rem 1.5rem;
+        flex: 0 0 auto;
+      }
+      .ribbon-item{
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.9);
+        letter-spacing: .2px;
+        position: relative;
+        flex: 0 0 auto;
+      }
+      .ribbon-item::after{
+        content: " •";
+        margin-left: .6rem;
+        color: rgba(255,255,255,0.55);
+      }
+      @media (max-width: 640px){
+        .ribbon-seq{ gap: 1.25rem; padding: .65rem 1rem; }
+        .ribbon-item{ font-size: .9rem; }
+      }
+
     </style>
   </body>
 </html>
