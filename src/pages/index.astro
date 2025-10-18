@@ -89,7 +89,56 @@ const stacks = [
               Super Cool Description Super Cool Description Super Cool Description Super Cool Description
               Super Cool Description Super Cool Description
             </p>
-        </article>
+
+      <section id="quick-facts" class="mt-8">
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+    <!-- Internships -->
+    <div class="group rounded-2xl bg-white/5 border border-white/10 px-5 py-4 hover:bg-white/[0.07] transition">
+      <div class="flex items-center gap-3">
+        <!-- briefcase -->
+        <svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="1.6" d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+          <rect x="2" y="7" width="20" height="14" rx="2" stroke-width="1.6"/>
+          <path stroke-width="1.6" d="M2 12h20"/>
+        </svg>
+        <div>
+          <div class="text-3xl font-extrabold text-white tabular-nums" data-countup data-target="2">2</div>
+          <div class="text-[11px] uppercase tracking-wide text-zinc-400">Internships Completed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collaborative Projects -->
+    <div class="group rounded-2xl bg-white/5 border border-white/10 px-5 py-4 hover:bg-white/[0.07] transition">
+      <div class="flex items-center gap-3">
+        <!-- users -->
+        <svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="1.6" d="M16 11a4 4 0 1 0-8 0"/>
+          <circle cx="12" cy="8" r="3" stroke-width="1.6"/>
+          <path stroke-width="1.6" d="M3 20a6 6 0 0 1 18 0"/>
+        </svg>
+        <div>
+          <div class="text-3xl font-extrabold text-white tabular-nums" data-countup data-target="7">7</div>
+          <div class="text-[11px] uppercase tracking-wide text-zinc-400">Collaborative Projects</div>
+        </div>
+      </div>
+    </div>
+              <!-- Open Source Contributions -->
+              <div class="group rounded-2xl bg-white/5 border border-white/10 px-5 py-4 hover:bg-white/[0.07] transition">
+                <div class="flex items-center gap-3">
+                  <!-- code -->
+                  <svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-width="1.6" d="m8 16-4-4 4-4M16 8l4 4-4 4M14 4l-4 16"/>
+                  </svg>
+                  <div>
+                    <div class="text-3xl font-extrabold text-white tabular-nums" data-countup data-target="2">2</div>
+                    <div class="text-[11px] uppercase tracking-wide text-zinc-400">Open-Source Contributions</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      </article>
 
           <!-- Right photo card -->
           <aside class="col-span-12 lg:col-span-4 2xl:col-span-3 rounded-2xl bg-[#131516] border border-white/10 overflow-hidden h-[68vh] flex flex-col">
@@ -184,6 +233,7 @@ const stacks = [
 
     <!-- Styles for marquee + polish -->
     <style>
+      /* === Marquee Scroll Animation (legacy if reused later) === */
       @keyframes marquee-x {
         0%   { transform: translateX(0); }
         100% { transform: translateX(-50%); }
@@ -194,13 +244,63 @@ const stacks = [
         mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
         -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
       }
-      
+
+      /* === Scroll Arrow Floating Animation === */
       @keyframes bob {
         0%,100% { transform: translateY(0); }
         50%     { transform: translateY(-6px); }
       }
       .animate-bob { animation: bob 1.8s ease-in-out infinite; }
 
+      /* === Quick Facts Section Styling === */
+      #quick-facts {
+        display: flex;
+        justify-content: flex-start; /* Aligns boxes to the left */
+        margin-top: 2rem;
+        width: 100%;
+      }
+
+      #quick-facts .grid {
+        justify-content: flex-start;
+      }
+
+      #quick-facts .group {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        padding: 1rem 1.25rem;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      #quick-facts .group:hover {
+        background: rgba(255, 255, 255, 0.07);
+        transform: translateY(-2px);
+      }
+
+      #quick-facts svg {
+        color: rgba(255, 255, 255, 0.85);
+        flex-shrink: 0;
+      }
+
+      #quick-facts .text-zinc-400 {
+        letter-spacing: 0.05em;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+
+      #quick-facts .text-white {
+        font-weight: 800;
+      }
+
+      /* Adjust spacing for small screens */
+      @media (max-width: 640px) {
+        #quick-facts .group {
+          padding: 0.9rem 1rem;
+        }
+        #quick-facts .text-zinc-400 {
+          font-size: 0.65rem;
+        }
+      }
     </style>
   </body>
 </html>
