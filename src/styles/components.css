@@ -10,9 +10,21 @@
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 
-/* scroll arrow float */
-@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
-.animate-bob { animation: bob 1.8s ease-in-out infinite; }
+/* Smooth scroll pulse for arrows */
+@keyframes pulse-down {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-down {
+  animation: pulse-down 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
 
 /* quick-facts tweaks */
 #quick-facts .group { transition: background .2s ease, transform .2s ease; }
