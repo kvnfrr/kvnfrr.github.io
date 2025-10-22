@@ -1,0 +1,19 @@
+
+@keyframes marquee-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee-x 24s linear infinite;
+  will-change: transform;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+/* scroll arrow float */
+@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+.animate-bob { animation: bob 1.8s ease-in-out infinite; }
+
+/* quick-facts tweaks */
+#quick-facts .group { transition: background .2s ease, transform .2s ease; }
+#quick-facts .group:hover { transform: translateY(-2px); }

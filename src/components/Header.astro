@@ -1,0 +1,43 @@
+---
+import Icon from "./ui/Icon.astro";
+const links = [
+  { href: "#home", label: "Home", icon: "lucide:home", current: true },
+  { href: "#about", label: "About", icon: "lucide:user" },
+  { href: "#skills", label: "Skills", icon: "lucide:code" },
+  { href: "#projects", label: "Projects", icon: "lucide:folder" },
+  { href: "#experience", label: "Experience", icon: "lucide:briefcase" },
+  { href: "#contact", label: "Contact", icon: "lucide:mail" },
+];
+---
+
+<header class="px-4 lg:px-6">
+  <div
+    class="mx-auto max-w-[1650px] 2xl:max-w-[1800px] rounded-2xl bg-[#131516] border border-white/10 mt-6 p-4 flex items-center justify-between"
+  >
+    <a href="#home" class="font-semibold tracking-wide text-2xl">
+      <span class="text-white">kvn</span><span class="text-sky-400">frr</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="flex gap-3 md:gap-4">
+        {
+          links.map(({ href, label, icon, current }) => (
+            <li>
+              <a
+                href={href}
+                aria-current={current ? "page" : undefined}
+                class={`flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 transition-colors ${
+                  current ? "text-sky-400" : "hover:text-sky-300"
+                }`}
+              >
+                <Icon name={icon} size={16} class="opacity-80" />
+                <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">
+                  {label}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

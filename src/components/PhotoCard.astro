@@ -1,0 +1,11 @@
+---
+interface Props { src: string; alt: string; title: string; subtitle: string; }
+const { src, alt, title, subtitle } = Astro.props;
+---
+<aside class="col-span-12 lg:col-span-4 2xl:col-span-3 rounded-2xl bg-[#131516] border border-white/10 overflow-hidden h-[68vh] flex flex-col">
+  <img src={src} alt={alt} class="w-full h-[75%] object-cover object-top" />
+  <div class="p-6 grow flex flex-col justify-center">
+    <p class="font-semibold text-lg">{title}</p>
+    <p class="text-zinc-400 text-base">{subtitle}</p>
+  </div>
+</aside>

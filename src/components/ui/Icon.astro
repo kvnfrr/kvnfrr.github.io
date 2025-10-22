@@ -1,0 +1,18 @@
+---
+import { Icon as AstroIcon } from 'astro-icon/components';
+
+interface Props {
+  name: string;
+  size?: number | string;
+  class?: string;
+}
+
+const { name, size = 20, class: klass = "" } = Astro.props;
+---
+
+<AstroIcon
+  name={name}
+  width={size}
+  height={size}
+  class={`inline-block align-middle ${klass}`}
+/>
