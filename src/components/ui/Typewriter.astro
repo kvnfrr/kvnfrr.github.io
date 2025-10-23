@@ -7,6 +7,7 @@ interface Props {
   startDelay?: number;
   loop?: boolean;
 }
+
 const {
   phrases,
   speed = 45,
@@ -17,17 +18,47 @@ const {
 } = Astro.props;
 
 const id = `tw-${Math.random().toString(36).slice(2)}`;
+
+// Longest phrase for layout stability
+const longestPhrase =
+  (phrases && phrases.length
+    ? phrases.reduce((a, b) => (a.length >= b.length ? a : b))
+    : "") || "";
 ---
 
-<span id={id} class="inline-flex items-center gap-1">
-  <span class="tw-text"></span>
-  <span class="tw-cursor" aria-hidden="true">|</span>
+<span id={id} class="tw-wrap inline-block align-baseline relative">
+  <span class="tw-placeholder opacity-0 select-none whitespace-nowrap">
+    {longestPhrase}
+  </span>
+  <span class="tw-actual absolute inset-0 whitespace-nowrap">
+    <span class="tw-text"></span>
+    <span class="tw-cursor" aria-hidden="true"></span>
+  </span>
 </span>
 
 <style>
-  .tw-cursor { opacity: .9; animation: tw-blink 1s steps(1) infinite; }
-  @keyframes tw-blink { 0%, 50% { opacity: .9 } 50.01%, 100% { opacity: .1 } }
-  @media (prefers-reduced-motion: reduce) { .tw-cursor { animation: none; } }
+  .tw-wrap { line-height: 1.1; }
+  .tw-actual { left: 0; top: 0; }
+
+  .tw-cursor {
+    display: inline-block;
+    width: 0.065em;
+    height: 1em;
+    background: currentColor;
+    margin-left: 0;
+    transform: translateY(0.06em);
+    animation: tw-blink 1s steps(1) infinite;
+    will-change: opacity, transform;
+  }
+
+  @keyframes tw-blink {
+    0%, 50% { opacity: .9; }
+    50.01%, 100% { opacity: .1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tw-cursor { animation: none; }
+  }
 </style>
 
 <script is:inline define:vars={{ id, phrases, speed, backspaceSpeed, hold, startDelay, loop }}>
@@ -38,7 +69,7 @@ const id = `tw-${Math.random().toString(36).slice(2)}`;
     const textEl = root.querySelector(".tw-text");
     const cursorEl = root.querySelector(".tw-cursor");
 
-    // Reduced motion: just show first phrase and stop
+    // Accessibility: reduced motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       if (cursorEl) cursorEl.style.display = "none";
       if (textEl) textEl.textContent = phrases[0];
