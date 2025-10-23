@@ -1,20 +1,32 @@
 ---
 import Icon from "./ui/Icon.astro";
+import Typewriter from "./ui/Typewriter.astro";
 
 interface Props {
   title: string;
-  subtitle: string;
   description: string;
+  subtitle?: string;
+  phrases?: string[];
 }
-const { title, subtitle, description } = Astro.props;
+
+const {
+  title,
+  description,
+  subtitle,
+  phrases = [
+    "Professional Night owl",
+    "Born for Backend, Forced to Full-stack",
+    "Cliche Subheading",
+    "What deadline?",
+  ],
+} = Astro.props;
 ---
 
 <article
-  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516] border border-white/10 p-8 md:p-12 relative h-[68vh] bg-[#131516]/80 backdrop-blur-sm fade-in"
+  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516]/80 backdrop-blur-sm border border-white/10 p-8 md:p-12 relative h-[68vh] fade-in"
   style="--delay: 80ms"
 >
-  <div class="absolute inset-0 rounded-2xl border border-white/5 shadow-inner pointer-events-none"></div>
-  <!-- Pen / edit button now fades in -->
+  <!-- Pen / edit -->
   <button
     class="absolute right-6 top-6 text-sky-400/90 fade-in"
     style="--delay: 320ms"
@@ -23,24 +35,20 @@ const { title, subtitle, description } = Astro.props;
     <Icon name="lucide:pen-line" size={20} class="opacity-90" />
   </button>
 
-  <!-- Staged inner content -->
-  <h1
-    class="text-5xl md:text-6xl font-extrabold tracking-tight fade-in"
-    style="--delay: 380ms"
-  >
+  <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight fade-in" style="--delay: 380ms">
     {title}
   </h1>
-  <h2
-    class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight fade-in"
-    style="--delay: 440ms"
-  >
-    {subtitle}
+
+  <h2 class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight fade-in" style="--delay: 440ms">
+    {subtitle
+      ? subtitle
+      : <Typewriter phrases={phrases} startDelay={350} speed={45} backspaceSpeed={28} hold={1200} loop={true} />}
   </h2>
+
   <p class="mt-6 max-w-3xl text-zinc-300 fade-in" style="--delay: 500ms">
     {description}
   </p>
 
-  <!-- Anything slotted into Hero (e.g., QuickFacts) fades in after -->
   <div class="fade-in" style="--delay: 560ms">
     <slot />
   </div>

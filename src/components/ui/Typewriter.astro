@@ -1,0 +1,78 @@
+---
+interface Props {
+  phrases: string[];
+  speed?: number;
+  backspaceSpeed?: number;
+  hold?: number;
+  startDelay?: number;
+  loop?: boolean;
+}
+const {
+  phrases,
+  speed = 45,
+  backspaceSpeed = 28,
+  hold = 1200,
+  startDelay = 250,
+  loop = true,
+} = Astro.props;
+
+const id = `tw-${Math.random().toString(36).slice(2)}`;
+---
+
+<span id={id} class="inline-flex items-center gap-1">
+  <span class="tw-text"></span>
+  <span class="tw-cursor" aria-hidden="true">|</span>
+</span>
+
+<style>
+  .tw-cursor { opacity: .9; animation: tw-blink 1s steps(1) infinite; }
+  @keyframes tw-blink { 0%, 50% { opacity: .9 } 50.01%, 100% { opacity: .1 } }
+  @media (prefers-reduced-motion: reduce) { .tw-cursor { animation: none; } }
+</style>
+
+<script is:inline define:vars={{ id, phrases, speed, backspaceSpeed, hold, startDelay, loop }}>
+  (() => {
+    const root = document.getElementById(id);
+    if (!root || !phrases || !phrases.length) return;
+
+    const textEl = root.querySelector(".tw-text");
+    const cursorEl = root.querySelector(".tw-cursor");
+
+    // Reduced motion: just show first phrase and stop
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (cursorEl) cursorEl.style.display = "none";
+      if (textEl) textEl.textContent = phrases[0];
+      return;
+    }
+
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+
+    const tick = () => {
+      const phrase = phrases[phraseIdx % phrases.length] ?? "";
+
+      if (!deleting) {
+        textEl.textContent = phrase.slice(0, ++charIdx);
+        if (charIdx === phrase.length) {
+          deleting = true;
+          return setTimeout(tick, hold);
+        }
+        return setTimeout(tick, speed);
+      } else {
+        textEl.textContent = phrase.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx++;
+          if (!loop && phraseIdx >= phrases.length) {
+            if (cursorEl) cursorEl.style.display = "none";
+            return;
+          }
+        }
+        return setTimeout(tick, backspaceSpeed);
+      }
+    };
+
+    setTimeout(tick, startDelay);
+  })();
+</script>
