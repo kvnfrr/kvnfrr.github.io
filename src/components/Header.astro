@@ -1,5 +1,6 @@
 ---
 import Icon from "./ui/Icon.astro";
+
 const links = [
   { href: "#home", label: "Home", icon: "lucide:home", current: true },
   { href: "#about", label: "About", icon: "lucide:user" },
@@ -10,27 +11,37 @@ const links = [
 ];
 ---
 
-<header class="sticky top-4 z-50 px-4 lg:px-6">
+<header class="sticky top-4 z-50 px-4 lg:px-6 fade-in" style="--delay: 0ms">
   <div
-        class="mx-auto max-w-[1650px] 2xl:max-w-[1800px]
+    class="mx-auto max-w-[1650px] 2xl:max-w-[1800px]
            mt-6 p-4 flex items-center justify-between rounded-2xl
            bg-white/5 backdrop-blur-md border border-white/20
-           shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+           shadow-[0_0_30px_rgba(255,255,255,0.05)]
+           hover:bg-white/10 transition-all duration-300"
   >
-    <a href="#home" class="font-semibold tracking-wide text-2xl">
-      <span class="text-white">kvn</span><span class="text-sky-400">frr</span>
+    <!-- Logo / Title -->
+    <a
+      href="#home"
+      class="flex items-center gap-2 font-bold tracking-wide text-sky-400 fade-in"
+      style="--delay: 180ms"
+    >
+      <Icon name="lucide:terminal" size={20} class="opacity-90" />
+      <span class="text-base md:text-lg uppercase">kvnfrr</span>
     </a>
-    <nav aria-label="Primary">
-      <ul class="flex gap-3 md:gap-4">
+
+    <!-- Navigation -->
+    <nav aria-label="Primary" class="fade-in" style="--delay: 300ms">
+      <ul class="flex flex-wrap justify-end gap-2 md:gap-3 lg:gap-4">
         {
-          links.map(({ href, label, icon, current }) => (
-            <li>
+          links.map(({ href, label, icon, current }, i) => (
+            <li class="fade-in" style={`--delay: ${360 + i * 80}ms`}>
               <a
                 href={href}
                 aria-current={current ? "page" : undefined}
-                class={`flex items-center gap-2 rounded-xl border border-white/10 bg-[#181a1b] px-4 py-2 transition-colors ${
-                  current ? "text-sky-400" : "hover:text-sky-300"
-                }`}
+                class={`flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10
+                       bg-[#181a1b]/70 hover:bg-white/10 hover:border-sky-500/40
+                       transition-colors duration-300
+                       ${current ? "text-sky-400" : "text-zinc-300 hover:text-sky-300"}`}
               >
                 <Icon name={icon} size={16} class="opacity-80" />
                 <span class="text-xs md:text-sm font-semibold uppercase tracking-wide">

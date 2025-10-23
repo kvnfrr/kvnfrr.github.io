@@ -2,20 +2,33 @@
 import Icon from "./ui/Icon.astro";
 import { socials } from "../data/socials";
 ---
-<section class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-  {socials.map((s) => (
-    <a
-      href={s.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40"
-    >
-      <span class="text-zinc-400 text-[11px] tracking-[0.25em]">{s.label}</span>
-      <Icon
-        name={s.icon}
-        size={28}
-        class="text-sky-400 group-hover:text-sky-300 transition-colors"
-      />
-    </a>
-  ))}
+
+<section
+  class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 fade-in"
+  style="--delay: 240ms"
+>
+  {
+    socials.map((s, i) => (
+      <a
+        href={s.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group rounded-2xl bg-[#131516] border border-white/10 p-6 flex flex-col items-center justify-center gap-3 hover:border-sky-500/40 fade-in"
+        style={`--delay: ${360 + i * 80}ms`}
+      >
+        <span
+          class="text-zinc-400 text-[11px] tracking-[0.25em] fade-in"
+          style="--delay: 460ms"
+        >
+          {s.label}
+        </span>
+        <Icon
+          name={s.icon}
+          size={28}
+          class="text-sky-400 group-hover:text-sky-300 transition-colors fade-in"
+          style="--delay: 520ms"
+        />
+      </a>
+    ))
+  }
 </section>

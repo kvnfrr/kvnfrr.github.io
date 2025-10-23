@@ -1,4 +1,6 @@
 ---
+import Icon from "./ui/Icon.astro";
+
 interface Props {
   title: string;
   subtitle: string;
@@ -6,17 +8,39 @@ interface Props {
 }
 const { title, subtitle, description } = Astro.props;
 ---
-<article class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516] border border-white/10 p-8 md:p-12 relative h-[68vh]">
-  <button class="absolute right-6 top-6 text-sky-400/90" aria-label="Edit">
-    <!-- pen icon -->
-    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path stroke-width="2" d="M12 20h9"></path>
-      <path stroke-width="2" d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path>
-    </svg>
+
+<article
+  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516] border border-white/10 p-8 md:p-12 relative h-[68vh] fade-in"
+  style="--delay: 80ms"
+>
+  <!-- Pen / edit button now fades in -->
+  <button
+    class="absolute right-6 top-6 text-sky-400/90 fade-in"
+    style="--delay: 320ms"
+    aria-label="Edit"
+  >
+    <Icon name="lucide:pen-line" size={20} class="opacity-90" />
   </button>
 
-  <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">{title}</h1>
-  <h2 class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight">{subtitle}</h2>
-  <p class="mt-6 max-w-3xl text-zinc-300">{description}</p>
-  <slot /> <!-- place QuickFacts inside -->
+  <!-- Staged inner content -->
+  <h1
+    class="text-5xl md:text-6xl font-extrabold tracking-tight fade-in"
+    style="--delay: 380ms"
+  >
+    {title}
+  </h1>
+  <h2
+    class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight fade-in"
+    style="--delay: 440ms"
+  >
+    {subtitle}
+  </h2>
+  <p class="mt-6 max-w-3xl text-zinc-300 fade-in" style="--delay: 500ms">
+    {description}
+  </p>
+
+  <!-- Anything slotted into Hero (e.g., QuickFacts) fades in after -->
+  <div class="fade-in" style="--delay: 560ms">
+    <slot />
+  </div>
 </article>
