@@ -10,9 +10,10 @@ const { title, subtitle, description } = Astro.props;
 ---
 
 <article
-  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516] border border-white/10 p-8 md:p-12 relative h-[68vh] fade-in"
+  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516] border border-white/10 p-8 md:p-12 relative h-[68vh] bg-[#131516]/80 backdrop-blur-sm fade-in"
   style="--delay: 80ms"
 >
+  <div class="absolute inset-0 rounded-2xl border border-white/5 shadow-inner pointer-events-none"></div>
   <!-- Pen / edit button now fades in -->
   <button
     class="absolute right-6 top-6 text-sky-400/90 fade-in"
