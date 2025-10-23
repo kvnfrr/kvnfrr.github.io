@@ -7,6 +7,7 @@ interface Props {
   description: string;
   subtitle?: string;
   phrases?: string[];
+  name?: string;
 }
 
 const {
@@ -14,16 +15,17 @@ const {
   description,
   subtitle,
   phrases = [
-    "Professional Night owl",
+    "Professional Night Owl",
     "Born for Backend, Forced to Full-stack",
-    "Cliche Subheading",
+    "Cliché Subheading",
     "What deadline?",
   ],
+  name = "Kevin Ferrer",
 } = Astro.props;
 ---
 
 <article
-  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516]/80 backdrop-blur-sm border border-white/10 p-8 md:p-12 relative h-[68vh] fade-in"
+  class="col-span-12 lg:col-span-8 2xl:col-span-9 rounded-2xl bg-[#131516]/80 backdrop-blur-sm border border-white/10 p-6 md:p-10 relative h-[68vh] fade-in"
   style="--delay: 80ms"
 >
   <!-- Pen / edit -->
@@ -35,38 +37,62 @@ const {
     <Icon name="lucide:pen-line" size={20} class="opacity-90" />
   </button>
 
-  <h1
-    class="text-5xl md:text-6xl font-extrabold tracking-tight fade-in"
-    style="--delay: 380ms"
+  <!-- Centered content block -->
+  <div
+    class="h-full w-full flex flex-col items-center justify-center text-center"
   >
-    {title}
-  </h1>
+    <!-- Intro -->
+    <p
+      class="fade-in text-2xl md:text-3xl text-zinc-300/90 tracking-wide"
+      style="--delay: 360ms"
+    >
+      Hi, I’m <span class="font-bold text-white">{name}</span>
+    </p>
 
-  <h2
-    class="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight fade-in"
-    style="--delay: 440ms"
-  >
-    {
-      subtitle ? (
-        subtitle
-      ) : (
-        <Typewriter
-          phrases={phrases}
-          startDelay={350}
-          speed={45}
-          backspaceSpeed={28}
-          hold={1200}
-          loop={true}
-        />
-      )
-    }
-  </h2>
+    <!-- Title -->
+    <h1
+      class="fade-in mt-3 text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight"
+      style="--delay: 400ms"
+    >
+      <span
+        class="bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-500 bg-clip-text text-transparent"
+      >
+        {title}
+      </span>
+    </h1>
 
-  <p class="mt-6 max-w-3xl text-zinc-300 fade-in" style="--delay: 500ms">
-    {description}
-  </p>
+    <!-- Subtitle -->
+    <h2
+      class="fade-in mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold text-zinc-100"
+      style="--delay: 460ms"
+    >
+      {
+        subtitle ? (
+          subtitle
+        ) : (
+          <Typewriter
+            phrases={phrases}
+            startDelay={350}
+            speed={45}
+            backspaceSpeed={28}
+            hold={1200}
+            loop={true}
+          />
+        )
+      }
+    </h2>
 
-  <div class="fade-in" style="--delay: 560ms">
-    <slot />
+    <!-- Description -->
+    <p
+      class="fade-in mt-6 max-w-3xl text-zinc-400/90 text-lg md:text-xl leading-relaxed"
+      style="--delay: 520ms"
+    >
+      {description}
+    </p>
+
+    <!-- Quick facts -->
+    <div class="fade-in mt-10 w-full max-w-3xl" style="--delay: 580ms">
+      <slot />
+    </div>
   </div>
 </article>

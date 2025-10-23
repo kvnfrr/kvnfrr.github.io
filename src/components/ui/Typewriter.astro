@@ -37,8 +37,13 @@ const longestPhrase =
 </span>
 
 <style>
-  .tw-wrap { line-height: 1.1; }
-  .tw-actual { left: 0; top: 0; }
+  .tw-wrap {
+    line-height: 1.1;
+  }
+  .tw-actual {
+    left: 0;
+    top: 0;
+  }
 
   .tw-cursor {
     display: inline-block;
@@ -52,16 +57,27 @@ const longestPhrase =
   }
 
   @keyframes tw-blink {
-    0%, 50% { opacity: .9; }
-    50.01%, 100% { opacity: .1; }
+    0%,
+    50% {
+      opacity: 0.9;
+    }
+    50.01%,
+    100% {
+      opacity: 0.1;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tw-cursor { animation: none; }
+    .tw-cursor {
+      animation: none;
+    }
   }
 </style>
 
-<script is:inline define:vars={{ id, phrases, speed, backspaceSpeed, hold, startDelay, loop }}>
+<script
+  is:inline
+  define:vars={{ id, phrases, speed, backspaceSpeed, hold, startDelay, loop }}
+>
   (() => {
     const root = document.getElementById(id);
     if (!root || !phrases || !phrases.length) return;
