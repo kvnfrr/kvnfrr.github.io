@@ -6,6 +6,7 @@ import PhotoCard from "../components/PhotoCard.astro";
 import QuickFacts from "../components/QuickFacts.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 import ScrollHint from "../components/ScrollHint.astro";
+import GitHubWidget from "../components/ui/GitHubWidget.astro";
 ---
 
 <MainLayout title="kvnfrr — Software Developer">
@@ -28,7 +29,9 @@ import ScrollHint from "../components/ScrollHint.astro";
           alt="Kevin Ferrer"
           title="Kevin Ferrer"
           subtitle="sample text"
-        />
+        >
+          <GitHubWidget slot="footer" username="kvnfrr" />
+        </PhotoCard>
       </section>
 
       <SocialLinks />

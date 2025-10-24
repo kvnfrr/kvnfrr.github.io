@@ -1,0 +1,47 @@
+---
+interface Props {
+  username: string;
+}
+const { username } = Astro.props as Props;
+const wid = `gh-${Math.random().toString(36).slice(2)}`;
+---
+
+<div id={wid} class="flex items-center justify-between gap-4 text-sm">
+  <div class="text-zinc-300">
+    <div class="font-semibold">GitHub</div>
+    <div class="text-xs text-zinc-400" data-gh="status">Loading…</div>
+  </div>
+  <div class="flex items-center gap-3">
+    <span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10">
+      <span class="font-semibold" data-gh="repos">–</span> public repos
+    </span>
+    <span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10">
+      <span class="font-semibold" data-gh="followers">–</span> followers
+    </span>
+  </div>
+</div>
+
+<script is:inline define:vars={{ wid, username }}>
+  (async () => {
+    try {
+      const root = document.getElementById(wid);
+      if (!root) return;
+
+      const status = root.querySelector('[data-gh="status"]');
+      const rEl = root.querySelector('[data-gh="repos"]');
+      const fEl = root.querySelector('[data-gh="followers"]');
+
+      const resp = await fetch(`https://api.github.com/users/${username}`);
+      if (!resp.ok) throw new Error("rate-limited");
+      const data = await resp.json();
+
+      rEl.textContent = String(data.public_repos ?? "0");
+      fEl.textContent = String(data.followers ?? "0");
+      status.textContent = data.login ? `@${data.login}` : "Available";
+    } catch {
+      const root = document.getElementById(wid);
+      const status = root?.querySelector('[data-gh="status"]');
+      if (status) status.textContent = "Unavailable";
+    }
+  })();
+</script>

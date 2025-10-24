@@ -25,4 +25,7 @@ const { src, alt, title, subtitle } = Astro.props;
     <p class="font-semibold text-lg">{title}</p>
     <p class="text-zinc-400 text-base">{subtitle}</p>
   </div>
+  <div class="p-4 border-t border-white/10">
+    <slot name="footer" />
+  </div>
 </aside>
