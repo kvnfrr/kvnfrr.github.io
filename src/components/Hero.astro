@@ -4,7 +4,6 @@ import Typewriter from "./ui/Typewriter.astro";
 
 interface Props {
   title: string;
-  description: string;
   subtitle?: string;
   phrases?: string[];
   name?: string;
@@ -13,7 +12,6 @@ interface Props {
 
 const {
   title,
-  description,
   subtitle,
   phrases = [
     "Professional Night Owl",
@@ -84,16 +82,8 @@ const {
       }
     </h2>
 
-    <!-- Description -->
-    <p
-      class="fade-in mt-6 max-w-3xl text-zinc-400/90 text-lg md:text-xl leading-relaxed"
-      style="--delay: 520ms"
-    >
-      {description}
-    </p>
-
     <!-- Quick facts -->
-    <div class="fade-in mt-10 w-full max-w-3xl" style="--delay: 580ms">
+    <div class="fade-in mt-8 w-full max-w-3xl" style="--delay: 580ms">
       <slot />
     </div>
   </div>
