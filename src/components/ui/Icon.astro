@@ -2,17 +2,13 @@
 import { Icon as AstroIcon } from "astro-icon/components";
 
 interface Props {
-  /** e.g. "lucide:mail", "simple-icons:github" */
   name: string;
   size?: number | string;
   class?: string;
-  /** allow inline styles like --delay for animations */
   style?: string;
-  /** forward any other attributes (aria-*, data-*, etc.) */
   [key: string]: any;
 }
 
-// Pull out known props and forward the rest
 const {
   name,
   size = 20,
