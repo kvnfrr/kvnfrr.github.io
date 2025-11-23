@@ -1,16 +1,100 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Projects from "../components/Projects.astro";
-import Terminal from "../components/Terminal.astro";
+import Hero from "../components/sections/Hero.astro";
+import Terminal from "../components/terminal/Terminal.astro";
 ---
 
-<MainLayout title="Kvnfrr | Portfolio">
+<MainLayout
+  title="Kvnfrr | Portfolio"
+  description="Portfolio of Kevin Ferrer, a developer focused on cloud, DevOps, and full-stack development."
+>
   <div class="content-shell">
     <Hero />
-    <About />
-    <Projects />
   </div>
-  <Terminal />
+  <Terminal data-deferred />
+
+  <script>
+    const TYPE_DURATION_MS = 950; // per line
+    const LINE_DELAY_MS = 250;
+    const DELAY_AFTER_TYPE_MS = 1000;
+
+    const typewriter = document.querySelector("[data-typewriter]");
+    const deferredItems = Array.from(document.querySelectorAll("[data-deferred]"));
+    const terminalShell = document.querySelector("[data-terminal-shell]");
+
+    function revealDeferred() {
+      deferredItems.forEach((el, index) => {
+        const revealDelay = 80 * index;
+        setTimeout(() => el.classList.add("is-visible"), revealDelay);
+      });
+
+      // Pop the terminal open shortly after the other content is visible.
+      if (terminalShell) {
+        setTimeout(() => document.dispatchEvent(new CustomEvent("kvn:open-terminal")), 350);
+      }
+
+      document.body.classList.remove("intro-active");
+    }
+
+    function runTypewriter() {
+      if (!typewriter) {
+        revealDeferred();
+        return;
+      }
+
+      const text = typewriter.dataset.typewriterText?.trim() || typewriter.textContent?.trim();
+      if (!text) {
+        revealDeferred();
+        return;
+      }
+
+      const lines = text.split("\n").map((line) => line.trim());
+      const perLineDuration = TYPE_DURATION_MS;
+
+      typewriter.textContent = "";
+      typewriter.classList.add("is-typing");
+
+      let currentLine = 0;
+
+      const typeLine = () => {
+        const line = lines[currentLine] ?? "";
+        const perChar = Math.max(8, Math.floor(perLineDuration / Math.max(1, line.length)));
+        let charIndex = 0;
+
+        const timer = setInterval(() => {
+          const typedPortion = line.slice(0, charIndex + 1);
+          const previousLines = lines.slice(0, currentLine).join("\n");
+          typewriter.textContent = previousLines
+            ? `${previousLines}\n${typedPortion}`
+            : typedPortion;
+
+          charIndex += 1;
+
+          if (charIndex >= line.length) {
+            clearInterval(timer);
+            if (currentLine < lines.length - 1) {
+              currentLine += 1;
+              setTimeout(typeLine, LINE_DELAY_MS);
+            } else {
+              typewriter.classList.remove("is-typing");
+              setTimeout(revealDeferred, DELAY_AFTER_TYPE_MS);
+            }
+          }
+        }, perChar);
+      };
+
+      typeLine();
+    }
+
+    function startIntro() {
+      document.body.classList.add("intro-active");
+      runTypewriter();
+    }
+
+    if (document.readyState === "loading") {
+      window.addEventListener("DOMContentLoaded", startIntro);
+    } else {
+      startIntro();
+    }
+  </script>
 </MainLayout>
