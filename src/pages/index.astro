@@ -1,10 +1,16 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Terminal from "../components/Terminal.astro";
 ---
 
 <MainLayout title="Kvnfrr | Portfolio">
+  <div class="content-shell">
     <Hero />
     <About />
+    <Projects />
+  </div>
+  <Terminal />
 </MainLayout>

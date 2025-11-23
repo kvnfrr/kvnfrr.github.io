@@ -1,0 +1,173 @@
+---
+---
+
+<section class="command-station" data-terminal-shell data-terminal-state="open">
+  <div class="shell-inner">
+    <div class="terminal-panel">
+      <header class="terminal-header">
+        <p class="terminal-title">guest@kvnfrr:~</p>
+      </header>
+
+      <div class="terminal-body">
+        <div class="terminal-log" data-terminal-log>
+          <div class="terminal-line">Welcome to kvnfrr.sh - portfolio shell.</div>
+          <div class="terminal-line">Type "help" to view available commands.</div>
+        </div>
+        <div class="terminal-input-row">
+          <span class="prompt">guest@portfolio:~$</span>
+          <input
+            data-terminal-input
+            type="text"
+            name="command"
+            autocomplete="off"
+            placeholder="Try: hero - about - projects - help"
+          />
+          <button class="btn primary small" type="button" data-action="run-command">Run</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock-bar">
+      <div class="dock-left">
+        <span class="dock-label">Quick jump</span>
+        <div class="dock-nav">
+          <button type="button" data-nav="hero" aria-label="Go to hero section">Hero</button>
+          <button type="button" data-nav="about" aria-label="Go to about section">About</button>
+          <button type="button" data-nav="projects" aria-label="Go to projects section">Projects</button>
+        </div>
+      </div>
+      <div class="dock-right">
+        <span class="dock-label muted">Terminal</span>
+        <button class="pill dock-toggle" type="button" data-action="toggle-terminal">
+          <span class="pulse"></span>
+          Open/Hide
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const shell = document.querySelector("[data-terminal-shell]");
+  const log = shell?.querySelector("[data-terminal-log]");
+  const input = shell?.querySelector("[data-terminal-input]");
+  const runButton = shell?.querySelector("[data-action='run-command']");
+  const toggleButton = shell?.querySelector("[data-action='toggle-terminal']");
+  const minimizeButton = shell?.querySelector("[data-action='minimize-terminal']");
+  const navButtons = shell?.querySelectorAll("[data-nav]") ?? [];
+
+  const defaultLines = [
+    "Welcome to kvnfrr.sh - portfolio shell.",
+    "Type \"help\" to view available commands.",
+    "Hints: hero - about - projects - contact - clear - minimize",
+  ];
+
+  const printLine = (text, type = "output") => {
+    if (!log) return;
+    const line = document.createElement("div");
+    line.className = `terminal-line ${type}`;
+    line.textContent = text;
+    log.appendChild(line);
+    log.scrollTop = log.scrollHeight;
+  };
+
+  const setState = (state) => {
+    if (!shell) return;
+    shell.dataset.terminalState = state;
+  };
+
+  const scrollToSection = (id) => {
+    const target = document.getElementById(id);
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 72,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const commands = {
+    help: () => {
+      printLine("Available commands:");
+      ["hero", "about", "projects", "contact", "clear", "minimize", "open"].forEach((cmd) =>
+        printLine(`- ${cmd}`)
+      );
+    },
+    hero: () => {
+      scrollToSection("hero");
+      return "Jumping to hero...";
+    },
+    about: () => {
+      scrollToSection("about");
+      return "Opening about section...";
+    },
+    projects: () => {
+      scrollToSection("projects");
+      return "Opening projects...";
+    },
+    contact: () => "Say hi via the about section - happy to connect!",
+    clear: () => {
+      if (log) log.innerHTML = "";
+      return "Cleared buffer.";
+    },
+    minimize: () => {
+      setState("collapsed");
+      return "Terminal hidden. Use the dock to reopen.";
+    },
+    open: () => {
+      setState("open");
+      return "Terminal expanded.";
+    },
+  };
+
+  const handleCommand = (raw) => {
+    if (!raw) return;
+    const command = raw.trim();
+    if (!command) return;
+
+    printLine(`guest@kvnfrr:~$ ${command}`, "input");
+
+    const action = commands[command.toLowerCase()];
+    if (action) {
+      const response = action();
+      if (Array.isArray(response)) {
+        response.forEach((line) => printLine(line));
+      } else if (response) {
+        printLine(response);
+      }
+    } else {
+      printLine(`Command not found: ${command}. Try "help".`);
+    }
+  };
+
+  if (log) {
+    log.innerHTML = "";
+    defaultLines.forEach((line) => printLine(line));
+  }
+
+  input?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleCommand(input.value);
+      input.value = "";
+    }
+  });
+
+  runButton?.addEventListener("click", () => {
+    handleCommand(input?.value ?? "");
+    if (input) input.value = "";
+  });
+
+  toggleButton?.addEventListener("click", () => {
+    const state = shell?.dataset.terminalState === "open" ? "collapsed" : "open";
+    setState(state);
+  });
+
+  minimizeButton?.addEventListener("click", () => setState("collapsed"));
+
+  navButtons.forEach((button) => {
+    button.addEventListener("click", () => scrollToSection(button.dataset.nav));
+  });
+
+  setTimeout(() => input?.focus(), 300);
+</script>
