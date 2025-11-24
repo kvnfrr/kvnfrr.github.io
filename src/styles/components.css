@@ -85,7 +85,8 @@
 }
 
 .hero {
-  padding: 2.25rem 2.5rem;
+  margin: 0;
+  padding: 1.5rem 1.5rem;
   background: linear-gradient(170deg, rgba(26, 20, 14, 0.82), rgba(16, 11, 8, 0.86));
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -94,13 +95,15 @@
 
 .hero__layout {
   display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap: 3rem;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 2rem;
   align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .hero__text {
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .hero__text h1 {
@@ -197,7 +200,7 @@
 }
 
 .hero__visual-card {
-  width: min(90%, 520px);
+  width: min(100%, 640px);
   aspect-ratio: 4 / 3;
   background: linear-gradient(160deg, rgba(26, 20, 14, 0.82), rgba(12, 9, 7, 0.86));
   border: 1px solid rgba(255, 238, 210, 0.14);
@@ -208,6 +211,16 @@
   background-blend-mode: multiply;
 }
 
+.hero__visual-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: none;
+  position: relative;
+  z-index: 0;
+}
+
 .hero__visual-card::before,
 .hero__visual-card::after {
   content: "";
@@ -216,6 +229,53 @@
   border: 1px solid rgba(255, 238, 210, 0.06);
   border-radius: 6px;
   pointer-events: none;
+}
+
+.hero__window-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.65rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
+  border-bottom: 1px solid rgba(255, 238, 210, 0.2);
+  z-index: 2;
+}
+
+.hero__window-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero__window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.hero__window-dot.close {
+  background: #d15c4a;
+}
+
+.hero__window-dot.min {
+  background: #d4a373;
+}
+
+.hero__window-dot.max {
+  background: #6fbf73;
+}
+
+.hero__window-title {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  font-size: 0.9rem;
+  color: rgba(246, 239, 223, 0.75);
 }
 
 .hero__visual-inner {
@@ -294,12 +354,14 @@
 
 @media (max-width: 960px) {
   .hero {
+    margin: 0;
     padding: 1.6rem 1.25rem;
   }
 
   .hero__layout {
     grid-template-columns: 1fr;
     gap: 1.6rem;
+    max-width: none;
   }
 
   .hero__visual-card {
@@ -309,7 +371,7 @@
 
 .command-station {
   position: fixed;
-  inset: auto 0 0 0;
+  inset: auto 0 -24px 0;
   z-index: 20;
   pointer-events: none;
 }
@@ -443,8 +505,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(120deg, rgba(26, 20, 14, 0.78), rgba(14, 10, 8, 0.82));
-  border: 1px solid rgba(255, 238, 210, 0.14);
+  background: rgba(12, 9, 7, 0.92);
+  border: 1px solid rgba(255, 238, 210, 0.2);
   border-radius: 6px;
   padding: 0.45rem 0.7rem;
   pointer-events: auto;

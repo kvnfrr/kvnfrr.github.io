@@ -66,7 +66,7 @@ html {
 }
 
 .content-shell {
-  width: min(1300px, 100% - 2rem);
+  width: min(1400px, 100% - 2rem);
   margin: 0 auto;
   padding: 2.25rem 0.5rem calc(var(--terminal-height) + var(--dock-height) + 2rem);
   position: relative;
