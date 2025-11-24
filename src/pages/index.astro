@@ -14,10 +14,21 @@ import Terminal from "../components/terminal/Terminal.astro";
 >
   <div class="content-shell">
     <Hero />
-    <About />
-    <Experience />
-    <Projects />
-    <Contact />
+    <div class="post-hero">
+      <div class="workspace" data-workspace>
+        <div class="workspace-nav" data-workspace-nav>
+          <button data-workspace-section="home">Home</button>
+          <button data-workspace-section="about">About</button>
+          <button data-workspace-section="experience">Experience</button>
+          <button data-workspace-section="projects">Projects</button>
+          <button data-workspace-section="contact">Contact</button>
+        </div>
+        <div class="workspace-list" data-workspace-list></div>
+        <div class="workspace-detail" data-workspace-detail>
+          <div class="workspace-detail-placeholder">Select something on the left to view details.</div>
+        </div>
+      </div>
+    </div>
   </div>
   <Terminal data-deferred />
 
@@ -30,6 +41,84 @@ import Terminal from "../components/terminal/Terminal.astro";
     const deferredItems = Array.from(document.querySelectorAll("[data-deferred]"));
     const terminalShell = document.querySelector("[data-terminal-shell]");
     const observedSections = Array.from(document.querySelectorAll("[data-observe]"));
+    const workspace = document.querySelector("[data-workspace]");
+    const workspaceNav = document.querySelector("[data-workspace-nav]");
+    const workspaceList = document.querySelector("[data-workspace-list]");
+    const workspaceDetail = document.querySelector("[data-workspace-detail]");
+
+    const workspaceData = {
+      home: {
+        items: [
+          {
+            id: "welcome",
+            title: "Welcome",
+            subtitle: "Landing copy",
+            body:
+              "Quick scan of the opening pitch and how to navigate. The hero gives the vibe; the terminal is for the curious."
+          }
+        ]
+      },
+      about: {
+        items: [
+          {
+            id: "bio",
+            title: "Who I Am",
+            subtitle: "Short bio",
+            body:
+              "Pragmatic engineer with a taste for automation and clean systems. Comfortable across cloud, DevOps, and full-stack."
+          },
+          {
+            id: "approach",
+            title: "Approach",
+            subtitle: "How I work",
+            body:
+              "Ship iteratively, automate the boring, measure impact, and keep the DX humane. Humor optional but encouraged."
+          }
+        ]
+      },
+      experience: {
+        items: [
+          {
+            id: "sre",
+            title: "SRE / DevOps",
+            subtitle: "Reliability focus",
+            body: "Built and maintained CI/CD, observability, and infra-as-code for resilient services."
+          },
+          {
+            id: "fullstack",
+            title: "Full-stack Engineer",
+            subtitle: "Product delivery",
+            body: "Delivered user-facing features end-to-end, from APIs to polished UI with performant integrations."
+          }
+        ]
+      },
+      projects: {
+        items: [
+          {
+            id: "terminal-site",
+            title: "Terminal Portfolio",
+            subtitle: "This site",
+            body: "Interactive hero, terminal controls, and a playful take on portfolio UX."
+          },
+          {
+            id: "infra-toolkit",
+            title: "Infra Toolkit",
+            subtitle: "Automation",
+            body: "Scripted deployments, repeatable environments, and guardrails for teams."
+          }
+        ]
+      },
+      contact: {
+        items: [
+          {
+            id: "reach",
+            title: "Reach Out",
+            subtitle: "Email / socials",
+            body: "Drop a line at kevinferrercs@gmail.com or ping me for collaboration."
+          }
+        ]
+      }
+    };
 
     function revealDeferred() {
       deferredItems.forEach((el, index) => {
@@ -112,10 +201,70 @@ import Terminal from "../components/terminal/Terminal.astro";
       observedSections.forEach((section) => observer.observe(section));
     }
 
+    function renderWorkspace(sectionKey) {
+      if (!workspace || !workspaceList || !workspaceDetail) return;
+      const data = workspaceData[sectionKey];
+      if (!data) return;
+
+      workspaceList.innerHTML = "";
+      data.items.forEach((item, index) => {
+        const button = document.createElement("button");
+        button.className = "workspace-list-item";
+        button.dataset.workspaceItem = item.id;
+        button.innerHTML = `
+          <span class="workspace-item-title">${item.title}</span>
+          <span class="workspace-item-sub">${item.subtitle ?? ""}</span>
+        `;
+        if (index === 0) button.classList.add("is-active");
+        button.addEventListener("click", () => renderWorkspaceDetail(sectionKey, item.id));
+        workspaceList.appendChild(button);
+      });
+
+      renderWorkspaceDetail(sectionKey, data.items[0]?.id);
+    }
+
+    function renderWorkspaceDetail(sectionKey, itemId) {
+      const data = workspaceData[sectionKey];
+      if (!data || !workspaceDetail) return;
+      const item = data.items.find((i) => i.id === itemId);
+      if (!item) return;
+
+      const buttons = workspaceList?.querySelectorAll("[data-workspace-item]") ?? [];
+      buttons.forEach((btn) => {
+        btn.classList.toggle("is-active", btn.dataset.workspaceItem === itemId);
+      });
+
+      workspaceDetail.innerHTML = `
+        <div class="workspace-detail-meta">
+          <p class="workspace-detail-date">Selection: ${item.subtitle ?? "Detail"}</p>
+        </div>
+        <h3 class="workspace-detail-title">${item.title}</h3>
+        <p class="workspace-detail-body">${item.body}</p>
+      `;
+    }
+
+    function initWorkspace() {
+      if (!workspace || !workspaceNav) return;
+      const navButtons = workspaceNav.querySelectorAll("[data-workspace-section]");
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          navButtons.forEach((b) => b.classList.remove("is-active"));
+          button.classList.add("is-active");
+          renderWorkspace(button.dataset.workspaceSection);
+        });
+      });
+
+      const defaultSection = navButtons[0]?.dataset.workspaceSection ?? "home";
+      const defaultButton = Array.from(navButtons).find((btn) => btn.dataset.workspaceSection === defaultSection);
+      defaultButton?.classList.add("is-active");
+      renderWorkspace(defaultSection);
+    }
+
     function startIntro() {
       document.body.classList.add("intro-active");
       runTypewriter();
       observeSections();
+      initWorkspace();
     }
 
     if (document.readyState === "loading") {
