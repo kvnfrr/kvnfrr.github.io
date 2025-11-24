@@ -229,6 +229,11 @@ import Terminal from "../components/terminal/Terminal.astro";
       const item = data.items.find((i) => i.id === itemId);
       if (!item) return;
 
+      workspaceDetail.classList.remove("is-changing");
+      // Trigger reflow to restart animation
+      void workspaceDetail.offsetWidth;
+      workspaceDetail.classList.add("is-changing");
+
       const buttons = workspaceList?.querySelectorAll("[data-workspace-item]") ?? [];
       buttons.forEach((btn) => {
         btn.classList.toggle("is-active", btn.dataset.workspaceItem === itemId);
@@ -258,6 +263,7 @@ import Terminal from "../components/terminal/Terminal.astro";
       const defaultButton = Array.from(navButtons).find((btn) => btn.dataset.workspaceSection === defaultSection);
       defaultButton?.classList.add("is-active");
       renderWorkspace(defaultSection);
+      workspace.classList.add("is-ready");
     }
 
     function startIntro() {
