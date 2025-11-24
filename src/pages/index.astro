@@ -14,6 +14,52 @@ import Terminal from "../components/terminal/Terminal.astro";
 >
   <div class="content-shell">
     <Hero />
+    <section class="links-bar" aria-label="Quick links">
+      <div class="links-bar__inner links-bar__inner--five">
+        <div class="link-card link-card--flip" tabindex="0">
+          <div class="link-card__flip-inner">
+            <div class="link-card__face link-card__face--front">
+              <span class="link-card__title">Email</span>
+              <span class="link-card__icon">✉</span>
+            </div>
+            <div class="link-card__face link-card__face--back">
+              <span class="link-card__title">Email</span>
+              <span class="link-card__icon small">kevinferrercs@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        <a class="link-card" href="#" aria-label="LinkedIn profile">
+          <span class="link-card__title">LinkedIn</span>
+          <span class="link-card__icon">in</span>
+        </a>
+        <a class="link-card" href="#" aria-label="Handshake profile">
+          <span class="link-card__title">Handshake</span>
+          <span class="link-card__icon">
+            <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+              <rect x="10" y="10" width="14" height="44" rx="4" fill="currentColor" />
+              <rect x="40" y="10" width="14" height="44" rx="4" fill="currentColor" />
+              <rect x="22" y="26" width="20" height="12" rx="3" fill="currentColor" />
+            </svg>
+          </span>
+        </a>
+        <a class="link-card" href="#" aria-label="GitHub profile">
+          <span class="link-card__title">GitHub</span>
+          <span class="link-card__icon">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 .5C5.37.5 0 5.87 0 12.52c0 5.3 3.44 9.8 8.2 11.4.6.12.82-.27.82-.6 0-.3-.01-1.1-.02-2.15-3.34.73-4.04-1.64-4.04-1.64-.55-1.42-1.34-1.8-1.34-1.8-1.1-.77.08-.75.08-.75 1.22.09 1.86 1.27 1.86 1.27 1.08 1.86 2.83 1.32 3.52 1.01.11-.8.42-1.32.76-1.62-2.66-.3-5.46-1.35-5.46-6.01 0-1.33.47-2.42 1.25-3.27-.12-.3-.54-1.5.12-3.1 0 0 1-.33 3.3 1.25a11.3 11.3 0 0 1 6 0c2.3-1.58 3.3-1.25 3.3-1.25.66 1.6.24 2.8.12 3.1.78.85 1.25 1.94 1.25 3.27 0 4.68-2.8 5.7-5.48 6 .43.38.81 1.14.81 2.3 0 1.66-.02 3-.02 3.4 0 .33.21.72.82.6 4.76-1.6 8.2-6.1 8.2-11.4C24 5.86 18.63.5 12 .5Z"
+              />
+            </svg>
+          </span>
+        </a>
+        <a class="link-card link-card--accent" href="/resume.pdf" target="_blank" rel="noopener">
+          <span class="link-card__title">Resume</span>
+          <span class="link-card__icon">⇪</span>
+        </a>
+      </div>
+    </section>
+
     <div class="post-hero">
       <div class="workspace" data-workspace>
         <div class="workspace-nav" data-workspace-nav>
