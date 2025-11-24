@@ -37,11 +37,15 @@ const { class: passedClass = "", ...rest } = Astro.props;
       <div class="dock-left">
         <span class="dock-label">Quick jump</span>
         <div class="dock-nav">
-          <button type="button" data-nav="hero" aria-label="Go to hero section">Hero</button>
-          <a href="/resume.pdf" class="dock-link" aria-label="Open resume">Resume</a>
-          <a href="mailto:kevinferrercs@gmail.com" class="dock-link" aria-label="Email Kevin">
-            Contact
-          </a>
+          <button type="button" data-nav="hero" aria-label="Go to hero section">Home</button>
+          <button type="button" data-nav="about" aria-label="Go to about section">About</button>
+          <button type="button" data-nav="experience" aria-label="Go to experience section">
+            Experience
+          </button>
+          <button type="button" data-nav="projects" aria-label="Go to projects section">
+            Projects
+          </button>
+          <button type="button" data-nav="contact" aria-label="Go to contact section">Contact</button>
         </div>
       </div>
       <div class="dock-right">

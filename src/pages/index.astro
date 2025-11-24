@@ -1,6 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Experience from "../components/sections/Experience.astro";
+import Projects from "../components/sections/Projects.astro";
+import Contact from "../components/sections/Contact.astro";
 import Terminal from "../components/terminal/Terminal.astro";
 ---
 
@@ -10,6 +14,10 @@ import Terminal from "../components/terminal/Terminal.astro";
 >
   <div class="content-shell">
     <Hero />
+    <About />
+    <Experience />
+    <Projects />
+    <Contact />
   </div>
   <Terminal data-deferred />
 
@@ -21,6 +29,7 @@ import Terminal from "../components/terminal/Terminal.astro";
     const typewriter = document.querySelector("[data-typewriter]");
     const deferredItems = Array.from(document.querySelectorAll("[data-deferred]"));
     const terminalShell = document.querySelector("[data-terminal-shell]");
+    const observedSections = Array.from(document.querySelectorAll("[data-observe]"));
 
     function revealDeferred() {
       deferredItems.forEach((el, index) => {
@@ -86,9 +95,27 @@ import Terminal from "../components/terminal/Terminal.astro";
       typeLine();
     }
 
+    function observeSections() {
+      if (!observedSections.length) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      observedSections.forEach((section) => observer.observe(section));
+    }
+
     function startIntro() {
       document.body.classList.add("intro-active");
       runTypewriter();
+      observeSections();
     }
 
     if (document.readyState === "loading") {
