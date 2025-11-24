@@ -565,28 +565,50 @@
 }
 
 .dock-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.5rem;
   border: 1px solid var(--border);
+  border-radius: 14px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text);
+  font-weight: 600;
 }
 
-.pulse {
-  width: 9px;
-  height: 9px;
+.switch-toggle .switch-track {
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 238, 210, 0.2);
+  border-radius: 999px;
+  padding: 2px;
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.switch-toggle .switch-thumb {
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(217, 221, 229, 0.5);
-  animation: pulse 1.6s infinite;
+  position: absolute;
+  left: 2px;
+  transition: transform 0.2s ease;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(217, 221, 229, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 11px rgba(217, 221, 229, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(217, 221, 229, 0);
-  }
+[data-terminal-state="open"] .switch-toggle .switch-thumb {
+  transform: translateX(22px);
+}
+
+[data-terminal-state="open"] .switch-toggle .switch-track {
+  background: rgba(246, 193, 119, 0.2);
+  border-color: rgba(255, 238, 210, 0.35);
+}
+
+.switch-label {
+  font-size: 0.9rem;
 }

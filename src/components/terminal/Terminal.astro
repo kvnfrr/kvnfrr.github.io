@@ -50,9 +50,11 @@ const { class: passedClass = "", ...rest } = Astro.props;
       </div>
       <div class="dock-right">
         <span class="dock-label muted">Terminal</span>
-        <button class="pill dock-toggle" type="button" data-action="toggle-terminal">
-          <span class="pulse"></span>
-          Open/Hide
+        <button class="dock-toggle switch-toggle" type="button" data-action="toggle-terminal">
+          <span class="switch-track" aria-hidden="true">
+            <span class="switch-thumb"></span>
+          </span>
+          <span class="switch-label">Open / Hide</span>
         </button>
       </div>
     </div>
