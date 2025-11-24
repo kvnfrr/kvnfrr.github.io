@@ -373,7 +373,23 @@
 .terminal-log {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(246, 193, 119, 0.45) rgba(0, 0, 0, 0.25);
+}
+
+.terminal-log::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-log::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.terminal-log::-webkit-scrollbar-thumb {
+  background: rgba(246, 193, 119, 0.45);
+  border-radius: 4px;
 }
 
 .terminal-line {
