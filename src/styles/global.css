@@ -11,10 +11,9 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
-  background: radial-gradient(circle at 20% 18%, rgba(246, 193, 119, 0.12), transparent 32%),
-    radial-gradient(circle at 80% 12%, rgba(212, 163, 115, 0.12), transparent 30%),
-    radial-gradient(circle at 70% 78%, rgba(120, 84, 60, 0.14), transparent 36%),
-    linear-gradient(145deg, #0f0b07, #1e140e 48%, #0d0a06);
+  background: linear-gradient(145deg, rgba(15, 11, 7, 0.86), rgba(12, 9, 6, 0.7)),
+    url("/images/background.webp") center / cover fixed;
+  background-blend-mode: multiply;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -60,8 +59,8 @@ html {
   content: "";
   position: fixed;
   inset: -20%;
-  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 32%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 40%);
+  background: radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0.25), transparent 40%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 45%);
   pointer-events: none;
   z-index: 0;
 }
