@@ -117,31 +117,39 @@
             title: "What I Use",
             subtitle: "Languages & tools",
             body: `
-<p><strong>The tools of the trade. What am I comfortable with?</strong></p>
+<p><strong>The tools of the trade — the stuff I actually use.</strong></p>
 
+<p>
+  For languages, Java is where I’m most comfortable, with Python and C being
+  my go-tos for scripting or low level tasks. And of course, for
+  web dev, the trio: HTML, CSS, and JavaScript.
+</p>
 
-
+<p><strong>Languages I work with:</strong></p>
 <ul>
-  <li>- Java</li>
-  <li>- Python (mostly scripting)</li>
-  <li>- C</li>
-  <li>- HTML / CSS / JavaScript</li>
+  <li>Java</li>
+  <li>Python (scripting)</li>
+  <li>C</li>
+  <li>HTML / CSS / JavaScript</li>
+</ul>
+
+<p><strong>Frameworks & tools I’ve used:</strong></p>
+<ul>
+  <li>Astro (used to make this website)</li>
+  <li>React</li>
+  <li>Node.js</li>
+  <li>Spring Boot</li>
+  <li>PostgreSQL</li>
+</ul>
+
+<p><strong>Cloud experience:</strong></p>
+<ul>
+  <li>AWS (EC2, S3, IAM, EventBridge, etc.)</li>
 </ul>
 
 <p>
-  Java is defintely where I’m most at home. I can build quickly, structure things cleanly,
-  and get into a flow state without overthinking it. Python and C are solid for me
-  as well, especially for scripting, automation, and even some lower-level problem solving.
-</p>
-
-<p>
-  Framework and tooling experience includes React, Node.js, Spring Boot,
-  PostgreSQL, and AWS (which includes EC2, S3, IAM, EventBridge, DRS, and friends).
-</p>
-
-<p>
-  Broadly speaking, I lean towards development (programming), but still appreciate where cloud infrastructure meets software.
-  Allowing me to automate workflows, wire services together, and so on.
+  Overall, I like a bit of everything. Mainly I specialize in Java development and typical workflow automation / process wiring for simplicity.
+  Always looking to learn something new, especially if you don't mind a waterfall of questions.
 </p>
 
           `,
@@ -156,15 +164,23 @@
             subtitle: "Monitoring, automation, disaster recovery",
             body: `
             <p>
-              At BankUnited I joined the Cloud & DevOps team and worked on the less glamorous,
-              but very important, parts of keeping servers healthy.
-              I designed an event-driven EC2 monitoring pipeline using EventBridge, SNS, and CloudWatch
-              so alerts weren’t tied to someone staring at a dashboard.
+              At BankUnited I joined the Cloud & DevOps team, and worked on the less glamorous, but very important, parts of keeping servers healthy. 
+              It consisted mainly of joining in on team meetings, understanding the work flow (they recently moved from a physical data center to the cloud), and collaborating with mentors.
+              Here, I had the oppertunity to design an event driven EC2 monitoring pipeline using EventBridge, SNS, and CloudWatch. 
+              Even getting to validate security tag for production software the bank uses daily in AWS.
             </p>
             <p>
-              I also helped validate disaster recovery setups for more than twenty production workloads using AWS DRS and backups.
-              A lot of the work was about asking “what happens if this fails?” and then making sure the answer wasn’t “we guess.”
+              Getting to explore the BankUnited teams that keep things running was genuinely a cool experience. 
+              Huge props to the people there, especially our mentors, who made sure we walked away with more than just technical knowledge, 
+              but with the communication and relationship building skills every college student needs.
             </p>
+
+              <img 
+              src="/images/BankUnitedGroupPhoto.webp" 
+              alt="Kevin Ferrer" 
+              class="workspace-image"
+              />
+            
           `,
           },
           {
@@ -172,15 +188,32 @@
             title: "City of Coral Gables — GIS / IT Intern",
             subtitle: "Support, scripting, and people problems",
             body: `
-            <p>
-              At the City of Coral Gables I sat closer to the end users.
-              I helped a team of three build Python scripts to transcribe phone calls,
-              which made it easier for non-native English speakers to troubleshoot issues without repeating themselves.
-            </p>
-            <p>
-              Outside of that, I handled a steady stream of hardware and software tickets
-              and documented the fixes so the next intern didn’t have to rediscover everything from scratch.
-            </p>
+<p>
+  City of Coral Gables was my first real-world experience in the workforce. 
+  During the interview, I walked in on my (soon-to-be) boss, Mark Herbert 
+  (the GIS Manager and a very smart guy) surrounded by scattered PC parts. 
+  After quick introductions, he told me my first “test” was to fix it. 
+  It felt like a skit, but I couldn’t say no.
+</p>
+
+<p>
+  With some Google magic and a blinking light clue, we figured out 
+  the CMOS battery was dead. Swapping one from another machine brought the PC 
+  back to life, and apparently that was enough to earn my spot on the team.
+</p>
+
+<p>
+  The environment there was great. Casual conversations, plenty of learning, 
+  and a surprisingly interesting challenge. Build a system to transcribe phone 
+  calls and help users troubleshoot basic issues, especially non-native English 
+  speakers who often had to repeat themselves.
+</p>
+
+<p>
+  Outside of that project, I handled the usual flow of hardware/software tickets 
+  any city i.t. would receive and documented everything so the next intern didn’t have to start from scratch.
+</p>
+
           `,
           },
           {
@@ -356,7 +389,17 @@
         });
       });
 
-      const defaultSection = navButtons[0]?.dataset.workspaceSection || "home";
+      const defaultSection =
+        navButtons[0]?.dataset.workspaceSection || "home";
+
+      const defaultButton =
+        Array.from(navButtons).find(
+          (btn) => btn.dataset.workspaceSection === defaultSection
+        ) || navButtons[0];
+
+      if (defaultButton) {
+        defaultButton.classList.add("is-active");
+      }
 
       renderWorkspace(defaultSection);
       root.classList.add("is-ready");
