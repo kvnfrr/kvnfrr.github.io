@@ -21,8 +21,9 @@ body {
 }
 
 html {
-  scrollbar-color: rgba(246, 193, 119, 0.4) rgba(0, 0, 0, 0.25);
+  scroll-behavior: smooth;
   scrollbar-width: thin;
+  scrollbar-color: #F6C177 #050304;
 }
 
 *::-webkit-scrollbar {
@@ -43,12 +44,6 @@ html {
 *::-webkit-scrollbar-thumb:hover {
   background: #f8cf8d;
 }
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #F6C177 #050304;
-}
-
 
 .app-shell {
   min-height: 100vh;
@@ -178,10 +173,6 @@ html {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
 }
 
-.links-bar__hint {
-  margin: 0.4rem 0 0;
-  font-size: 0.9rem;
-}
 
 .link-card--flip {
   perspective: 1000px;
@@ -366,6 +357,46 @@ html {
 .workspace-detail.is-changing {
   animation: detailFade 0.25s ease;
 }
+
+.workspace-detail-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.workspace-detail-title {
+  margin: 0.3rem 0 0.6rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.workspace-detail-body {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.workspace-detail-body p + p {
+  margin-top: 0.7rem;
+}
+
+.workspace-list-item .workspace-item-title {
+  font-weight: 600;
+  font-size: 0.96rem;
+}
+
+.workspace-list-item .workspace-item-sub {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.86rem;
+}
+
 
 @keyframes detailFade {
   from {

@@ -1,11 +1,8 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/sections/Hero.astro";
-import About from "../components/sections/About.astro";
-import Experience from "../components/sections/Experience.astro";
-import Projects from "../components/sections/Projects.astro";
-import Contact from "../components/sections/Contact.astro";
 import Terminal from "../components/terminal/Terminal.astro";
+import Workspace from "../components/workspace/Workspace.astro";
 ---
 
 <MainLayout
@@ -14,6 +11,7 @@ import Terminal from "../components/terminal/Terminal.astro";
 >
   <div class="content-shell">
     <Hero />
+
     <section class="links-bar" aria-label="Quick links">
       <div class="links-bar__inner links-bar__inner--five">
         <div class="link-card link-card--flip" tabindex="0">
@@ -28,32 +26,75 @@ import Terminal from "../components/terminal/Terminal.astro";
             </div>
           </div>
         </div>
-        <a class="link-card" href="#" aria-label="LinkedIn profile">
+
+        <!-- make sure these three match what you already have wired to links.ts -->
+        <a
+          class="link-card"
+          href="https://linkedin.com/in/kevinferrercs"
+          target="_blank"
+          rel="noopener"
+        >
           <span class="link-card__title">LinkedIn</span>
           <span class="link-card__icon">in</span>
         </a>
-        <a class="link-card" href="#" aria-label="Handshake profile">
+
+        <a
+          class="link-card"
+          href="https://fiu.joinhandshake.com/profiles/kvnfrr"
+          target="_blank"
+          rel="noopener"
+        >
           <span class="link-card__title">Handshake</span>
           <span class="link-card__icon">
             <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
-              <rect x="10" y="10" width="14" height="44" rx="4" fill="currentColor" />
-              <rect x="40" y="10" width="14" height="44" rx="4" fill="currentColor" />
-              <rect x="22" y="26" width="20" height="12" rx="3" fill="currentColor" />
+              <rect
+                x="10"
+                y="10"
+                width="14"
+                height="44"
+                rx="4"
+                fill="currentColor"></rect>
+              <rect
+                x="40"
+                y="10"
+                width="14"
+                height="44"
+                rx="4"
+                fill="currentColor"></rect>
+              <rect
+                x="22"
+                y="26"
+                width="20"
+                height="12"
+                rx="3"
+                fill="currentColor"></rect>
             </svg>
           </span>
         </a>
-        <a class="link-card" href="#" aria-label="GitHub profile">
+
+        <a
+          class="link-card"
+          href="https://github.com/kvnfrr"
+          target="_blank"
+          rel="noopener"
+        >
           <span class="link-card__title">GitHub</span>
           <span class="link-card__icon">
             <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
               <path
                 fill="currentColor"
                 d="M12 .5C5.37.5 0 5.87 0 12.52c0 5.3 3.44 9.8 8.2 11.4.6.12.82-.27.82-.6 0-.3-.01-1.1-.02-2.15-3.34.73-4.04-1.64-4.04-1.64-.55-1.42-1.34-1.8-1.34-1.8-1.1-.77.08-.75.08-.75 1.22.09 1.86 1.27 1.86 1.27 1.08 1.86 2.83 1.32 3.52 1.01.11-.8.42-1.32.76-1.62-2.66-.3-5.46-1.35-5.46-6.01 0-1.33.47-2.42 1.25-3.27-.12-.3-.54-1.5.12-3.1 0 0 1-.33 3.3 1.25a11.3 11.3 0 0 1 6 0c2.3-1.58 3.3-1.25 3.3-1.25.66 1.6.24 2.8.12 3.1.78.85 1.25 1.94 1.25 3.27 0 4.68-2.8 5.7-5.48 6 .43.38.81 1.14.81 2.3 0 1.66-.02 3-.02 3.4 0 .33.21.72.82.6 4.76-1.6 8.2-6.1 8.2-11.4C24 5.86 18.63.5 12 .5Z"
-              />
+              ></path>
             </svg>
           </span>
         </a>
-        <a class="link-card link-card--accent" href="/resume.pdf" target="_blank" rel="noopener">
+
+        <a
+          class="link-card link-card--accent"
+          href="/Kevin_s_Resume.pdf"
+          target="_blank"
+          rel="noopener"
+        >
           <span class="link-card__title">Resume</span>
           <span class="link-card__icon">⇪</span>
         </a>
@@ -61,110 +102,26 @@ import Terminal from "../components/terminal/Terminal.astro";
     </section>
 
     <div class="post-hero">
-      <div class="workspace" data-workspace>
-        <div class="workspace-nav" data-workspace-nav>
-          <button data-workspace-section="home">Home</button>
-          <button data-workspace-section="about">About</button>
-          <button data-workspace-section="experience">Experience</button>
-          <button data-workspace-section="projects">Projects</button>
-          <button data-workspace-section="contact">Contact</button>
-        </div>
-        <div class="workspace-list" data-workspace-list></div>
-        <div class="workspace-detail" data-workspace-detail>
-          <div class="workspace-detail-placeholder">Select something on the left to view details.</div>
-        </div>
-      </div>
+      <Workspace />
     </div>
   </div>
+
   <Terminal data-deferred />
 
   <script>
-    const TYPE_DURATION_MS = 950; // per line
+    // @ts-nocheck
+    const TYPE_DURATION_MS = 950;
     const LINE_DELAY_MS = 250;
     const DELAY_AFTER_TYPE_MS = 1000;
 
     const typewriter = document.querySelector("[data-typewriter]");
-    const deferredItems = Array.from(document.querySelectorAll("[data-deferred]"));
+    const deferredItems = Array.from(
+      document.querySelectorAll("[data-deferred]")
+    );
     const terminalShell = document.querySelector("[data-terminal-shell]");
-    const observedSections = Array.from(document.querySelectorAll("[data-observe]"));
-    const workspace = document.querySelector("[data-workspace]");
-    const workspaceNav = document.querySelector("[data-workspace-nav]");
-    const workspaceList = document.querySelector("[data-workspace-list]");
-    const workspaceDetail = document.querySelector("[data-workspace-detail]");
-
-    const workspaceData = {
-      home: {
-        items: [
-          {
-            id: "welcome",
-            title: "Welcome",
-            subtitle: "Landing copy",
-            body:
-              "Quick scan of the opening pitch and how to navigate. The hero gives the vibe; the terminal is for the curious."
-          }
-        ]
-      },
-      about: {
-        items: [
-          {
-            id: "bio",
-            title: "Who I Am",
-            subtitle: "Short bio",
-            body:
-              "Pragmatic engineer with a taste for automation and clean systems. Comfortable across cloud, DevOps, and full-stack."
-          },
-          {
-            id: "approach",
-            title: "Approach",
-            subtitle: "How I work",
-            body:
-              "Ship iteratively, automate the boring, measure impact, and keep the DX humane. Humor optional but encouraged."
-          }
-        ]
-      },
-      experience: {
-        items: [
-          {
-            id: "sre",
-            title: "SRE / DevOps",
-            subtitle: "Reliability focus",
-            body: "Built and maintained CI/CD, observability, and infra-as-code for resilient services."
-          },
-          {
-            id: "fullstack",
-            title: "Full-stack Engineer",
-            subtitle: "Product delivery",
-            body: "Delivered user-facing features end-to-end, from APIs to polished UI with performant integrations."
-          }
-        ]
-      },
-      projects: {
-        items: [
-          {
-            id: "terminal-site",
-            title: "Terminal Portfolio",
-            subtitle: "This site",
-            body: "Interactive hero, terminal controls, and a playful take on portfolio UX."
-          },
-          {
-            id: "infra-toolkit",
-            title: "Infra Toolkit",
-            subtitle: "Automation",
-            body: "Scripted deployments, repeatable environments, and guardrails for teams."
-          }
-        ]
-      },
-      contact: {
-        items: [
-          {
-            id: "reach",
-            title: "Reach Out",
-            subtitle: "Email / socials",
-            body: "Drop a line at kevinferrercs@gmail.com or ping me for collaboration."
-          }
-        ]
-      }
-    };
+    const observedSections = Array.from(
+      document.querySelectorAll("[data-observe]")
+    );
 
     function revealDeferred() {
       deferredItems.forEach((el, index) => {
@@ -172,9 +129,11 @@ import Terminal from "../components/terminal/Terminal.astro";
         setTimeout(() => el.classList.add("is-visible"), revealDelay);
       });
 
-      // Pop the terminal open shortly after the other content is visible.
       if (terminalShell) {
-        setTimeout(() => document.dispatchEvent(new CustomEvent("kvn:open-terminal")), 350);
+        setTimeout(
+          () => document.dispatchEvent(new CustomEvent("kvn:open-terminal")),
+          350
+        );
       }
 
       document.body.classList.remove("intro-active");
@@ -186,7 +145,9 @@ import Terminal from "../components/terminal/Terminal.astro";
         return;
       }
 
-      const text = typewriter.dataset.typewriterText?.trim() || typewriter.textContent?.trim();
+      const text =
+        typewriter.dataset.typewriterText?.trim() ||
+        typewriter.textContent?.trim();
       if (!text) {
         revealDeferred();
         return;
@@ -202,15 +163,20 @@ import Terminal from "../components/terminal/Terminal.astro";
 
       const typeLine = () => {
         const line = lines[currentLine] ?? "";
-        const perChar = Math.max(8, Math.floor(perLineDuration / Math.max(1, line.length)));
+        const perChar = Math.max(
+          8,
+          Math.floor(perLineDuration / Math.max(1, line.length))
+        );
         let charIndex = 0;
 
         const timer = setInterval(() => {
           const typedPortion = line.slice(0, charIndex + 1);
           const previousLines = lines.slice(0, currentLine).join("\n");
-          typewriter.textContent = previousLines
-            ? `${previousLines}\n${typedPortion}`
-            : typedPortion;
+
+          typewriter.textContent =
+            previousLines.length > 0
+              ? previousLines + "\n" + typedPortion
+              : typedPortion;
 
           charIndex += 1;
 
@@ -247,76 +213,10 @@ import Terminal from "../components/terminal/Terminal.astro";
       observedSections.forEach((section) => observer.observe(section));
     }
 
-    function renderWorkspace(sectionKey) {
-      if (!workspace || !workspaceList || !workspaceDetail) return;
-      const data = workspaceData[sectionKey];
-      if (!data) return;
-
-      workspaceList.innerHTML = "";
-      data.items.forEach((item, index) => {
-        const button = document.createElement("button");
-        button.className = "workspace-list-item";
-        button.dataset.workspaceItem = item.id;
-        button.innerHTML = `
-          <span class="workspace-item-title">${item.title}</span>
-          <span class="workspace-item-sub">${item.subtitle ?? ""}</span>
-        `;
-        if (index === 0) button.classList.add("is-active");
-        button.addEventListener("click", () => renderWorkspaceDetail(sectionKey, item.id));
-        workspaceList.appendChild(button);
-      });
-
-      renderWorkspaceDetail(sectionKey, data.items[0]?.id);
-    }
-
-    function renderWorkspaceDetail(sectionKey, itemId) {
-      const data = workspaceData[sectionKey];
-      if (!data || !workspaceDetail) return;
-      const item = data.items.find((i) => i.id === itemId);
-      if (!item) return;
-
-      workspaceDetail.classList.remove("is-changing");
-      // Trigger reflow to restart animation
-      void workspaceDetail.offsetWidth;
-      workspaceDetail.classList.add("is-changing");
-
-      const buttons = workspaceList?.querySelectorAll("[data-workspace-item]") ?? [];
-      buttons.forEach((btn) => {
-        btn.classList.toggle("is-active", btn.dataset.workspaceItem === itemId);
-      });
-
-      workspaceDetail.innerHTML = `
-        <div class="workspace-detail-meta">
-          <p class="workspace-detail-date">Selection: ${item.subtitle ?? "Detail"}</p>
-        </div>
-        <h3 class="workspace-detail-title">${item.title}</h3>
-        <p class="workspace-detail-body">${item.body}</p>
-      `;
-    }
-
-    function initWorkspace() {
-      if (!workspace || !workspaceNav) return;
-      const navButtons = workspaceNav.querySelectorAll("[data-workspace-section]");
-      navButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          navButtons.forEach((b) => b.classList.remove("is-active"));
-          button.classList.add("is-active");
-          renderWorkspace(button.dataset.workspaceSection);
-        });
-      });
-
-      const defaultSection = navButtons[0]?.dataset.workspaceSection ?? "home";
-      const defaultButton = Array.from(navButtons).find((btn) => btn.dataset.workspaceSection === defaultSection);
-      defaultButton?.classList.add("is-active");
-      renderWorkspace(defaultSection);
-      workspace.classList.add("is-ready");
-    }
-
     function startIntro() {
       document.body.classList.add("intro-active");
       runTypewriter();
       observeSections();
-      initWorkspace();
     }
 
     if (document.readyState === "loading") {

@@ -1,4 +1,5 @@
 ---
+import { links } from "../../data/links";
 ---
 
 <section id="hero" class="hero" data-observe>
@@ -12,32 +13,34 @@
   <div class="hero__layout">
     <div class="hero__text">
       <div class="hero__intro">
-        <p class="eyebrow hero__eyebrow" data-deferred>Hi, my name is Kevin and...</p>
+        <p class="eyebrow hero__eyebrow" data-deferred>
+          Hey, I'm Kevin, let me tell you why
+        </p>
         <h1
           class="hero__typewriter"
           data-typewriter
-          data-typewriter-text="Let me become the perfect cog
-in your corporate machine"
+          data-typewriter-text="I can become the perfect cog
+                                inside the mundane corporate machine"
         >
-          Let me become the perfect cog
+          I can become the perfect cog
           <br />
-          in your corporate machine
+          in the mundane corporate machine
         </h1>
       </div>
 
       <div class="hero__body" data-deferred>
         <p class="lede">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua.
+          Senior Computer Science Major @ Florida International University          
+          Entry level, pretty much junior level, might as well be senior level developer of all things ai is capable of. 
         </p>
         <div class="pill-row">
-          <span class="pill">Cloud & DevOps</span>
+          <span class="pill">Cloud &amp; DevOps</span>
           <span class="pill">Full-stack</span>
           <span class="pill">Automation</span>
         </div>
         <div class="hero__cta">
           <a class="btn primary" href="/resume.pdf">View resume</a>
-          <a class="btn ghost" href="mailto:kevinferrercs@gmail.com">Say hello</a>
+          <a class="btn ghost" href={links.email}>Say hello</a>
         </div>
       </div>
     </div>
@@ -52,7 +55,12 @@ in your corporate machine"
           </div>
           <span class="hero__window-title">/images/profile.webp</span>
         </div>
-        <img src="/images/profile.webp" alt="Portrait" class="hero__visual-image" loading="lazy" />
+        <img
+          src="/images/profile.webp"
+          alt="Portrait of Kevin Ferrer"
+          class="hero__visual-image"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>

@@ -1,0 +1,380 @@
+---
+
+---
+
+<section id="workspace" class="workspace" data-workspace-root>
+  <div class="workspace-nav" data-workspace-nav>
+    <button type="button" data-workspace-section="home">Home</button>
+    <button type="button" data-workspace-section="about">About</button>
+    <button type="button" data-workspace-section="experience">Experience</button
+    >
+    <button type="button" data-workspace-section="projects">Projects</button>
+    <button type="button" data-workspace-section="contact">Contact</button>
+  </div>
+
+  <div class="workspace-list" data-workspace-list></div>
+
+  <div class="workspace-detail" data-workspace-detail>
+    <div class="workspace-detail-placeholder">
+      Select something on the left to view details.
+    </div>
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  (function () {
+    const root = document.querySelector("[data-workspace-root]");
+    if (!root) return;
+
+    const nav = root.querySelector("[data-workspace-nav]");
+    const list = root.querySelector("[data-workspace-list]");
+    const detail = root.querySelector("[data-workspace-detail]");
+    if (!nav || !list || !detail) return;
+
+    const navButtons = nav.querySelectorAll("[data-workspace-section]");
+
+    const workspaceData = {
+      home: {
+        items: [
+          {
+            id: "welcome",
+            title: "Welcome",
+            subtitle: "How this panel works",
+            body: `
+            <p>
+                Think of this as quick-access notes for getting to know what I'm about.
+            </p>
+            <p>
+                These sections read more like a monologue than the striaght action verbs you'd
+                find on my resume. It’s mainly a way to talk through things conversationally
+                with a moderate amount of sarcasm.
+            </p>
+            <p>
+                Do feel free to send out an email or LinkedIn message on your opinions of this portfolio. 
+                Who wouldn't want advice from the one their trying to impress?
+            </p>
+          `,
+          },
+        ],
+      },
+      about: {
+        items: [
+          {
+            id: "bio",
+            title: "Who Am I?",
+            subtitle: "Short bio",
+            body: `
+<p>
+  My name is Kevin Ferrer, a Computer Science student at Florida International
+  University, graduating around Fall 2026. I got into coding pretty early
+  because I genuinely could not get away from the computer. Whether it was taking apart
+  my old laptops or tinkering with game files (totally not for cheating), it was all too interesting. Naturally, I ended up pursuing computer science. Going from
+  typing <code>sv_cheats 1</code> into a console to building full apps over a weekend.
+</p>
+
+<p>
+  Of course, programming can only do so much on its own, so I branched out
+  and found ways to connect my extremely "junior–almost-senior–definitely ancient
+  10,000+ year entry-level" coding skills to the real world, mostly through AWS.
+</p>
+
+<p>
+  Point being: I like knowing whats happening. Which means seeing things work across the whole stack. From my code
+  to the user’s screen and everything in between.
+</p>
+
+          `,
+          },
+          {
+            id: "approach",
+            title: "How I Work",
+            subtitle: "Day-to-day style",
+            body: `
+<p>
+  The way I work is mostly what you’d expect: talk with the team, understand
+  the problem, loop in the lead, make things happen, repeat. 
+  But one thing stands out, and I put a lot of emphasis on documentation.
+</p>
+
+<p>
+  You’d be surprised how many college projects I’ve had where the codebase
+  had zero context clues, no comments, no docs. Holy awesome, right?
+  Nothing like spending an afternoon looking through a repo.
+</p>
+
+<p>
+  For real though, everything I do is written down. What it does, how to
+  use it, how to adjust it, what it depends on. This habit has saved me more
+  times than I’d like to admit, and honestly, I’m proud of it.
+  Confluence might actually be a miracle.
+</p>
+
+          `,
+          },
+          {
+            id: "skills",
+            title: "What I Use",
+            subtitle: "Languages & tools",
+            body: `
+<p><strong>The tools of the trade. What am I comfortable with?</strong></p>
+
+
+
+<ul>
+  <li>- Java</li>
+  <li>- Python (mostly scripting)</li>
+  <li>- C</li>
+  <li>- HTML / CSS / JavaScript</li>
+</ul>
+
+<p>
+  Java is defintely where I’m most at home. I can build quickly, structure things cleanly,
+  and get into a flow state without overthinking it. Python and C are solid for me
+  as well, especially for scripting, automation, and even some lower-level problem solving.
+</p>
+
+<p>
+  Framework and tooling experience includes React, Node.js, Spring Boot,
+  PostgreSQL, and AWS (which includes EC2, S3, IAM, EventBridge, DRS, and friends).
+</p>
+
+<p>
+  Broadly speaking, I lean towards development (programming), but still appreciate where cloud infrastructure meets software.
+  Allowing me to automate workflows, wire services together, and so on.
+</p>
+
+          `,
+          },
+        ],
+      },
+      experience: {
+        items: [
+          {
+            id: "bankunited",
+            title: "BankUnited — Cloud & DevOps Intern",
+            subtitle: "Monitoring, automation, disaster recovery",
+            body: `
+            <p>
+              At BankUnited I joined the Cloud & DevOps team and worked on the less glamorous,
+              but very important, parts of keeping servers healthy.
+              I designed an event-driven EC2 monitoring pipeline using EventBridge, SNS, and CloudWatch
+              so alerts weren’t tied to someone staring at a dashboard.
+            </p>
+            <p>
+              I also helped validate disaster recovery setups for more than twenty production workloads using AWS DRS and backups.
+              A lot of the work was about asking “what happens if this fails?” and then making sure the answer wasn’t “we guess.”
+            </p>
+          `,
+          },
+          {
+            id: "coralgables",
+            title: "City of Coral Gables — GIS / IT Intern",
+            subtitle: "Support, scripting, and people problems",
+            body: `
+            <p>
+              At the City of Coral Gables I sat closer to the end users.
+              I helped a team of three build Python scripts to transcribe phone calls,
+              which made it easier for non-native English speakers to troubleshoot issues without repeating themselves.
+            </p>
+            <p>
+              Outside of that, I handled a steady stream of hardware and software tickets
+              and documented the fixes so the next intern didn’t have to rediscover everything from scratch.
+            </p>
+          `,
+          },
+          {
+            id: "community",
+            title: "Clubs & Hackathons",
+            subtitle: "Learning in groups",
+            body: `
+            <p>
+              I’ve been a regular at ShellHacks (2012–2025), usually leading small teams on cloud or full-stack projects.
+              It’s a good excuse to try tools quickly and get something working in a weekend.
+            </p>
+            <p>
+              On campus I’m involved with Women in Computer Science and INIT, where I share what I know,
+              learn from others, and help people get unstuck on projects and fundamentals.
+            </p>
+          `,
+          },
+        ],
+      },
+      projects: {
+        items: [
+          {
+            id: "facecert",
+            title: "FaceCert AI",
+            subtitle: "Facial recognition login",
+            body: `
+            <p>
+              FaceCert AI is a facial-recognition login system I built with FaceAPI.js and a Spring Boot backend.
+              Instead of passwords, users authenticate with their face, and the backend handles token logic and validation.
+            </p>
+            <p>
+              The fun part here was treating it like a real service: modularizing the backend,
+              writing down the APIs clearly, and making sure it could be extended instead of being a one-off demo.
+            </p>
+          `,
+          },
+          {
+            id: "recipes",
+            title: "Worldwide Recipe Finder",
+            subtitle: "Full-stack + AI + 3D",
+            body: `
+            <p>
+              This project started as “find recipes from different countries” and quickly turned into
+              “let’s make this a full-on experience.”
+              I led the Node.js/Express backend, wiring up endpoints for search, filtering, and detailed views.
+            </p>
+            <p>
+              We used the ChatGPT API to enrich recipe data for 50+ countries and added 3D recipe visuals with Three.js.
+              I spent a lot of time making sure the API calls were resilient and didn’t fall apart on slower networks.
+            </p>
+          `,
+          },
+          {
+            id: "portfolio",
+            title: "This Portfolio",
+            subtitle: "Astro + terminal-inspired UI",
+            body: `
+            <p>
+              What you’re looking at right now is also a project.
+              I wanted a portfolio that felt a little playful for engineers (terminal, commands, workspace),
+              but still made it easy for recruiters to skim the important parts.
+            </p>
+            <p>
+              Under the hood it’s built with Astro, some custom CSS, and a mix of small scripts to power the typewriter,
+              terminal commands, and this notes-style workspace.
+            </p>
+          `,
+          },
+        ],
+      },
+      contact: {
+        items: [
+          {
+            id: "reach",
+            title: "How to Reach Me",
+            subtitle: "Best channels",
+            body: `
+            <p>
+              Email is the safest bet:
+              <a href="mailto:kevinferrercs@gmail.com">kevinferrercs@gmail.com</a>.
+              I’m especially interested in internships or early-career roles where I can work on cloud, DevOps,
+              or full-stack problems with a real impact.
+            </p>
+            <p>
+              If you prefer profiles:
+              LinkedIn at <a href="https://linkedin.com/in/kevinferrercs" target="_blank">linkedin.com/in/kevinferrercs</a>,
+              GitHub at <a href="https://github.com/kvnfrr" target="_blank">github.com/kvnfrr</a>,
+              and Handshake under <strong>kvnfrr</strong>.
+            </p>
+          `,
+          },
+          {
+            id: "what-im-looking-for",
+            title: "What I’m Looking For",
+            subtitle: "The kind of work that fits",
+            body: `
+            <p>
+              I like roles where I’m close to both the system and the people using it:
+              helping teams ship more safely, automating noisy workflows, and building interfaces
+              that make complex things feel simple.
+            </p>
+            <p>
+              If your team is doing something along those lines, I’d be happy to chat.
+            </p>
+          `,
+          },
+        ],
+      },
+    };
+
+    function renderWorkspaceDetail(sectionKey, itemId) {
+      const data = workspaceData[sectionKey];
+      if (!data) return;
+
+      const item = data.items.find((i) => i.id === itemId);
+      if (!item) return;
+
+      detail.classList.remove("is-changing");
+      void detail.offsetWidth;
+      detail.classList.add("is-changing");
+
+      const buttons = list.querySelectorAll("[data-workspace-item]");
+      buttons.forEach((btn) => {
+        btn.classList.toggle("is-active", btn.dataset.workspaceItem === itemId);
+      });
+
+      detail.innerHTML = `
+      <div class="workspace-detail-meta">
+        <p class="workspace-detail-date">Selection: ${item.subtitle ?? "Detail"}</p>
+      </div>
+      <h3 class="workspace-detail-title">${item.title}</h3>
+      <div class="workspace-detail-body">
+        ${item.body}
+      </div>
+    `;
+    }
+
+    function renderWorkspace(sectionKey) {
+      const data = workspaceData[sectionKey];
+      if (!data) return;
+
+      list.innerHTML = "";
+
+      data.items.forEach((item, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "workspace-list-item";
+        button.dataset.workspaceItem = item.id;
+        button.innerHTML = `
+        <span class="workspace-item-title">${item.title}</span>
+        <span class="workspace-item-sub">${item.subtitle ?? ""}</span>
+      `;
+        if (index === 0) button.classList.add("is-active");
+        button.addEventListener("click", () =>
+          renderWorkspaceDetail(sectionKey, item.id)
+        );
+        list.appendChild(button);
+      });
+
+      if (data.items[0]) {
+        renderWorkspaceDetail(sectionKey, data.items[0].id);
+      }
+    }
+
+    function initWorkspace() {
+      if (!navButtons.length) return;
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          navButtons.forEach((b) => b.classList.remove("is-active"));
+          button.classList.add("is-active");
+          renderWorkspace(button.dataset.workspaceSection || "home");
+        });
+      });
+
+      const defaultSection = navButtons[0]?.dataset.workspaceSection || "home";
+
+      renderWorkspace(defaultSection);
+      root.classList.add("is-ready");
+    }
+
+    document.addEventListener("kvn:open-workspace-section", (event) => {
+      const section = event.detail && event.detail.section;
+      if (!section) return;
+
+      navButtons.forEach((button) => {
+        if (button.dataset.workspaceSection === section) {
+          button.click();
+        }
+      });
+
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    initWorkspace();
+  })();
+</script>
